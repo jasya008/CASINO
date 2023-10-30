@@ -1,0 +1,31 @@
+.all_payCards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    .card {
+        width: 40px;
+        height: 25px;
+
+        border-radius: 5.621px;
+
+        background: rgba(88, 75, 137, 0.69);
+
+        padding: 3px 2px;
+
+        .img{
+            width: 33px;
+        }
+
+
+    }
+
+    .number{
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 15px;
+
+        color: var(--white);
+    }
+}

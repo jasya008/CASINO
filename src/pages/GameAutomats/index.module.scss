@@ -1,0 +1,72 @@
+.GamesAutomats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 70px;
+
+
+    .img {
+        width: 430px;
+        height: 470px;
+
+        object-fit: contain;
+    }
+
+    .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        width: 450px;
+
+
+        .title {
+            font-family: var(--font);
+            font-size: 40px;
+            font-weight: 500;
+
+            color: var(--white);
+
+            span {
+                color: #FFC107;
+            }
+        }
+
+
+        .text {
+            font-family: var(--font);
+            font-size: 15px;
+            font-weight: 400;
+
+            color: var(--white);
+        }
+
+
+    }
+}
+
+.lineText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    
+    padding: 50px 0 50px 0;
+
+    .line{
+        width: 420px;
+        height: 2px;
+        background-color: var(--color);
+    }
+
+    .text{
+        font-family: var(--font);
+        font-size: 25px;
+        font-weight: 400;
+
+        color: var(--white);
+    }
+
+}

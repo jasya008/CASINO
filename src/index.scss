@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font: 'Montserrat', sans-serif;
+  --color: #584B89;
+  --white: #fff;
+}
+
+body {
+  background-color: #494966;
+  height: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://s3-alpha-sig.figma.com/img/5c6a/943a/e0108963271557a37a93fa98d282ff5f?Expires=1698624000&Signature=QI21JJKzOSESfdkluI5oiFkezeMdlSYtBs~KNrk8KBvDlDiaPhj4Vl0XKU4wXbczZoF-ZXzpfYOXLR-xqHlYfB6TZ-WgQm4XVCcfvd6lfjJBu2BJqhR9KS-8sW266ntbEQvw~~XWeZZ~BGN~LqGQZ06EOj2423EnzCGCuPTi6sr583xo9EpHo7IsA86PFqEyhigiVv0baFfYAMCutG-uhnmza16JgWFI-bFmFSnJnNg-BCKgjA~IGKiu1QiuaKaWdveM0hPIsJTHjbg7JLqaO1KAdFCS3Lz0sAQa7iLJlPeURkS1NooO0a-Hl6dCBwUfSryKvMBXPFGh0028-7H0nA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+header {
+  width: 100%;
+  height: 90px;
+
+  background: rgba(17, 19, 33, 0.60);
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 20px;
+  }
+
+  .navbar_button {
+    background: none;
+
+    border: none;
+
+    font-family: var(--font);
+    font-size: 15px;
+
+    color: var(--white);
+
+    padding-left: 40px;
+
+    cursor: pointer;
+  }
+
+  .logo {
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 500;
+
+    color: var(--white);
+  }
+
+
+  .inputIcon {
+    position: relative;
+
+    width: 420px;
+    height: 40px;
+
+  }
+
+  .searchbar {
+    width: 100%;
+    height: 100%;
+
+    background-color: #494966;
+
+    border-radius: 60px;
+    border: none;
+
+    color: var(--white);
+
+    padding-left: 20px;
+
+  }
+
+  .searchbar:focus {
+    outline: none;
+  }
+
+  .searchbar::placeholder {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+
+    color: #868686;
+
+    padding-left: 20px;
+  }
+
+  a {
+    font-family: var(--font);
+    font-size: 16px;
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    padding-left: 60px;
+  }
+
+  .icon {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+
+    width: 26px;
+    height: 27px;
+
+    cursor: pointer;
+
+  }
+}
+
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  padding-top: 50px;
+}
+
+.title {
+  font-family: var(--font);
+  font-size: 30px;
+  font-weight: 400;
+
+  color: var(--white);
+
+  text-align: center;
+
+  padding: 20px 0 25px 0;
+}
+
+.cardsAutomats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

@@ -18,13 +18,17 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(https://s3-alpha-sig.figma.com/img/5c6a/943a/e0108963271557a37a93fa98d282ff5f?Expires=1698624000&Signature=QI21JJKzOSESfdkluI5oiFkezeMdlSYtBs~KNrk8KBvDlDiaPhj4Vl0XKU4wXbczZoF-ZXzpfYOXLR-xqHlYfB6TZ-WgQm4XVCcfvd6lfjJBu2BJqhR9KS-8sW266ntbEQvw~~XWeZZ~BGN~LqGQZ06EOj2423EnzCGCuPTi6sr583xo9EpHo7IsA86PFqEyhigiVv0baFfYAMCutG-uhnmza16JgWFI-bFmFSnJnNg-BCKgjA~IGKiu1QiuaKaWdveM0hPIsJTHjbg7JLqaO1KAdFCS3Lz0sAQa7iLJlPeURkS1NooO0a-Hl6dCBwUfSryKvMBXPFGh0028-7H0nA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  background-image: url(./assets/background_casino.png);
 }
 
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.css-1aquho2-MuiTabs-indicator{
+  background-color: #584B89 !important;
 }
 
 

@@ -6,12 +6,14 @@ import { GetContext } from '../context/Context'
 
 export const InfoAutomats = ({ data }) => {
     const { setModalOpen } = GetContext()
+    const { setModalReview } = GetContext()
+
     return (
-        <div className={s.cardAutomat} onClick={() => setModalOpen(true)}>
+        <div className={s.cardAutomat} >
             <img className={s.img} src={data.img} alt="" />
             <div className={s.all_texts}>
-                <p className={s.text}> <img src={warning} alt="" />Информация</p>
-                <p className={s.text}> <img src={person} alt="" /> Отзывы</p>
+                <p onClick={() => setModalOpen(true)} className={s.text}> <img src={warning} alt="" />Информация</p>
+                <p onClick={() => setModalReview(true)} className={s.text}> <img src={person} alt="" /> Отзывы</p>
             </div>
         </div>
     )

@@ -5,6 +5,7 @@ import { Container } from '@mui/material'
 import { AutomatsData } from '../../components/automatsData'
 import { ButtonsAutomat } from '../../components/buttonsAutomat'
 import { TopAutomatGames } from '../../components/TopAutomatGames'
+import { ReviewsData } from '../../components/modalReviewsData'
 
 export const GamesAutomats = () => {
   return (
@@ -29,6 +30,8 @@ export const GamesAutomats = () => {
       <ButtonsAutomat />
 
       <AutomatsData />
+
+      <ReviewsData />
 
     </Container>
 

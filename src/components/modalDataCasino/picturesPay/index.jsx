@@ -6,16 +6,18 @@ import s from './index.module.scss'
 
 
 export const PicturesPay = () => {
+
+
   return (
     <div className={s.all_payCards}>
       <div className={s.card}>
         <img className={s.img} src={firstPicture} alt="" />
       </div>
       <div className={s.card}>
-        <img  className={s.img}src={secondPicture} alt="" />
+        <img className={s.img} src={secondPicture} alt="" />
       </div>
       <div className={s.card}>
-        <img  className={s.img}src={thirdPicture} alt="" />
+        <img className={s.img} src={thirdPicture} alt="" />
       </div>
 
       <p className={s.number}>+ 12</p>

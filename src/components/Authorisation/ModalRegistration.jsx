@@ -8,10 +8,14 @@ export const ModalRegistration = () => {
   const { modalLoginOpen } = GetContext()
 
   return (
-    <div className={s.all_body}>
-    <div className={modalLoginOpen ? [s.loginModalnone, s.loginModal].join(' ') : s.loginModalnone}>
+    <div className= {modalLoginOpen ? [s.loginModalnone, s.loginModal].join(' ') : s.loginModalnone}>
+    <div className="body">
+    <div className={s.modal}>
       <BasicTabs />
     </div>
     </div>
+    </div>
+
   )
 }
+//

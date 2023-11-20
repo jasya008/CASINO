@@ -1,18 +1,21 @@
 import React from 'react'
 import s from './index.module.scss'
 import { Container } from '@mui/material'
+import { useTranslation } from 'react-i18next'
 
 export const ButtonsAutomat = () => {
+    const { t } = useTranslation()
+
     return (
         <Container fixed>
             <div className={s.buttons}>
-                <button className={s.button}>Все</button>
-                <button className={s.button}>Лучшие</button>
-                <button className={s.button}>Новые</button>
-                <button className={s.button}>Криптовалюты</button>
-                <button className={s.button}>Валюты</button>
-                <button className={s.button}>Вулканы</button>
-                <button className={s.button}>Страны</button>
+                <button className={s.button}>{t("All_button")}</button>
+                <button className={s.button}>{t("bests_button")}</button>
+                <button className={s.button}>{t("new_button")}</button>
+                <button className={s.button}>{t("Cryptocurrencies_button")}</button>
+                <button className={s.button}>{t("Currencies_button")}</button>
+                <button className={s.button}>{t("Volcanoes_button")}</button>
+                <button className={s.button}>{t("Countries_button")}</button>
             </div>
         </Container>
 

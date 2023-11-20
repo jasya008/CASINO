@@ -7,9 +7,12 @@ import Box from '@mui/material/Box';
 import s from './index.module.scss'
 import { LoginContent } from '../content_authorisation/LoginContent';
 import { RegistrationContent } from '../content_authorisation/RegistrationContent';
+import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
+  const { t } = useTranslation()
 
   return (
     <div
@@ -49,11 +52,11 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: '70%', display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <Box sx={{ width: 'fit-content', display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Box >
         <Tabs value={value} onChange={handleChange} >
-          <Tab className={s.tab} label="Вход" {...a11yProps(0)} />
-          <Tab className={s.tab} label="Регистрация" {...a11yProps(1)} />
+          <Tab className={s.tab} label={t("Login")} {...a11yProps(0)} />
+          <Tab className={s.tab} label={t("registration")} {...a11yProps(1)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>

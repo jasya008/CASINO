@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom"
 import { Layouts } from "./components/layout"
-
 import { routes } from "./routes"
 import { Home } from "./pages/Home"
-
 import { ModalRegistration } from "./components/Authorisation/ModalRegistration"
+import { InitialModal } from "./components/initialModal"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     routes.map(({ id, path, element }) => (
       <Route path={path} element={element} key={id} />
     ))
-      
+
   return (
     <div className="App">
       <Routes>
@@ -22,7 +23,9 @@ function App() {
           {setRoutes()}
         </Route>
       </Routes>
+      <InitialModal />
       <ModalRegistration />
+      <ToastContainer  />
     </div>
   )
 }

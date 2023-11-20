@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { InfoAutomats } from '../infoAutomats'
 import axios from 'axios'
-import { ModalAutomat } from '../modalAutomats'
+import { ModalGames } from '../modalGames'
+import { InfoAutomats } from '../infoAutomats'
 
 export const AutomatsData = () => {
 
     const [data, setData] = useState([])
 
-    const AutomatsApi_URL = "http://localhost:4080/automats"
+    const AutomatsApi_URL = "http://localhost:4080/games"
 
     const getDataAutomats = async () => {
         try {
@@ -28,7 +28,7 @@ export const AutomatsData = () => {
                 <InfoAutomats key={automats.id} data={automats} />
             ))}
 
-            <ModalAutomat/>
+            <ModalGames/>
         </div>
     )
 }

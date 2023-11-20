@@ -1,16 +1,19 @@
 import React from 'react'
-import { Games } from '../../components/gamesData'
-import { Container } from '@mui/material'
+import { CasinoData } from '../../components/casinoData'
 import { SearchButtons } from '../../components/searchButtons'
-import { ModalDataGames } from '../../components/modalDataGames'
+import { ModalDataCasino } from '../../components/modalDataCasino'
+import { useTranslation } from 'react-i18next'
+
 
 export const Home = () => {
+  const { t } = useTranslation()
+
   return (
     <>
-      <h3 className="title">Лицензионные онлайн казино в России</h3>
-      <SearchButtons/>
-      <Games />
-      <ModalDataGames/>
+      <h3 className="title">{t("title")}</h3>
+      <SearchButtons />
+      <CasinoData />
+      <ModalDataCasino />
     </>
 
   )

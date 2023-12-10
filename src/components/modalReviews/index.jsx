@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './index.module.scss'
-import iconUser from '../../assets/iconUser.svg'
+// import iconUser from '../../assets/iconUser.svg'
 import star from '../../assets/star.svg'
 import { useTranslation } from 'react-i18next'
 
@@ -12,7 +12,7 @@ export const ModalReview = ({ reviews }) => {
     <div className={s.content_modal}>
       <div className={s.review}>
         <div className={s.user}>
-          <img className={s.img_user} src={iconUser} alt="" />
+          <img className={s.img_user} src={reviews.iconUser} alt="" />
           <p className={s.name_user}>{reviews.user}</p>
         </div>
 

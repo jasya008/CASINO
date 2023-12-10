@@ -174,9 +174,9 @@ header {
   font-family: var(--font);
   font-size: 15px;
   font-weight: 400;
-  
+
   color: var(--white);
-  
+
   border: none;
 
   background: none;
@@ -184,10 +184,22 @@ header {
   cursor: pointer;
 }
 
-.icon{
+.icon {
   color: var(--white);
-  
+
   cursor: pointer;
-  
+
   margin-bottom: 20px;
+}
+
+.avatarImages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  width: 260px;
+}
+
+.avatar{
+  cursor: pointer;
 }

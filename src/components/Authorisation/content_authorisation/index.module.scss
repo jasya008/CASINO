@@ -69,19 +69,6 @@
 
         }
 
-        .images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-
-            width: 250px;
-
-            .userImage {
-                width: 60px;
-
-                cursor: pointer;
-            }
-        }
 
         .btn {
             width: 230px;
@@ -181,3 +168,4 @@
         }
     }
 }
+

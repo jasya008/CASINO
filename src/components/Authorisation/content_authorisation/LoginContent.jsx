@@ -16,7 +16,7 @@ export const LoginContent = () => {
     const { user, setUser, setLoginModal } = GetContext()
     const { t } = useTranslation()
 
-    const LOGIN_URL = "http://localhost:4080/login";
+    const LOGIN_URL = "http://127.0.0.1:8000/login/";
     const loginrSchema = object({
         email: string()
             .nonempty(`${t("validationEmail")}`)

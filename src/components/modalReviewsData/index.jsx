@@ -14,23 +14,24 @@ export const ReviewsData = () => {
     const { t } = useTranslation()
 
 
-    const API_URL = "http://localhost:4080/Reviews"
+    // const API_URL = ""
 
 
-    const getData = async () => {
-        try {
-            const { data } = await axios(API_URL)
-            setReviews(data)
+    // const getData = async () => {
+    //     try {
+    //         const { data } = await axios(API_URL)
+    //         setReviews(data)
 
-        } catch (error) {
-            console.log(error.message);
-        }
+    //     } catch (error) {
+    //         console.log(error.message);
+    //     }
 
-    }
+    // }
 
-    useEffect(() => {
-        getData()
-    }, [])
+    // useEffect(() => {
+    //     getData()
+
+    // }, [])
 
 
     return (

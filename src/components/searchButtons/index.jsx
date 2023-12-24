@@ -1,21 +1,37 @@
-import React from 'react'
-import s from './index.module.scss'
-import { useTranslation } from 'react-i18next'
+import React, { useState } from 'react';
+import s from './index.module.scss';
+import { useTranslation } from 'react-i18next';
+import { GetContext } from '../context/Context';
 
 export const SearchButtons = () => {
-    const { t } = useTranslation()
-    return (
-        <div className={s.searchButtons}>
-            <button className={s.button}>{t("All_button")}</button>
-            <button className={s.button}>{t("bests_button")}</button>
-            <button className={s.button}>{t("new_button")}</button>
-            <button className={s.button}>{t("Cryptocurrencies_button")}</button>
-            <button className={s.button}>{t("Currencies_button")}</button>
-            <button className={s.button}>{t("Platforms_button")}</button>
-            <button className={s.button}>{t("Volcanoes_button")}</button>
-            <button className={s.button}>{t("Countries_button")}</button>
-            <button className={s.button}>{t("Peculiarities_button")}</button>
-            <button className={s.button}>{t("Blacklist_button")}</button>
-        </div>
-    )
-}
+  const { t } = useTranslation();
+  const { dataCasino,  setFilteredItems } = GetContext();
+  // const [filteredeItems, setFilteredItems] = useState(dataCasino);
+
+  const filterCasinoButtons = [
+    ...new Set(dataCasino.map((val) => val.sorting_criteria)),
+  ];
+
+  const CasinoFilter = (casino) => {
+    const newCasino = dataCasino.filter(
+      (newval) => newval.sorting_criteria === casino
+    );
+
+    setFilteredItems(newCasino);
+  };
+
+
+  return (
+    <div className={s.searchButtons}>
+      <button onClick={() => setFilteredItems(dataCasino)} className={s.button}>
+        All
+      </button>
+      {filterCasinoButtons.map((val) => (
+        <button onClick={() => CasinoFilter(val)} className={s.button}>
+          {val}
+        </button>
+      ))}
+    </div>
+  );
+};
+

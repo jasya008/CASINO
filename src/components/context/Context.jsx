@@ -17,6 +17,10 @@ export const Context = ({ children }) => {
   const [dataCasino, setDataCasino] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [chooseCasino, setChooseCasino] = useState([]);
+  const [chooseGame, setChooseGame] = useState([]);
+  const [search, setSearch] = useState('');
+  const [filteredeItems, setFilteredItems] = useState(dataCasino);
+  const [filteredeGames, setFilteredGames] = useState(dataGames);
 
   // USER SAVE
   const [user, setUser] = useState({
@@ -36,7 +40,7 @@ export const Context = ({ children }) => {
   };
 
   //   GET GAMES AUTOMAT
-  const AutomatsApi_URL = 'http://localhost:4080/games';
+  const AutomatsApi_URL = 'http://127.0.0.1:8000/all-game-profiles/';
 
   const getDataAutomats = async () => {
     try {
@@ -71,7 +75,15 @@ export const Context = ({ children }) => {
           dataGames,
           setDataGames,
           chooseCasino,
-          setChooseCasino
+          setChooseCasino,
+          chooseGame,
+          setChooseGame,
+          setSearch,
+          search,
+          filteredeItems,
+          setFilteredItems,
+          filteredeGames,
+          setFilteredGames,
         }}
       >
         {children}

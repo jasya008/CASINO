@@ -7,8 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { SearchBar } from '../SearchBar';
 
 export const Layouts = () => {
-  const { setLoginModal, modalLoginOpen, user, setUser, data } = GetContext();
-  const [search, setSearch] = useState('');
+  const { setLoginModal, modalLoginOpen, user, setUser } = GetContext();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
@@ -34,7 +33,7 @@ export const Layouts = () => {
                 <h3 className='logo'>CASINO</h3>
               </Link>
 
-              <SearchBar search={search} setSearch={setSearch} data={data} />
+              <SearchBar />
 
               <div className='links'>
                 <button
@@ -52,13 +51,13 @@ export const Layouts = () => {
 
                 <NavLink to='/GameAutomats'>{t('page_name')}</NavLink>
 
-                {user.email.length ? (
+                {user.email ? (
                   <button className='navbar_button' onClick={handleLogout}>
                     Exit
                   </button>
-                  ) : null}
+                ) : null}
 
-                {!user.email.length && (
+                {!user.email && (
                   <button
                     className='navbar_button'
                     onClick={() => setLoginModal(!modalLoginOpen)}

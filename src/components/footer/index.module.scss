@@ -1,33 +1,33 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-	margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    padding: 140px 0 30px 0;
+  margin-top: auto;
 
-    .logo {
-        font-family: var(--font);
-        font-size: 25px;
-        font-weight: 500;
+  padding: 30px;
 
-        color: var(--white);
-    }
+  .logo {
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 500;
 
-    .text {
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 500;
+    color: var(--white);
+  }
 
-        color: var(--white);
-    }
+  .text {
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
 
-    .icon {
-        color: var(--white);
-        width: 30px;
-        height: 30px;
+    color: var(--white);
+  }
 
-        margin-left: 10px;
-    }
+  .icon {
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+
+    margin-left: 10px;
+  }
 }

@@ -1,18 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 * {
   padding: 0;
   margin: 0;
+
   box-sizing: border-box;
 }
 
 :root {
   --font: 'Montserrat', sans-serif;
-  --color: #584B89;
+  --color: #584b89;
   --white: #fff;
 }
 
-body {
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   background-color: #494966;
   height: auto;
   background-size: cover;
@@ -21,22 +26,17 @@ body {
   background-image: url(./assets/background_casino.png);
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 .css-1aquho2-MuiTabs-indicator {
-  background-color: #584B89 !important;
+  background-color: #584b89 !important;
 }
-
 
 header {
+
   width: 100%;
   height: 90px;
 
-  background: rgba(17, 19, 33, 0.60);
+  background: rgba(17, 19, 33, 0.6);
+
 
   .navbar {
     display: flex;
@@ -69,13 +69,11 @@ header {
     color: var(--white);
   }
 
-
   .inputIcon {
     position: relative;
 
     width: 420px;
     height: 40px;
-
   }
 
   .searchbar {
@@ -90,7 +88,6 @@ header {
     color: var(--white);
 
     padding-left: 20px;
-
   }
 
   .searchbar:focus {
@@ -127,10 +124,8 @@ header {
     height: 27px;
 
     cursor: pointer;
-
   }
 }
-
 
 .cards {
   display: flex;
@@ -159,7 +154,6 @@ header {
   flex-wrap: wrap;
   gap: 30px;
 }
-
 
 .body {
   position: fixed;
@@ -200,6 +194,14 @@ header {
   width: 260px;
 }
 
-.avatar{
+.avatar {
   cursor: pointer;
+}
+
+
+.popup{
+  position: fixed;
+  top: 40px;
+
+  transition: 0.4s all linear;  
 }

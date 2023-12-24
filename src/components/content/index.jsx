@@ -4,12 +4,16 @@ import { GetContext } from '../context/Context';
 // import { ModalCasino } from '../modalCasino';
 
 export const Content = () => {
-  const { dataCasino } = GetContext();
+  const { filteredeItems, search } = GetContext();
   return (
     <>
-      {dataCasino.map((game) => (
-        <InfoCasino key={game.id} data={game} />
-      ))}
+      {filteredeItems
+        .filter((data) =>
+          data.casino_name.toLowerCase().includes(search.toLowerCase())
+        )
+        .map((game) => (
+          <InfoCasino key={game.id} data={game} />
+        ))}
 
       {/* {dataCasino && <ModalCasino />} */}
     </>

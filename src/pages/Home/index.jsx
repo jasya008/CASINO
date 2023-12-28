@@ -1,8 +1,8 @@
 import React from 'react';
 import { CasinoData } from '../../components/casinoData';
-import { SearchButtons } from '../../components/searchButtons';
 import { ModalDataCasino } from '../../components/modalDataCasino';
 import { useTranslation } from 'react-i18next';
+import { FilterButtons } from '../../components/FilterButtons';
 
 
 export const Home = () => {
@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <>
       <h3 className='title'>{t('title')}</h3>
-      <SearchButtons />
+      <FilterButtons />
       <CasinoData />
       <ModalDataCasino />
     </>

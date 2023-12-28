@@ -205,3 +205,25 @@ header {
 
   transition: 0.4s all linear;  
 }
+
+
+.button {
+  padding: 12px 24px 12px 24px ;
+
+  background: none;
+
+  color: var(--white);
+
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 400;
+
+  border-radius: 15px;
+  border: 3px solid var(--color);
+
+  cursor: pointer;
+}
+
+.active{
+  background:  var(--color);
+}

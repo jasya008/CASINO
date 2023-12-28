@@ -19,8 +19,7 @@ export const Context = ({ children }) => {
   const [chooseCasino, setChooseCasino] = useState([]);
   const [chooseGame, setChooseGame] = useState([]);
   const [search, setSearch] = useState('');
-  const [filteredeItems, setFilteredItems] = useState(dataCasino);
-  const [filteredeGames, setFilteredGames] = useState(dataGames);
+
 
   // USER SAVE
   const [user, setUser] = useState({
@@ -79,11 +78,7 @@ export const Context = ({ children }) => {
           chooseGame,
           setChooseGame,
           setSearch,
-          search,
-          filteredeItems,
-          setFilteredItems,
-          filteredeGames,
-          setFilteredGames,
+          search
         }}
       >
         {children}

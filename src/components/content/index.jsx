@@ -4,10 +4,10 @@ import { GetContext } from '../context/Context';
 // import { ModalCasino } from '../modalCasino';
 
 export const Content = () => {
-  const { dataCasino, search } = GetContext();
+  const {  search, filteredCasino } = GetContext();
   return (
     <>
-      {dataCasino
+      {filteredCasino
         .filter((data) =>
           data.casino_name.toLowerCase().includes(search.toLowerCase())
         )

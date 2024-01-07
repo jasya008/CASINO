@@ -5,64 +5,82 @@ import { GetContext } from '../context/Context';
 
 export const FilterButtons = () => {
   const { t } = useTranslation();
-  const { dataCasino } = GetContext();
-  const [items, setItems] = useState(dataCasino);
+  const { filteredCasino, setfilteredCasino, dataCasino } = GetContext();
 
-  // const filterCasinoButtons = [
-  //   ...new Set(dataCasino.map((val) => val.sorting_criteria)),
-  // ];
-
-  // const CasinoFilter = (casino) => {
-  //   const newCasino = dataCasino.filter(
-  //     (newval) => newval.sorting_criteria === casino
-  //   );
-
-  //   setFilteredItems(newCasino);
-  // };
-
+  
   const filterItems = (catItem) => {
     const updateItems = dataCasino.filter((curItem) => {
-      return curItem.sorting_criteria == catItem;
+      return curItem.sorting_criteria == catItem ;
     });
-    setItems(updateItems);
-  };  
+    setfilteredCasino(updateItems);
+  };
+  
+  // const DemoFilterFunc = (array = [], checkValue) => {
+    //   array.filter(item => {
+    //     item.creatories.forEach((elem) => {
+    //       if(item.name.includes(checkValue) || elem.includes(checkValue)){
+    //         console.log(item);
+    //       }
+    //     })
+        
+    //   })
+    // }
+    
+  // const demoFilter = [
+  //   {
+  //     id: 1,
+  //     name: 'test 1',
+  //     creatories: ['good', 'ok'],
+  //   },
 
-  console.log(items);
+  //   {
+  //     id: 2,
+  //     name: 'test 2',
+  //     creatories: ['good', 'bad'],
+  //   },
+  // ];
+
+  
+
+  // DemoFilterFunc(demoFilter, "ok");
 
   return (
     <div className={s.searchButtons}>
-      <button className={s.button} onClick={() => setItems(dataCasino)}>
-        All
+      <button
+        className={s.button}
+        onClick={() => setfilteredCasino(dataCasino)}
+      >
+      {t("All_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('Volcanoes')}>
-        Volcanoes
+        {t("Volcanoes_button")}
       </button>
       <button
         className={s.button}
         onClick={() => filterItems('Cryptocurrencies')}
       >
-        Cryptocurrencies
+        {t("Currencies_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('Platforms')}>
-        Platforms
+        {t("Platforms_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('The best')}>
-        The best
+       {t("bests_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('Countries')}>
-        Countries
+        {t("Countries_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('Currencies')}>
-        Currencies
+        {t("Currencies_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('New')}>
-        New
+        {t("new_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('Peculiarties')}>
-        Peculiarties
+        {t("Peculiarities_button")}
       </button>
       <button className={s.button} onClick={() => filterItems('Black list')}>
-        Black list
+       {t("Blacklist_button")}
       </button>
     </div>
   );

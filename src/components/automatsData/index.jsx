@@ -4,11 +4,11 @@ import { InfoAutomats } from '../infoAutomats';
 import { GetContext } from '../context/Context';
 
 export const AutomatsData = () => {
-  const { dataGames, search } = GetContext();
+  const { filteredGames, search } = GetContext();
 
   return (
     <div className='cardsAutomats'>
-      {dataGames
+      {filteredGames
         .filter((game) =>
           game.game_name.toLowerCase().includes(search.toLowerCase())
         )

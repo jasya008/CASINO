@@ -11,6 +11,7 @@ const initContext = createContext();
 
 export const Context = ({ children }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpenGame, setModalOpenGame] = useState(false);
   const [modalLoginOpen, setLoginModal] = useState(false);
   const [modalReview, setModalReview] = useState(false);
   const [initialModal, setIntitalModal] = useState(false);
@@ -18,9 +19,13 @@ export const Context = ({ children }) => {
   const [dataGames, setDataGames] = useState([]);
   const [chooseCasino, setChooseCasino] = useState([]);
   const [chooseGame, setChooseGame] = useState([]);
+  const [chooseGamesWeek, setChooseGamesWeek] = useState([]);
   const [search, setSearch] = useState('');
   const [filteredCasino, setfilteredCasino] = useState(dataCasino);
   const [filteredGames, setfilteredGames] = useState(dataGames);
+  const [lang, setLang] = useState('english');
+
+
 
   // USER SAVE
   const [user, setUser] = useState({
@@ -56,6 +61,8 @@ export const Context = ({ children }) => {
     getDataAutomats();
   }, []);
 
+  console.log(chooseCasino);
+
   return (
     <>
       <initContext.Provider
@@ -84,6 +91,12 @@ export const Context = ({ children }) => {
           setfilteredCasino,
           filteredGames,
           setfilteredGames,
+          lang,
+          setLang,
+          chooseGamesWeek,
+          setChooseGamesWeek,
+          modalOpenGame,
+          setModalOpenGame
         }}
       >
         {children}

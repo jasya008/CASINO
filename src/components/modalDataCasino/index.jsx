@@ -8,23 +8,56 @@ import handIcon from '../../assets/Hand-OneFinger.svg';
 import fileIcon from '../../assets/File.svg';
 import { PicturesPay } from './picturesPay';
 import CircularDeterminate from './progressCirculars';
-import { GetContext } from '../context/Context';
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom';
 import 'swiper/css';
 import { useSpring, animated } from 'react-spring';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { useEffect, useState } from 'react';
+import { GetContext } from '../context/Context';
 
 export const ModalDataCasino = () => {
-  const { modalOpen, setModalOpen, chooseCasino: item } = GetContext();
+  const {
+    modalOpen,
+    setModalOpen,
+    chooseCasino: item,
+    lang
+  } = GetContext();
+  // const [CurrentLang, setCurrentLang] = useState('');
+
+  let CurrentLang = '';
+  let CurrentLangText = '';
+  let CurrentLangPromoText = '';
+
   const { t } = useTranslation();
 
   const animation = useSpring({
     opacity: modalOpen ? 1 : 0,
-    transform: modalOpen ? 'translateY(0%)' : 'translateY(-100%)'
+    transform: modalOpen ? 'translateY(0%)' : 'translateY(-100%)',
   });
+
+  // Casino name
+  if (item?.casino_name && item?.casino_name.length !== 0) {
+    CurrentLang = item?.casino_name[lang]?.join(' ');
+  } else {
+    CurrentLang = 'error';
+  }
+
+  // Casino Text
+  if (item?.casino_text && item?.casino_text.length !== 0) {
+    CurrentLangText = item?.casino_text[lang]?.join(' ');
+  } else {
+    CurrentLangText = 'error';
+  }
+
+  // Casino Promo Text
+  if (item?.promo_text && item?.promo_text.length !== 0) {
+    CurrentLangPromoText = item?.promo_text[lang]?.join(' ');
+  } else {
+    CurrentLangPromoText = 'error';
+  }
 
   return (
     <Container fixed>
@@ -33,13 +66,7 @@ export const ModalDataCasino = () => {
           <div className={s.left_side}>
             <div className={s.circulars}>
               <img className={s.img} src={item.image_link} alt='' />
-              {/* <p
-              style={{
-                color: 'white',
-              }}
-            >
-              {item.casino_name}
-            </p> */}
+              {/* <p>{CurrentLang}</p> */}
               <div className={s.textsCircular}>
                 <CircularDeterminate
                   variant='determinate'
@@ -77,7 +104,7 @@ export const ModalDataCasino = () => {
                 {t('rank')}
               </p>
             </div>
-            <p className={s.text}>{item?.casino_text}</p>
+            <p className={s.text}>{CurrentLangText}</p>
             <Link to={item.casino_link}>
               <button className={s.button}>{t('play_button')}</button>
             </Link>
@@ -115,7 +142,7 @@ export const ModalDataCasino = () => {
               <SwiperSlide>
                 <div className={s.advertising}>
                   <img className={s.iconKing} src={iconKing} alt='' />
-                  <p className={s.text}>{item.promo_text}</p>
+                  <p className={s.text}>{CurrentLangPromoText}</p>
                   <div className={s.all}>
                     <p className={s.small_text}>{t('discount_text')}</p>
                     <img src={handIcon} alt='' />
@@ -132,7 +159,7 @@ export const ModalDataCasino = () => {
               <SwiperSlide>
                 <div className={s.advertising}>
                   <img className={s.iconKing} src={iconKing} alt='' />
-                  <p className={s.text}>{item.promo_text}</p>
+                  <p className={s.text}>{CurrentLangPromoText}</p>
                   <div className={s.all}>
                     <p className={s.small_text}>{t('discount_text')}</p>
                     <img src={handIcon} alt='' />

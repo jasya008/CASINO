@@ -24,8 +24,7 @@ export const ReviewsData = () => {
 
   const AddComments = () => {
     axios.post(API_URL, {
-      id: '',
-      casino: '',
+      id: '8',
       user: localStorage.getItem('user'),
       comment_text: addComment,
       rating: 7.0,

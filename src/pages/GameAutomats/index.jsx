@@ -28,8 +28,8 @@ export const GamesAutomats = () => {
 
       </div>
 
-      <TopAutomatGames />
-
+      <TopAutomatGames /> 
+      
       <ButtonsAutomat />
 
       <AutomatsData />

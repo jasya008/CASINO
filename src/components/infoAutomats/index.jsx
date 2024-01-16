@@ -6,7 +6,8 @@ import { GetContext } from '../context/Context';
 import { useTranslation } from 'react-i18next';
 
 export const InfoAutomats = ({ dataGames }) => {
-  const { setModalOpen, setChooseGame } = GetContext();
+  const {  setChooseGame, modalOpenGame, setModalOpenGame } =
+    GetContext();
   const { t } = useTranslation();
 
   return (
@@ -15,7 +16,7 @@ export const InfoAutomats = ({ dataGames }) => {
       <div className={s.all_texts}>
         <p
           onClick={() => {
-            setModalOpen(true);
+            setModalOpenGame(true);
             setChooseGame(dataGames);
           }}
           className={s.text}
@@ -24,10 +25,6 @@ export const InfoAutomats = ({ dataGames }) => {
           <img src={warning} alt='' />
           {t('information')}
         </p>
-          {/* <p className={s.text}>
-            {' '}
-            <img src={person} alt='' /> {t('Reviews')}
-          </p> */}
       </div>
     </div>
   );

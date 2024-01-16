@@ -1,30 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import { InfoTopAutomatGames } from '../infoTopAutomatGames'
-import axios from 'axios'
+import React, { useEffect, useState } from 'react';
+import { InfoTopAutomatGames } from '../infoTopAutomatGames';
+import axios from 'axios';
+import { GetContext } from '../context/Context';
+import { ModalGamesOfWeek } from '../modalGamesOfWeek';
+import { ModalDataCasino } from '../modalDataCasino';
 
 export const TopAutomatGames = () => {
-    const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
-    const API_URL = "http://localhost:4080/TopAutomatGames"
+  const API_URL = 'http://127.0.0.1:8000/games-of-week/';
 
-
-    const getData = async () => {
-        try {
-            const { data } = await axios(API_URL)
-            setData(data)
-        } catch (error) {
-            console.log(error.message);
-        }
+  const getDataGamesWeek = async () => {
+    try {
+      const { data } = await axios.get(API_URL);
+      setData(data);
+    } catch (error) {
+      console.log(error.message);
     }
+  };
 
-    useEffect(() => {
-        getData()
-    }, [])
-    return (
-        <div className="cards">
-            {data.slice(0, 3).map((game) => (
-                <InfoTopAutomatGames key={game.id} data={game} />
-            ))}
-        </div>
-    )
-}
+  useEffect(() => {
+    getDataGamesWeek();
+  }, []);
+
+  return (
+    <div className='cards'>
+      {data.map((game) => (
+        <InfoTopAutomatGames key={game.id} dataGameWeek={game} />
+      ))}
+
+      <ModalDataCasino />
+    </div>
+  );
+};

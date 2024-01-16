@@ -1,34 +1,36 @@
-.TopAutomatGames{
-    width: 360px;
-    height: 236px;
+.TopAutomatGames {
+  width: 360px;
+  height: auto;
 
-    background-color: #25283A;
+  background-color: #25283a;
+
+  border-radius: 40px;
+
+  cursor: pointer;
+
+  .img {
+    width: 360px;
+    height: 220px;
 
     border-radius: 40px;
+  }
 
-    .img{
-        width: 100%;
+  .all_texts {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .text {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 400;
+
+      color: var(--white);
+      padding: 10px;
     }
-
-    .all_texts {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-
-        .text {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-
-            font-family: var(--font);
-            font-size: 13px;
-            font-weight: 400;
-
-            color: var(--white);
-            padding: 10px;
-
-        }
-    }
-
-    
+  }
 }

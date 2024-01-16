@@ -1,61 +1,74 @@
 .initialModal {
-    display: block;
+  display: block;
 
-    .modal {
-        position: fixed;
-        top: 30%;
-        left: 35%;
+  .modal {
+    position: fixed;
+    top: 30%;
+    left: 35%;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
 
-        width: 450px;
-        height: 300px;
+    width: 450px;
+    height: 300px;
 
-        background-color: #111321;
+    background-color: #111321;
 
-        border-radius: 40px;
+    border-radius: 40px;
 
+    .text {
+      font-family: var(--font);
+      font-size: 27px;
+      font-weight: 500;
 
-        .text {
-            font-family: var(--font);
-            font-size: 27px;
-            font-weight: 500;
-
-            color: var(--white);
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: row;
-            gap: 70px;
-
-            .button {
-                width: 60px;
-                height: 40px;
-
-                background-color: var(--color);
-
-                border: none;
-                border-radius: 10px;
-
-                box-shadow: 5px 5px 4px 0px #000;
-
-                font-family: var(--font);
-                font-size: 15px;
-                font-weight: 500;
-
-                color: var(--white);
-
-                cursor: pointer;
-            }
-        }
+      color: var(--white);
     }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      gap: 70px;
+
+      .button {
+        width: 60px;
+        height: 40px;
+
+        background-color: var(--color);
+
+        border: none;
+        border-radius: 10px;
+
+        box-shadow: 5px 5px 4px 0px #000;
+
+        text-align: center;
+
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 500;
+
+        color: var(--white);
+
+        cursor: pointer;
+
+        a {
+          font-family: var(--font);
+          font-size: 15px;
+          font-weight: 500;
+
+          color: var(--white);
+
+          cursor: pointer;
+
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .modalclose {
-    display: none;
+  display: none;
 }

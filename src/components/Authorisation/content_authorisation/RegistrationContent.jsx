@@ -59,14 +59,14 @@ export const RegistrationContent = () => {
 
       setUser({
         token: data.accessToken,
-        ...data.user,
+        ...data,
       });
 
       localStorage.setItem(
-        'user',
+        data,
         JSON.stringify({
           token: data.accessToken,
-          ...data.user,
+          ...data,
         })
       );
 

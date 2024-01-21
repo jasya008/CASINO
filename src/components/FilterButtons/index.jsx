@@ -15,34 +15,7 @@ export const FilterButtons = () => {
     setfilteredCasino(updateItems);
   };
   
-  // const DemoFilterFunc = (array = [], checkValue) => {
-    //   array.filter(item => {
-    //     item.creatories.forEach((elem) => {
-    //       if(item.name.includes(checkValue) || elem.includes(checkValue)){
-    //         console.log(item);
-    //       }
-    //     })
-        
-    //   })
-    // }
-    
-  // const demoFilter = [
-  //   {
-  //     id: 1,
-  //     name: 'test 1',
-  //     creatories: ['good', 'ok'],
-  //   },
 
-  //   {
-  //     id: 2,
-  //     name: 'test 2',
-  //     creatories: ['good', 'bad'],
-  //   },
-  // ];
-
-  
-
-  // DemoFilterFunc(demoFilter, "ok");
 
   return (
     <div className={s.searchButtons}>

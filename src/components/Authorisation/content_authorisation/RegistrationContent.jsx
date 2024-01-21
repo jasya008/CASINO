@@ -42,18 +42,18 @@ export const RegistrationContent = () => {
     resolver: zodResolver(registerSchema),
   });
 
+  console.log();
+
   const { handleSubmit, reset, setValue, getValues } = methods;
 
   const onRegisterSubmit = async (newUser) => {
     try {
       const { passwordConfirm, ...rest } = newUser;
       const { data } = await axios.post(USER_URL, {
-        user: {
-          username: getValues('name'),
-          password: getValues('password'),
-        },
         email: getValues('email'),
+        password: getValues('password'),
         number_of_avatar: Number(getValues('avatar')),
+        username: getValues('name'),
         age: Number(getValues('age')),
       });
 
@@ -84,7 +84,6 @@ export const RegistrationContent = () => {
       });
 
       reset();
-
     } catch (error) {
       toast.error(error.response.data, {
         position: 'top-right',

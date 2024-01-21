@@ -28,9 +28,8 @@ export const Context = ({ children }) => {
 
 
   // USER SAVE
-  const [user, setUser] = useState({
-    email: '',
-  });
+  const [user, setUser] = useState([]);
+
 
   //   GET CASINO
   const CasinoApi_URL = 'http://127.0.0.1:8000/all-casino-profiles/';
@@ -60,8 +59,6 @@ export const Context = ({ children }) => {
     getData();
     getDataAutomats();
   }, []);
-
-  console.log(chooseCasino);
 
   return (
     <>

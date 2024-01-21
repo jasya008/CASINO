@@ -10,7 +10,7 @@ import { useSpring, animated } from 'react-spring';
 
 export const ReviewsData = () => {
   const [reviews, setReviews] = useState([]);
-  const { modalReview, setModalReview } = GetContext();
+  const { modalReview, setModalReview, user } = GetContext();
   const [addComment, setAddComment] = useState('');
   const { t } = useTranslation();
 
@@ -19,19 +19,18 @@ export const ReviewsData = () => {
   const animation = useSpring({
     opacity: modalReview ? 1 : 0,
     transform: modalReview ? 'translateY(0%)' : 'translateY(-100%)',
-    
   });
+
 
   const AddComments = () => {
     axios.post(API_URL, {
-      id: '8',
-      user: localStorage.getItem('user'),
-      comment_text: addComment,
+      email: "email@gmail.com",
+      casino_id: 14,
+      comment_text: ' ',
       rating: 7.0,
-      created_at: '',
     });
   };
-
+ 
   return (
     <animated.div style={animation} className='popup'>
       <div

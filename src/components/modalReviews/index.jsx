@@ -24,9 +24,6 @@ export const ModalReview = () => {
 
   return (
     <>
-      {dataComment.map((comment) => (
-        <p>{comment.comment_text}</p>
-      ))}
     </>
   );
 };

@@ -58,16 +58,24 @@ export const RegistrationContent = () => {
       });
 
       setUser({
-        token: data.accessToken,
         ...data,
       });
 
       localStorage.setItem(
-        data,
-        JSON.stringify({
-          token: data.accessToken,
-          ...data,
-        })
+        'user.id',
+        data.id
+      );
+      localStorage.setItem(
+        'user.email',
+        data.email
+      );
+      localStorage.setItem(
+        'user.avatar',
+        data.number_of_avatar
+      );
+      localStorage.setItem(
+        'user.name',
+        data.username
       );
 
       setLoginModal(false);

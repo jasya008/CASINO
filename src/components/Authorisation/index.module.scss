@@ -1,28 +1,35 @@
 .loginModalnone {
-    display: none;
-    .modal {
-        position: fixed;
-        top: 17%;
-        left: 32%;
+  display: none;
+  .modal {
+    position: fixed;
+    position: relative;
+    top: 17%;
+    left: 32%;
 
-        flex-direction: column;
-        align-items: center;
+    flex-direction: column;
+    align-items: center;
 
+    padding: 3%;
 
-        padding: 3%;
+    width: fit-content;
+    height: fit-content;
 
-        width: fit-content;
-        height: fit-content;
+    background-color: #111321;
 
+    border-radius: 30px;
+  }
 
-        background-color: #111321;
+  .icon {
+    position: absolute;
+    right: 40px;
 
-        border-radius: 30px;
-    }
+    color: var(--white);
 
+    cursor: pointer;
+
+  }
 }
 
-
 .loginModal {
-    display: block;
+  display: block;
 }

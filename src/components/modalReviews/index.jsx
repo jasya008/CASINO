@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import s from './index.module.scss';
-import star from '../../assets/star.svg';
 import { useTranslation } from 'react-i18next';
 import { GetContext } from '../context/Context';
 import axios from 'axios';
@@ -8,22 +7,26 @@ import axios from 'axios';
 export const ModalReview = () => {
   const { chooseCasino } = GetContext();
   const [dataComment, setDataComment] = useState([]);
-  const { t } = useTranslation();
-  const API_Comments = `http://127.0.0.1:8000/casinos/${chooseCasino.id}/comments/`;
+  const API_Comments = `http://127.0.0.1:8000/casinos/14/comments/`;
 
   const getCommentsData = async () => {
     try {
-      const { comment } = await axios(API_Comments);
+      const { comment } = await axios.get(API_Comments);
       setDataComment(comment);
     } catch (error) {
       console.log(error.message);
     }
   };
-  console.log(dataComment);
 
-  useEffect(()=>{
-    getCommentsData()
-  },[])
+  useEffect(() => {
+    getCommentsData();
+  }, []);
 
-  return <></>;
+  return (
+    <>
+      {dataComment.map((comment) => (
+        <p>{comment.comment_text}</p>
+      ))}
+    </>
+  );
 };

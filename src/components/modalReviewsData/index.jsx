@@ -9,9 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
 
 export const ReviewsData = () => {
-  const [reviews, setReviews] = useState([]);
-  const { modalReview, setModalReview, user } = GetContext();
-  const [addComment, setAddComment] = useState('');
+  const { modalReview, setModalReview, chooseCasino } = GetContext();
+  const [addCommentText, setAddCommentText] = useState('');
   const { t } = useTranslation();
 
   const API_URL = 'http://127.0.0.1:8000/add_comment/';
@@ -21,16 +20,18 @@ export const ReviewsData = () => {
     transform: modalReview ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
-
-  const AddComments = () => {
-    axios.post(API_URL, {
-      email: "email@gmail.com",
-      casino_id: 14,
-      comment_text: ' ',
-      rating: 7.0,
-    });
+  const AddCommentsData = () => {
+    try {
+      axios.post(API_URL, {
+        email: localStorage.getItem('user.email'),
+        casino_id: chooseCasino.id,
+        comment_text: addCommentText,
+        rating: 7.0,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
- 
   return (
     <animated.div style={animation} className='popup'>
       <div
@@ -50,19 +51,17 @@ export const ReviewsData = () => {
           <CloseIcon className='icon' onClick={() => setModalReview(false)} />
         </div>
         <div className={s.all_reviews}>
-          {reviews.map((reviews) => (
-            <ModalReview key={reviews.id} reviews={reviews} />
-          ))}
+          <ModalReview />;
         </div>
         <div className={s.input_button}>
           <input
             type='text'
             className={s.addInput}
             placeholder={t('review_add')}
-            value={addComment}
-            onChange={(e) => setAddComment(e.target.value)}
+            value={addCommentText}
+            onChange={(e) => setAddCommentText(e.target.value)}
           />
-          <button className={s.add_button} onClick={() => AddComments()}>
+          <button className={s.add_button} onClick={() => AddCommentsData()}>
             {t('send')}
           </button>
         </div>

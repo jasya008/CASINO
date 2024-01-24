@@ -5,14 +5,14 @@ import { GetContext } from '../context/Context';
 import axios from 'axios';
 
 export const ModalReview = () => {
-  const { chooseCasino } = GetContext();
+  const { chooseCasino, trigger } = GetContext();
   const [dataComment, setDataComment] = useState([]);
-  const API_Comments = `http://127.0.0.1:8000/casinos/14/comments/`;
+  const API_Comments = `http://127.0.0.1:8000/casinos/${chooseCasino.id}/comments/`;
 
   const getCommentsData = async () => {
     try {
-      const { comment } = await axios.get(API_Comments);
-      setDataComment(comment);
+      const { data } = await axios(API_Comments);
+      setDataComment(data);
     } catch (error) {
       console.log(error.message);
     }
@@ -20,10 +20,14 @@ export const ModalReview = () => {
 
   useEffect(() => {
     getCommentsData();
-  }, []);
+  }, [trigger]);
 
   return (
     <>
+      {dataComment.map((comment) => (
+        <div>
+        </div>
+      ))}
     </>
   );
 };

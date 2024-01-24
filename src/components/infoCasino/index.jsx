@@ -33,7 +33,13 @@ export const InfoCasino = ({ data }) => {
             <img src={warning} alt='' />
             {t('information')}
           </p>{' '}
-          <p onClick={() => setModalReview(true)} className={s.text}>
+          <p
+            onClick={() => {
+              setModalReview(true);
+              setChooseCasino(data);
+            }}
+            className={s.text}
+          >
             {' '}
             <img src={person} alt='' />
             {t('Reviews')}{' '}

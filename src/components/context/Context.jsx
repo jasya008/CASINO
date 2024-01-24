@@ -24,12 +24,10 @@ export const Context = ({ children }) => {
   const [filteredCasino, setfilteredCasino] = useState(dataCasino);
   const [filteredGames, setfilteredGames] = useState(dataGames);
   const [lang, setLang] = useState('english');
-
-
+  const [trigger, setTrigger] = useState(false);
 
   // USER SAVE
   const [user, setUser] = useState([]);
-
 
   //   GET CASINO
   const CasinoApi_URL = 'http://127.0.0.1:8000/all-casino-profiles/';
@@ -93,7 +91,9 @@ export const Context = ({ children }) => {
           chooseGamesWeek,
           setChooseGamesWeek,
           modalOpenGame,
-          setModalOpenGame
+          setModalOpenGame,
+          trigger,
+          setTrigger,
         }}
       >
         {children}

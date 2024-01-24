@@ -9,7 +9,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
 
 export const ReviewsData = () => {
-  const { modalReview, setModalReview, chooseCasino } = GetContext();
+  const { modalReview, setModalReview, chooseCasino, setTrigger } =
+    GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const { t } = useTranslation();
 
@@ -20,14 +21,16 @@ export const ReviewsData = () => {
     transform: modalReview ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
-  const AddCommentsData = () => {
+  const AddCommentsData = async () => {
     try {
-      axios.post(API_URL, {
+      await axios.post(API_URL, {
         email: localStorage.getItem('user.email'),
         casino_id: chooseCasino.id,
         comment_text: addCommentText,
         rating: 7.0,
       });
+
+      setTrigger((prev) => !prev);
     } catch (error) {
       console.log(error.message);
     }
@@ -50,9 +53,7 @@ export const ReviewsData = () => {
           </div>
           <CloseIcon className='icon' onClick={() => setModalReview(false)} />
         </div>
-        <div className={s.all_reviews}>
-          <ModalReview />;
-        </div>
+        <div className={s.all_reviews}>{modalReview && <ModalReview />}</div>
         <div className={s.input_button}>
           <input
             type='text'

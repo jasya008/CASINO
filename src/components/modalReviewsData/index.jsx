@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ModalReview } from '../modalReviews';
 import axios from 'axios';
 import { GetContext } from '../context/Context';
-import s from '../modalReviews/index.module.scss';
+import s from './index.module.scss';
 import iconSort from '../../assets/sort.svg';
 import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
@@ -12,6 +12,8 @@ export const ReviewsData = () => {
   const { modalReview, setModalReview, chooseCasino, setTrigger } =
     GetContext();
   const [addCommentText, setAddCommentText] = useState('');
+  const [addCommentRating, setAddCommentRating] = useState('');
+
   const { t } = useTranslation();
 
   const API_URL = 'http://127.0.0.1:8000/add_comment/';
@@ -21,13 +23,16 @@ export const ReviewsData = () => {
     transform: modalReview ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
+
+
   const AddCommentsData = async () => {
     try {
       await axios.post(API_URL, {
         email: localStorage.getItem('user.email'),
         casino_id: chooseCasino.id,
         comment_text: addCommentText,
-        rating: 7.0,
+        rating: addCommentRating,
+        created_at: new Date()
       });
 
       setTrigger((prev) => !prev);
@@ -65,6 +70,15 @@ export const ReviewsData = () => {
           <button className={s.add_button} onClick={() => AddCommentsData()}>
             {t('send')}
           </button>
+        </div>
+        <div className={s.rating}>
+          <p className={s.rating_text}>{t('add_rating')}</p>
+          <input
+            type='number'
+            value={addCommentRating}
+            onChange={(e) => setAddCommentRating(e.target.value)}
+            className={s.rating_input}
+          />
         </div>
       </div>
     </animated.div>

@@ -1,0 +1,156 @@
+.ModalReview {
+  justify-content: space-between;
+
+  width: 1100px;
+  height: auto;
+
+  background-color: #111321;
+  // background-color: #ccc;
+
+  border-radius: 25px;
+
+  padding: 30px 40px;
+
+  .input_button {
+    padding-top: 40px;
+
+    .addInput {
+      position: relative;
+
+      width: 80%;
+      height: 102px;
+
+      background-color: #373a51;
+
+      border: none;
+      border-radius: 15px;
+
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 400;
+
+      color: var(--white);
+
+      padding: 0 0 50px 20px;
+    }
+
+    .addInput:focus {
+      outline: none;
+    }
+
+    .addInput::placeholder {
+      color: var(--white);
+    }
+
+    .add_button {
+      position: absolute;
+      left: 65%;
+      bottom: 80px;
+
+      width: 100px;
+      height: 40px;
+
+      border-radius: 10px;
+      background: #25283a;
+
+      box-shadow: 5px 5px 4px 0px #000;
+
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 13px;
+
+      color: var(--white);
+    }
+  }
+}
+
+.all_reviews{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.modalShow {
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  .sort_buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    .sort {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 400;
+
+      color: var(--white);
+    }
+
+    .button {
+      background: none;
+
+      width: 70px;
+      height: 30px;
+
+      border-radius: 16px;
+
+      border: 2px solid #584b89;
+
+      font-family: var(--font);
+      font-size: 12px;
+      font-weight: 400;
+
+      color: var(--white);
+
+      cursor: pointer;
+
+      text-align: center;
+    }
+  }
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  
+    padding-top: 10px;
+  
+    .rating_text {
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 400;
+  
+      color: var(--white);
+    }
+    .rating_input {
+      width: 30px;
+      height: 25px;
+  
+      background-color: #373a51;
+  
+      border: none;
+      border-radius: 3px;
+  
+      outline: none;
+  
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 400;
+  
+      color: var(--white);
+
+      padding-left: 5px;
+    }
+  }  

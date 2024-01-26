@@ -74,5 +74,7 @@
     "yes":"Sim",
     "no":"Não",
     "send":"Enviar",
-    "review_add":"Deixe um comentário..."
+    "review_add":"Deixe um comentário...",
+    "add_rating":"Sua avaliação:",
+    "user_rating":"Avaliação do utilizador:"
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './index.module.scss';
-import { useNavigate } from 'react-router-dom';
 import { GetContext } from '../../context/Context';
 import { object, string } from 'zod';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -18,6 +17,8 @@ import AvatarUsers from '../avatarUsers';
 export const RegistrationContent = () => {
   const { user, setUser, setLoginModal } = GetContext();
   const { t } = useTranslation();
+
+  console.log(user);
 
   const USER_URL = 'http://127.0.0.1:8000/register/';
 

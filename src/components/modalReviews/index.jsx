@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import s from './index.module.scss';
 import { useTranslation } from 'react-i18next';
 import { GetContext } from '../context/Context';
-import star from '../../assets/star.svg'
+import star from '../../assets/star.svg';
 import axios from 'axios';
 
 export const ModalReview = () => {
@@ -11,7 +11,6 @@ export const ModalReview = () => {
   const API_Comments = `http://127.0.0.1:8000/casinos/${chooseCasino.id}/comments/`;
 
   const { t } = useTranslation();
-
 
   const getCommentsData = async () => {
     try {
@@ -29,17 +28,23 @@ export const ModalReview = () => {
   return (
     <>
       {dataComment.map((comment) => (
-        <div className={s.comment}>
-          <div className={s.all_coment}>
-          <p className={s.text_date}>{comment.created_at}</p>
-          <p className={s.text_comment}>{comment.comment_text}</p>
+        <div className={s.comment_user}>
+          <div className={s.user}>
+          <img className={s.avatar} src={`/static/images/iconUser` + comment.user?.number_of_avatar + ".svg"} alt="error" /> 
+            <p className={s.user_email}>{comment.user.email}</p>
           </div>
+          <div className={s.comment}>
+            <div className={s.all_coment}>
+              <p className={s.text_date}>{comment.created_at}</p>
+              <p className={s.text_comment}>{comment.comment_text}</p>
+            </div>
 
-          <p className={s.rating_default_text}>
-            {t("user_rating")}
-            <img src={star} alt="" />
-            {comment.rating}
-          </p>
+            <p className={s.rating_default_text}>
+              {t('user_rating')}
+              <img src={star} alt='' />
+              {comment.rating}
+            </p>
+          </div>
         </div>
       ))}
     </>

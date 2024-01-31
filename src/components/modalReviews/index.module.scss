@@ -1,37 +1,62 @@
-.comment {
+.comment_user {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
 
-  .text_comment {
-    font-family: var(--font);
-    font-size: 15px;
-    font-weight: 400;
-
-    color: #fff;
-  }
-
-  .text_date {
-    font-family: var(--font);
-    font-size: 10px;
-    font-weight: 400;
-
-    color: #848484;
-  }
-
-  .rating_default_text {
+  .user {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 
-    font-family: var(--font);
-    font-size: 12px;
+    .avatar{
+      width: 80px;
+    }
 
-    color: #fff;
+    .user_email {
+      font-family: var(--font);
+      font-size: 14px;
 
-    img{
+      color: #fff;
+    }
+  }
+
+  .comment {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .text_comment {
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 400;
+
+      color: #fff;
+    }
+
+    .text_date {
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 400;
+
+      color: #848484;
+    }
+
+    .rating_default_text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+
+      font-family: var(--font);
+      font-size: 12px;
+
+      color: #fff;
+
+      img {
         width: 20px;
+      }
     }
   }
 }

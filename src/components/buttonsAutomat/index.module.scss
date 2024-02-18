@@ -1,25 +1,31 @@
-.buttons{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 
-    padding: 40px 0 40px 0;
+  padding: 40px 0 40px 0;
 
 
-    .button{
-        padding: 12px 24px 12px 24px ;
+  .button {
+    padding: 12px 24px 12px 24px;
 
-        background: none;
+    background: none;
 
-        color: var(--white);
+    color: var(--white);
 
-        font-family: var(--font);
-        font-size: 14px;
-        font-weight: 400;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 400;
 
-        border-radius: 15px;
-        border: 3px solid var(--color);
+    border-radius: 15px;
+    border: 3px solid var(--color);
 
-        cursor: pointer;
+    cursor: pointer;
+
+    @media (max-width: 1024px) {
+      padding: 11px 20px 11px 20px;
+
+      font-size: 11px;
     }
+  }
 }

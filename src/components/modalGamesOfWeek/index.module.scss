@@ -1,5 +1,5 @@
 .ModalAutomat {
-  display: flex;
+  display: none;
   justify-content: space-between;
 
   width: 1100px;
@@ -10,6 +10,8 @@
   padding: 30px 40px;
 
   background: #25283a;
+
+
 
   .left_side {
     .estimate_text {
@@ -177,4 +179,6 @@
 
 .modalShow {
   display: flex;
+
+ 
 }

@@ -130,13 +130,17 @@ export const ModalDataCasino = () => {
               grabCursor={true}
               centeredSlides={true}
               autoplay={{
-                delay: 1700,
+                delay: 2400,
                 disableOnInteraction: false,
               }}
               pagination={{
                 clickable: true,
               }}
-              navigation={true}
+              navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+              }
+              }
               modules={[Autoplay, Pagination, Navigation]}
             >
               <SwiperSlide>

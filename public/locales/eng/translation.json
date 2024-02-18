@@ -1,6 +1,6 @@
 {
   "page_name": "Slot machines",
-  "login": "Login",
+  "login": "Login/Registration",
   "searchbar_placeholder": "Site search",
   "title": "Licensed online casinos in Russia",
   "All_button": "All",
@@ -31,7 +31,7 @@
   "Providers": "Providers",
   "Interface": "Interface languages",
   "Available": "Available in",
-  "sort": "Sort by:",
+  "sort": "Sort by",
   "positive": "Positive",
   "negative": "Negative",
   "seconPageTitlePart1": "PLAY AND GET",

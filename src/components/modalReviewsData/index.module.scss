@@ -11,6 +11,11 @@
 
   padding: 30px 40px;
 
+  @media (max-width: 1024px) {
+    width: 910px;
+
+  }
+
   .input_button {
     padding-top: 40px;
 
@@ -64,10 +69,14 @@
   }
 }
 
-.all_reviews{
+.all_reviews {
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  overflow-y: scroll;
+
+  height: 400px;
 }
 
 .modalShow {
@@ -121,36 +130,36 @@
 }
 
 .rating {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  
-    padding-top: 10px;
-  
-    .rating_text {
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 400;
-  
-      color: var(--white);
-    }
-    .rating_input {
-      width: 30px;
-      height: 25px;
-  
-      background-color: #373a51;
-  
-      border: none;
-      border-radius: 3px;
-  
-      outline: none;
-  
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 400;
-  
-      color: var(--white);
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 
-      padding-left: 5px;
-    }
-  }  
+  padding-top: 10px;
+
+  .rating_text {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+
+    color: var(--white);
+  }
+  .rating_input {
+    width: 50px;
+    height: 25px;
+
+    background-color: #373a51;
+
+    border: none;
+    border-radius: 3px;
+
+    outline: none;
+
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+
+    color: var(--white);
+
+    padding-left: 5px;
+  }
+}

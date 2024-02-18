@@ -12,7 +12,6 @@
   --white: #fff;
 }
 
-
 .App {
   display: flex;
   flex-direction: column;
@@ -30,13 +29,15 @@
   background-color: #584b89 !important;
 }
 
-header {
+a {
+  text-decoration: none;
+}
 
+header {
   width: 100%;
   height: 90px;
 
   background: rgba(17, 19, 33, 0.6);
-
 
   .navbar {
     display: flex;
@@ -67,6 +68,10 @@ header {
     font-weight: 500;
 
     color: var(--white);
+
+    // @media (max-width: 1024px) {
+    //   display: none;
+    // }
   }
 
   .inputIcon {
@@ -74,6 +79,10 @@ header {
 
     width: 420px;
     height: 40px;
+
+    @media (max-width: 1024px) {
+      width: 200px;
+    }
   }
 
   .searchbar {
@@ -104,13 +113,11 @@ header {
     padding-left: 10px;
   }
 
-  a {
+  .a {
     font-family: var(--font);
     font-size: 16px;
 
     color: var(--white);
-
-    text-decoration: none;
 
     padding-left: 60px;
   }
@@ -129,12 +136,15 @@ header {
 
 .cards {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 30px;
 
   padding-top: 50px;
+
+  @media (max-width: 1024px) {
+   gap: 10px;
+  }
 }
 
 .title {
@@ -198,17 +208,15 @@ header {
   cursor: pointer;
 }
 
-
-.popup{
+.popup {
   position: fixed;
   top: 40px;
 
-  transition: 0.4s all linear;  
+  transition: 0.4s all linear;
 }
 
-
 .button {
-  padding: 12px 24px 12px 24px ;
+  padding: 12px 24px 12px 24px;
 
   background: none;
 

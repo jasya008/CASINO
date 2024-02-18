@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ModalReview } from '../modalReviews';
 import axios from 'axios';
 import { GetContext } from '../context/Context';
@@ -23,8 +23,6 @@ export const ReviewsData = () => {
     transform: modalReview ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
-
-
   const AddCommentsData = async () => {
     try {
       await axios.post(API_URL, {
@@ -32,14 +30,18 @@ export const ReviewsData = () => {
         casino_id: chooseCasino.id,
         comment_text: addCommentText,
         rating: addCommentRating,
-        created_at: new Date()
       });
 
+      setAddCommentText('');
+      setAddCommentRating('');
       setTrigger((prev) => !prev);
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  // console.log(refAddInput.current?.value);
+  console.log(addCommentText);
   return (
     <animated.div style={animation} className='popup'>
       <div

@@ -1,6 +1,6 @@
 {
     "page_name": "Máquinas caça-níqueis",
-    "login": "Login",
+    "login": "Login/Registo",
     "searchbar_placeholder": "Pesquisa no site",
     "title": "Casinos online licenciados na Rússia",
     "All_button": "Todos",
@@ -31,7 +31,7 @@
     "Providers": "Provedores",
     "Interface": "Idiomas de interface",
     "Available": "Disponível na ",
-    "sort": "Classificar por:",
+    "sort": "Classificar por",
     "positive": "Positivo",
     "negative": "Negativo",
     "seconPageTitlePart1":"JOGAR E OBTER",

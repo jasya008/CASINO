@@ -14,6 +14,12 @@
     width: fit-content;
     height: fit-content;
 
+    @media screen and (max-width: 1024px) {
+      // width: 900px;
+
+      left: 20%;
+    }
+
     background-color: #111321;
 
     border-radius: 30px;

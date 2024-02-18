@@ -18,8 +18,6 @@ export const RegistrationContent = () => {
   const { user, setUser, setLoginModal } = GetContext();
   const { t } = useTranslation();
 
-  console.log(user);
-
   const USER_URL = 'http://127.0.0.1:8000/register/';
 
   const registerSchema = object({
@@ -108,6 +106,8 @@ export const RegistrationContent = () => {
       setLoginModal(true);
     }
   };
+
+
   return (
     <FormProvider {...methods}>
       <form className={s.auth_form}>

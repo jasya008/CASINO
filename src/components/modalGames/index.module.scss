@@ -11,6 +11,10 @@
 
   background: #25283a;
 
+  @media screen and (max-width: 1024px) {
+    width: 900px;
+  }
+
   .left_side {
     .estimate_text {
       display: flex;
@@ -41,6 +45,10 @@
     .text {
       width: 700px;
       height: 350px;
+
+      @media screen and (max-width: 1024px) {
+        width: 550px;
+      }
 
       font-family: var(--font);
       font-weight: 400;

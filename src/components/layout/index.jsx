@@ -63,7 +63,7 @@ export const Layouts = () => {
                   PORT
                 </button>
 
-                <NavLink to='/GameAutomats'>{t('page_name')}</NavLink>
+                <NavLink className='a' to='/GameAutomats'>{t('page_name')}</NavLink>
 
                 {user.email ? (
                   <button className='navbar_button' onClick={handleLogout}>

@@ -7,7 +7,8 @@ import { useTranslation } from 'react-i18next';
 import { SearchBar } from '../SearchBar';
 
 export const Layouts = () => {
-  const { setLoginModal, modalLoginOpen, user, setUser, setLang } = GetContext();
+  const { setLoginModal, modalLoginOpen, user, setUser, setLang } =
+    GetContext();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
@@ -23,17 +24,15 @@ export const Layouts = () => {
     i18n.changeLanguage(language);
   };
 
-  const ChangeLang = e => {
-
-    if(e.target.textContent.toLowerCase() === "eng/") {
+  const ChangeLang = (e) => {
+    if (e.target.textContent.toLowerCase() === 'eng/') {
       changeLanguage('en');
-      setLang(e.target.name)
-    }else{
-      changeLanguage('port')
-      setLang(e.target.name)
+      setLang(e.target.name);
+    } else {
+      changeLanguage('port');
+      setLang(e.target.name);
     }
-    
-  }
+  };
 
   return (
     <>
@@ -63,22 +62,22 @@ export const Layouts = () => {
                   PORT
                 </button>
 
-                <NavLink className='a' to='/GameAutomats'>{t('page_name')}</NavLink>
+                <NavLink className='a' to='/GameAutomats'>
+                  {t('page_name')}
+                </NavLink>
 
                 {user.email ? (
                   <button className='navbar_button' onClick={handleLogout}>
                     Exit
                   </button>
-                ) : null}
-
-                {!user.email && (
+                ) : (
                   <button
                     className='navbar_button'
                     onClick={() => setLoginModal(!modalLoginOpen)}
                   >
                     {t('login')}
                   </button>
-                )}
+                )}5
               </div>
             </div>
           </Container>

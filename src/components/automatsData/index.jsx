@@ -6,18 +6,23 @@ import { GetContext } from '../context/Context';
 export const AutomatsData = () => {
   const { filteredGames, search, lang } = GetContext();
   const [gamesSearch, setGamesSearch] = useState([]);
+  // const [filteredGames, setFilteredGames] = useState();
+
+  console.log(gamesSearch);
 
   useEffect(() => {
-    filteredGames.forEach((item) => {
+    filteredGames?.forEach((item) => {
       const element = item;
-      element.game_name[lang].filter((item) => {
-        if (item.toLowerCase().includes(search.toLowerCase())) {
-          setGamesSearch(element);
-        }
-      });
+      // console.log(element);
+      // console.log(element.game_name[lang]);
+      const result = element.game_name[lang]
+        .toLowerCase()
+        .includes(search.toLowerCase());
+      if (result) {
+        setGamesSearch([element]);
+      }
     });
   }, [search]);
-
 
   return (
     <div className='cardsAutomats'>

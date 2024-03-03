@@ -36,7 +36,7 @@ export const LoginContent = () => {
   const onLoginSubmit = async () => {
     try {
       const { data } = await axios.post(LOGIN_URL,  {
-        email: getValues('email'),
+        email: localStorage.getItem("user.email"),
         password: getValues('password'),
       });
 

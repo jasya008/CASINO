@@ -19,6 +19,7 @@ export const FilterButtons = () => {
 
   return (
     <div className={s.searchButtons}>
+
       <button
         className={s.button}
         onClick={() => setfilteredCasino(dataCasino)}

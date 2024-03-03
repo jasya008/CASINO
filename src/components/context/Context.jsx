@@ -13,7 +13,10 @@ export const Context = ({ children }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpenGame, setModalOpenGame] = useState(false);
   const [modalLoginOpen, setLoginModal] = useState(false);
+  const [modalEmailVerify, setModalEmailVerify] = useState(false);
+  const [modalNumberVerify, setModalNumberVerify] = useState(false);
   const [modalReview, setModalReview] = useState(false);
+  const [modalChangePassword, setModalChangePassword] = useState(false);
   const [initialModal, setIntitalModal] = useState(false);
   const [dataCasino, setDataCasino] = useState([]);
   const [dataGames, setDataGames] = useState([]);
@@ -25,7 +28,6 @@ export const Context = ({ children }) => {
   const [filteredGames, setfilteredGames] = useState(dataGames);
   const [lang, setLang] = useState('english');
   const [trigger, setTrigger] = useState(false);
-
   // USER SAVE
   const [user, setUser] = useState([]);
 
@@ -94,6 +96,12 @@ export const Context = ({ children }) => {
           setModalOpenGame,
           trigger,
           setTrigger,
+          modalEmailVerify,
+          setModalEmailVerify,
+          modalNumberVerify,
+          setModalNumberVerify,
+          modalChangePassword,
+          setModalChangePassword,
         }}
       >
         {children}

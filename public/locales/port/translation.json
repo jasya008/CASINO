@@ -76,5 +76,22 @@
     "send":"Enviar",
     "review_add":"Deixe um comentário...",
     "add_rating":"Sua avaliação:",
-    "user_rating":"Avaliação do utilizador:"
+    "user_rating":"Avaliação do utilizador:",
+    "recover_password": "Recuperar senha",
+    "email_text_def": "Digite o endereço de e-mail que você usou para se registrar e nós lhe enviaremos as instruções",
+    "reset_password": "Redefinir senha",
+    "back_sign": "Voltar para fazer login",
+    "get_code": "Obtenha seu código",
+    "text_getCode": "Por favor, insira o código de 4 dígitos que será enviado para o seu endereço de e-mail",
+    "text_recieveCode": "Se você não recebeu o código: ",
+    "resend": "Reenviar",
+    "verify_btn": "Verifique e prossiga",
+    "send_code": "Verifique o código enviado com sucesso!",
+    "code_verified": "Código verificado com sucesso!",
+    "new_password": "Nova Senha",
+    "password_change":"Senha alterada com sucesso!",
+    "recover-password": "Recuperar senha",
+    "recover_password-text": "Crie uma nova senha forte que você não usa para outros sites",
+    "button_recoverPassword": "Faça login com uma nova senha"
+  
 }

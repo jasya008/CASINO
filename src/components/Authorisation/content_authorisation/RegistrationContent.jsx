@@ -92,7 +92,7 @@ export const RegistrationContent = () => {
 
       reset();
     } catch (error) {
-      toast.error(error.response.data, {
+      toast.error(error.preview, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,

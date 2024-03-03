@@ -76,5 +76,21 @@
   "send": "Send",
   "review_add": "Leave a comment...",
   "add_rating": "Your rating:",
-  "user_rating": "User rating:"
+  "user_rating": "User rating:",
+  "recover_password": "Recover Password",
+  "email_text_def": "Enter the email address you used to register and we’ll send you the instruction",
+  "reset_password": "Reset Password",
+  "back_sign": "Back to sign in",
+  "get_code": "Get Your Code",
+  "text_getCode": "Please enter the 4 digit code that send to your email address ",
+  "text_recieveCode": "If you didn’t receive code: ",
+  "resend": "Resend",
+  "verify_btn": "Verify and Proceed",
+  "send_code": "Verify code sent successful!",
+  "code_verified": "Code verified successfully!",
+  "new_password": "New password",
+  "recover-password": "Recover Password",
+  "password_change":"Password changed successfully!",
+  "recover_password-text": "Create a new strong password that you don’t use for other websites",
+  "button_recoverPassword": "Log in with a new password"
 }

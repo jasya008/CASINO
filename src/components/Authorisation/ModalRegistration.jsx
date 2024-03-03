@@ -8,6 +8,7 @@ export const ModalRegistration = () => {
   const { modalLoginOpen, setLoginModal } = GetContext();
 
   return (
+    <>
     <div
       className={
         modalLoginOpen
@@ -17,14 +18,15 @@ export const ModalRegistration = () => {
     >
       <div className='body'>
         <div className={s.modal}>
-          <CloseIcon
-            className={s.icon}
-            onClick={() => setLoginModal(false)}
-          />
+          <CloseIcon className={s.icon} onClick={() => setLoginModal(false)} />
           <BasicTabs />
         </div>
+
       </div>
     </div>
+
+
+    </>
   );
 };
 //

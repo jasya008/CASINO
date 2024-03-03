@@ -12,12 +12,8 @@ import { ModalDataCasino } from '../modalDataCasino';
 
 export const ModalGames = () => {
   const {
-    modalOpen,
-    setModalOpen,
     chooseGame: item,
     lang,
-    setChooseCasino,
-    dataCasino,
     setModalOpenGame,
     modalOpenGame,
   } = GetContext();

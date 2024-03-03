@@ -1,0 +1,110 @@
+.ModalEmailVerify {
+  display: none;
+}
+
+.modalShow {
+  display: block;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  width: 500px;
+  height: 550px;
+
+  border-radius: 25px;
+
+  background: #111321;
+
+  padding: 40px;
+
+  .title {
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: 30px;
+
+    color: var(--white);
+  }
+
+  .text {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 20px;
+
+    color: var(--color);
+
+    width: 400px;
+
+    text-align: center;
+  }
+
+  .imgInput {
+    position: relative;
+
+    .icon {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+
+      width: 15px;
+
+      z-index: 1;
+    }
+
+    .input {
+      width: 300px;
+      height: 40px;
+
+      z-index: 0.5;
+
+      border-radius: 25px;
+
+      background: #f7f7f7;
+
+      padding-left: 35px;
+
+      box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+
+      font-family: var(--font);
+    }
+  }
+
+  .btn {
+    width: 200px;
+    height: 40px;
+
+    border-radius: 30px;
+
+    background-color: var(--color);
+
+    font-size: 13px;
+    font-family: var(--font) !important;
+
+    color: var(--white);
+
+    border: none;
+
+    cursor: pointer;
+  }
+  .btn:focus{
+    background-color: none !important;
+  }
+
+  
+
+
+  .back_text{
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 15px;
+
+    color: var(--color);
+
+    cursor: pointer;
+
+  }
+}

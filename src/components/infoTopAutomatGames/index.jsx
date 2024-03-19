@@ -4,6 +4,7 @@ import warning from '../../assets/!.svg';
 import s from './index.module.scss';
 import { useTranslation } from 'react-i18next';
 import { GetContext } from '../context/Context';
+import { Link } from 'react-router-dom';
 
 export const InfoTopAutomatGames = ({ dataGameWeek }) => {
   const { t } = useTranslation();
@@ -22,6 +23,11 @@ export const InfoTopAutomatGames = ({ dataGameWeek }) => {
           <img src={warning} alt='' />
           {t('information')}
         </p>
+
+        <Link className={s.text_mobile} to={`/gamesOfWeek/${dataGameWeek.id}`}>
+          <img src={warning} alt='' />
+          {t('information')}
+        </Link>
       </div>
     </div>
   );

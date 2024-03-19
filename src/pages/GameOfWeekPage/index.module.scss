@@ -1,0 +1,167 @@
+.pageGames {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+
+  .topContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .estimate_text {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 13px;
+
+      color: var(--white);
+
+      .iconTrophy {
+        width: 25px;
+      }
+    }
+
+    .imgAutomat {
+      width: 180px;
+      height: 95px;
+
+      border-radius: 20px;
+
+      margin: 10px 0 20px 0;
+    }
+
+    .grade {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .estimate {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 25px;
+
+        color: #ffcf3a;
+
+        .star {
+          width: 45px;
+        }
+      }
+
+      .text_grade {
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 400;
+
+        color: var(--white);
+
+        text-align: center;
+      }
+    }
+  }
+
+  .texts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    border: var(--color) 3px solid;
+    border-radius: 20px;
+
+    width: 270px;
+    height: 320px;
+
+    margin-left: 30%;
+
+    @media (max-width: 428px) {
+      margin-left: 17%;
+    }
+
+    .one_side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+
+      .textOneside {
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 13px;
+
+        line-height: normal;
+
+        color: var(--white);
+      }
+
+      .textOtherside {
+        font-family: var(--font);
+        font-weight: 400;
+        font-size: 13px;
+
+        line-height: normal;
+
+        color: var(--white);
+
+        text-align: right;
+      }
+    }
+  }
+
+  .text {
+    width: 550px;
+    height: auto;
+
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 14px;
+
+    line-height: 25px;
+    letter-spacing: 0.9px;
+
+    color: var(--white);
+
+    margin-left: 15%;
+
+    @media (max-width: 428px) {
+      width: 320px;
+    }
+
+    @media (max-width: 378px) {
+      width: 310px;
+
+      margin-left: 10%;
+    }
+  }
+
+  .button {
+    width: 200px;
+    height: 45px;
+
+    background-color: var(--color);
+
+    border-radius: 13px;
+
+    box-shadow: 5px 5px 4px 0px #000;
+
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 17px;
+
+    color: var(--white);
+
+    cursor: pointer;
+
+    margin: 20px 30%;
+  }
+}

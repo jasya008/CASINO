@@ -8,7 +8,7 @@ import iconTrophy from '../../assets/Trophy.svg';
 import star from '../../assets/bigStar.svg';
 import axios from 'axios';
 
-export const GamePage = () => {
+export const GamesOfWeekPage = () => {
   const [game, setGame] = useState([]);
   const { lang } = GetContext();
   const [error, setError] = useState('');
@@ -16,12 +16,12 @@ export const GamePage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
 
-  let CurrentTextGame = '';
-  let CurrentGenreGame = '';
-  let CurrentVolatilityGame = '';
-  let CurrentPlatformsGame = '';
+  let CurrentTextGameofWeeek = '';
+  let CurrentGenreGameofWeeek = '';
+  let CurrentVolatilityGameofWeeek = '';
+  let CurrentPlatformsGameofWeeek = '';
 
-  const API_URL = 'http://127.0.0.1:8000/all-game-profiles/';
+  const API_URL = 'http://127.0.0.1:8000/games-of-week/';
 
   const getDataGames = async () => {
     try {
@@ -43,31 +43,37 @@ export const GamePage = () => {
     }
   }, [game.length, id, game.id]);
 
+
+  // GamesOfWeek Text
+
   if (gameObj?.game_text && gameObj?.game_text.length !== 0) {
-    CurrentTextGame = gameObj?.game_text[lang];
+    CurrentTextGameofWeeek = gameObj?.game_text[lang];
   } else {
-    CurrentTextGame = 'error';
+    CurrentTextGameofWeeek = 'error';
   }
 
-  // Game Genre
+  // GamesOfWeek Genre
+
   if (gameObj?.genre && gameObj?.genre.length !== 0) {
-    CurrentGenreGame = gameObj?.genre[lang];
+    CurrentGenreGameofWeeek = gameObj?.genre[lang];
   } else {
-    CurrentGenreGame = 'error';
+    CurrentGenreGameofWeeek = 'error';
   }
 
-  // Game Volatility
+  // GamesOfWeek Volatility
+
   if (gameObj?.volatility && gameObj?.volatility.length !== 0) {
-    CurrentVolatilityGame = gameObj?.volatility[lang];
+    CurrentVolatilityGameofWeeek = gameObj?.volatility[lang];
   } else {
-    CurrentVolatilityGame = 'error';
+    CurrentVolatilityGameofWeeek = 'error';
   }
 
   // Game PLatform
-  if (gameObj?.platforms && gameObj?.platforms.length !== 0) {
-    CurrentPlatformsGame = gameObj?.platforms[lang];
+
+  if (game?.platforms && game?.platforms.length !== 0) {
+    CurrentPlatformsGameofWeeek = game?.platforms[lang];
   } else {
-    CurrentPlatformsGame = 'error';
+    CurrentPlatformsGameofWeeek = 'error';
   }
 
   return (
@@ -118,12 +124,12 @@ export const GamePage = () => {
             <p className={s.textOtherside}> {gameObj.rows}</p>
             <p className={s.textOtherside}> {gameObj.pay_lines}</p>
             <p className={s.textOtherside}> {gameObj.rtp}</p>
-            <p className={s.textOtherside}> {CurrentVolatilityGame}</p>
-            <p className={s.textOtherside}> {CurrentPlatformsGame}</p>
+            <p className={s.textOtherside}> {CurrentVolatilityGameofWeeek}</p>
+            <p className={s.textOtherside}> {CurrentPlatformsGameofWeeek}</p>
           </div>
         </div>
 
-        <p className={s.text}> {CurrentTextGame}</p>
+        <p className={s.text}> {CurrentTextGameofWeeek}</p>
 
         <button className={s.button}>{t('buttonGame_text')}</button>
       </div>

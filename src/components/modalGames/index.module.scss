@@ -15,6 +15,12 @@
     width: 900px;
   }
 
+  @media screen and (max-width: 768px) {
+    width: 500px;
+
+    flex-wrap: wrap;
+  }
+
   .left_side {
     .estimate_text {
       display: flex;

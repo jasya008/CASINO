@@ -75,26 +75,7 @@ export const ModalDataCasino = () => {
                 <p className={s.textCircular}>{t('Reliability')}</p>
               </div>
 
-              <div className={s.textsCircular}>
-                <CircularDeterminate variant='determinate' value={item.speed} />
-                <p className={s.textCircular}>{t('Speed')}</p>
-              </div>
-
-              <div className={s.textsCircular}>
-                <CircularDeterminate
-                  variant='determinate'
-                  value={item.payout}
-                />
-                <p className={s.textCircular}>{t('Funds')}</p>
-              </div>
-
-              <div className={s.textsCircular}>
-                <CircularDeterminate
-                  variant='determinate'
-                  value={item.player_rating}
-                />
-                <p className={s.textCircular}>{t('grade')}</p>
-              </div>
+              
             </div>
 
             <div className={s.texts}>

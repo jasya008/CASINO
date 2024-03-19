@@ -5,6 +5,7 @@ import { Footer } from '../footer';
 import { GetContext } from '../context/Context';
 import { useTranslation } from 'react-i18next';
 import { SearchBar } from '../SearchBar';
+import BurgerMenu from '../burgerMenu';
 
 export const Layouts = () => {
   const { setLoginModal, modalLoginOpen, user, setUser, setLang } =
@@ -61,11 +62,10 @@ export const Layouts = () => {
                 >
                   PORT
                 </button>
-
+                <BurgerMenu />
                 <NavLink className='a' to='/GameAutomats'>
                   {t('page_name')}
                 </NavLink>
-
                 {user.email ? (
                   <button className='navbar_button' onClick={handleLogout}>
                     Exit
@@ -77,7 +77,8 @@ export const Layouts = () => {
                   >
                     {t('login')}
                   </button>
-                )}5
+                )}
+                
               </div>
             </div>
           </Container>

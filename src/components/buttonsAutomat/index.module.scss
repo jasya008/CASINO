@@ -5,6 +5,9 @@
 
   padding: 40px 0 40px 0;
 
+  @media (max-width: 430px) {
+    display: none;
+  }
 
   .button {
     padding: 12px 24px 12px 24px;

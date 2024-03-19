@@ -35,6 +35,10 @@
       padding: 10px;
 
       cursor: pointer;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 
@@ -50,5 +54,24 @@
     font-size: 14px;
 
     color: var(--white);
+  }
+}
+
+.text_mobile {
+  display: none;
+  @media (max-width: 768px) {
+    // display: block;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+
+    color: var(--white);
+    padding: 10px;
+
+    cursor: pointer;
   }
 }

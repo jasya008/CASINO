@@ -9,7 +9,11 @@
   cursor: pointer;
 
   @media (max-width: 1024px) {
-   width: 300px;
+    width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    width: 270px;
   }
 
   .img {
@@ -20,7 +24,11 @@
 
     @media (max-width: 1024px) {
       width: 300px;
-     }
+    }
+
+    @media (max-width: 768px) {
+      width: 270px;
+    }
   }
 
   .all_texts {

@@ -1,33 +1,58 @@
 .all_payCards {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 
-    .card {
-        width: 40px;
-        height: 25px;
+  @media (max-width: 427px) {
+    gap: 5px;
+  }
 
-        border-radius: 5.621px;
+  .card {
+    width: 40px;
+    height: 25px;
 
-        background: rgba(88, 75, 137, 0.69);
+    border-radius: 5.621px;
 
-        padding: 3px 2px;
+    background: rgba(88, 75, 137, 0.69);
 
-        .img{
-            width: 33px;
-        }
+    padding: 3px 2px;
 
+    @media (max-width: 427px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      width: 30px;
+      height: 15px;
+
+      padding: 0 1px;
     }
 
-    .number{
-        font-family: var(--font);
-        font-weight: 400;
-        font-size: 15px;
+    .img {
+      width: 33px;
 
-        color: var(--white);
-
-        cursor: pointer;
+      @media (max-width: 427px) {
+        width: 15px;
+      }
     }
+  }
+
+  .number {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 15px;
+
+    color: var(--white);
+
+    cursor: pointer;
+
+    @media (max-width: 427px) {
+      font-size: 8px;
+    }
+
+    @media (max-width: 380px) {
+      font-size: 5px;
+    }
+  }
 }

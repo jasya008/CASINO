@@ -55,7 +55,7 @@ export default function CircularWithValueLabel({ value }) {
     <CircularProgressWithLabel
       style={{
         width: '60px',
-        color: '#584B89',
+        color: '#584B89'        
       }}
       value={value}
     />

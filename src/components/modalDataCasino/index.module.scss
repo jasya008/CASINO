@@ -16,15 +16,14 @@
 
   @media (max-width: 1024px) {
     width: 910px;
-
     gap: 0px;
   }
+
 
   .left_side {
     display: flex;
     flex-direction: column;
     width: 70%;
-    
 
     .circulars {
       display: flex;
@@ -42,7 +41,7 @@
 
         border-radius: 20px;
 
-        // margin-right: 50px;  
+        // margin-right: 50px;
 
         @media (max-width: 1024px) {
           width: 120px;

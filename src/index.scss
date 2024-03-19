@@ -2,9 +2,11 @@
 * {
   padding: 0;
   margin: 0;
-  user-select: none;
+  // user-select: none;
   box-sizing: border-box;
 }
+
+
 
 :root {
   --font: 'Montserrat', sans-serif;
@@ -15,16 +17,17 @@
 .App {
   display: flex;
   flex-direction: column;
+  min-height: 100vh; 
 
-  min-height: 100vh;
+  overflow-x: hidden;
 
   background-color: #494966;
-  height: auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: url(./assets/background_casino.png);
 }
+
 
 .css-1aquho2-MuiTabs-indicator {
   background-color: #584b89 !important;
@@ -61,6 +64,10 @@ header {
     padding-left: 40px;
 
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   .logo {
@@ -70,9 +77,9 @@ header {
 
     color: var(--white);
 
-    // @media (max-width: 1024px) {
-    //   display: none;
-    // }
+    @media (max-width: 430px) {
+      font-size: 20px;
+    }
   }
 
   .inputIcon {
@@ -98,6 +105,10 @@ header {
     color: var(--white);
 
     padding-left: 20px;
+
+    @media (max-width: 430px) {
+
+    }
   }
 
   .searchbar:focus {
@@ -121,6 +132,10 @@ header {
     color: var(--white);
 
     padding-left: 60px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   .icon {
@@ -146,6 +161,16 @@ header {
   @media (max-width: 1024px) {
     gap: 10px;
   }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  }
+
+}
+
+.links{
+  display: flex;
+  flex-direction: row;  
 }
 
 .title {
@@ -164,6 +189,11 @@ header {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+
+  @media (max-width: 768px) {
+    // width: 270px;
+    gap: 10px;
+  }
 }
 
 .body {
@@ -192,6 +222,10 @@ header {
   background: none;
 
   cursor: pointer;
+
+  @media (max-width: 430px) {
+    font-size: 13px;
+  }
 }
 
 .icon {

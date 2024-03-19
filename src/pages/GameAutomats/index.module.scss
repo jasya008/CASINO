@@ -5,11 +5,23 @@
 
   padding-top: 70px;
 
+  @media (max-width: 768px) {
+   padding-top: 50px;
+  }
+
   .img {
     width: 430px;
     height: 470px;
 
     object-fit: contain;
+
+    @media (max-width: 768px) {
+      width: 300px;
+    }
+
+    @media (max-width: 768px) {
+      width: 200px;
+    }
   }
 
   .texts {
@@ -54,6 +66,11 @@
       color: var(--white);
 
       margin-left: 35px;
+
+      @media (max-width: 768px) {
+        width: 185px;
+        margin-left: 0;
+      }
     }
   }
 }
@@ -75,6 +92,9 @@
     @media (max-width: 1024px) {
       width: 300px;
     }
+    @media (max-width: 768px) {
+      width: 185px;
+    }
   }
 
   .text {
@@ -86,6 +106,10 @@
 
     @media (max-width: 1024px) {
       font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 15px;
     }
   }
 }

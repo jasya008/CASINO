@@ -6,10 +6,11 @@ import warning from '../../assets/!.svg';
 import { GetContext } from '../context/Context';
 import { ReviewsData } from '../modalReviewsData';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const InfoCasino = ({ data }) => {
   const { setModalOpen, setModalReview, setChooseCasino } = GetContext();
+  const navigate = useNavigate();
 
   const { t } = useTranslation();
 
@@ -33,6 +34,12 @@ export const InfoCasino = ({ data }) => {
             <img src={warning} alt='' />
             {t('information')}
           </p>{' '}
+
+          <Link className={s.text_mobile} to={`/casino/${data.id}`}>
+            {' '}
+            <img src={warning} alt='' />
+            {t('information')}
+          </Link>
           <p
             onClick={() => {
               setModalReview(true);

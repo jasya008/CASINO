@@ -39,6 +39,26 @@
 
       color: var(--white);
       padding: 10px;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .text_mobile {
+      display: none;
+      @media (max-width: 768px) {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 400;
+
+        color: var(--white);
+        padding: 10px;
+      }
     }
   }
 }

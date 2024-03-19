@@ -8,7 +8,6 @@ export const AutomatsData = () => {
   const [gamesSearch, setGamesSearch] = useState([]);
   // const [filteredGames, setFilteredGames] = useState();
 
-  console.log(gamesSearch);
 
   useEffect(() => {
     filteredGames?.forEach((item) => {

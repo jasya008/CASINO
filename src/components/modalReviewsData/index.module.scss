@@ -16,6 +16,13 @@
 
   }
 
+  
+  @media (max-width: 768px) {
+    width: 700px;
+  } 
+
+  
+
   .input_button {
     padding-top: 40px;
 
@@ -65,6 +72,10 @@
       font-size: 13px;
 
       color: var(--white);
+
+      @media (max-width: 768px) {
+        left: 60%;
+      } 
     }
   }
 }

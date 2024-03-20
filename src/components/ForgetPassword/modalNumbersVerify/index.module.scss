@@ -17,6 +17,15 @@ h1 {
   justify-content: center;
   gap: 20px;
 
+  
+  @media (max-width: 430px) {
+    width: 400px;
+  }
+
+  @media (max-width: 376px) {
+    width: 370px;
+  }
+
   width: 500px;
   height: 550px;
 
@@ -32,6 +41,10 @@ h1 {
     font-size: 30px;
 
     color: var(--white);
+
+    @media (max-width: 376px) {
+      font-size: 27px;
+    }
   }
 
   .text {
@@ -44,6 +57,10 @@ h1 {
     width: 350px;
 
     text-align: center;
+
+    @media (max-width: 376px) {
+      font-size: 16px;
+    }
   }
 
   span {
@@ -68,6 +85,13 @@ h1 {
       color: var(--color);
       font-weight: 800;
       text-align: center;
+
+      @media (max-width: 376px) {
+        width: 40px;
+        height: 50px;
+
+        font-size: 40px;
+      }
     }
   }
 

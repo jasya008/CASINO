@@ -1,12 +1,55 @@
 .burgerMenu {
-  display: none;
+  .icon {
+    display: none;
 
-  color: #fff;
+    width: 50px;
 
-  padding-left: 10px;
+    position: relative;
 
-  @media (max-width: 768px) {
-    display: block;
+    color: #fff;
+
+    padding-left: 10px;
+
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
 
+  .navMobile {
+    display: none;
+    position: absolute;
+
+    @media (max-width: 440px) {
+      right: 10px;
+      padding-top: 15px;
+    }
+    .link {
+      text-decoration: none;
+      font-family: var(--font);
+      font-size: 16px;
+
+      color: var(--white);
+    }
+
+    .navbar_button {
+      background: none;
+
+      border: none;
+
+      font-family: var(--font);
+      font-size: 15px;
+
+      color: var(--white);
+
+      cursor: pointer;
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

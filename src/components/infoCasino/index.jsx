@@ -45,7 +45,7 @@ export const InfoCasino = ({ data }) => {
               setModalReview(true);
               setChooseCasino(data);
             }}
-            className={s.text}
+            className={s.textreview}
           >
             {' '}
             <img src={person} alt='' />

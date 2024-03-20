@@ -12,9 +12,15 @@
     height: fit-content;
 
     @media screen and (max-width: 1024px) {
-      // width: 900px;
-
       left: 20%;
+    }
+
+    @media (max-width: 768px) {
+      left: 50px;
+    }
+
+    @media (max-width: 500px) {
+      left: 20px;
     }
 
     background-color: #111321;
@@ -29,7 +35,6 @@
     color: var(--white);
 
     cursor: pointer;
-
   }
 }
 

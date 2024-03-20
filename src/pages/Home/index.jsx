@@ -3,6 +3,7 @@ import { CasinoData } from '../../components/casinoData';
 import { ModalDataCasino } from '../../components/modalDataCasino';
 import { useTranslation } from 'react-i18next';
 import { FilterButtons } from '../../components/FilterButtons';
+import { FilterBtnCasinoMobile } from '../../components/filterButtonsCasinoMobile';
 
 
 export const Home = () => {
@@ -13,6 +14,7 @@ export const Home = () => {
     <>
       <h3 className='title'>{t('title')}</h3>
       <FilterButtons />
+      <FilterBtnCasinoMobile/>
       <CasinoData />
       <ModalDataCasino />
     </>

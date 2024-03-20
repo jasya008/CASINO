@@ -4,7 +4,7 @@ import { Content } from '../content';
 export const CasinoData = () => {
   return (
     <>
-      <div className='cards'>
+      <div className='cardsCasino'>
         <Content/>
       </div>
     </>

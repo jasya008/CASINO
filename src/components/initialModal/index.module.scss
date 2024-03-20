@@ -10,6 +10,11 @@
       left: 20%;
     }
 
+    @media (max-width: 430px) {
+      left: 0;
+      width: 410px;
+    }
+
     display: flex;
     flex-direction: column;
     justify-content: center;

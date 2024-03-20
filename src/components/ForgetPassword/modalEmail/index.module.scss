@@ -13,6 +13,15 @@
   justify-content: center;
   gap: 20px;
 
+  @media (max-width: 430px) {
+    width: 400px;
+  }
+
+  @media (max-width: 376px) {
+    width: 370px;
+  }
+
+
   width: 500px;
   height: 550px;
 
@@ -28,6 +37,11 @@
     font-size: 30px;
 
     color: var(--white);
+
+    @media (max-width: 376px) {
+      font-size: 27px;
+    }
+  
   }
 
   .text {
@@ -40,6 +54,12 @@
     width: 400px;
 
     text-align: center;
+
+    @media (max-width: 376px) {
+      font-size: 16px;
+
+      width: 340px;
+    }
   }
 
   .imgInput {

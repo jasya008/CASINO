@@ -3,11 +3,13 @@ import { GamesAutomats } from '../pages/GameAutomats';
 import { GamesOfWeekPage } from '../pages/GameOfWeekPage';
 import { GamePage } from '../pages/GamesPage';
 import { NotFound } from '../pages/Not Found';
+import { ReviewsData } from '../pages/ReviewsAdd';
 
 export const routes = [
   { id: 'page-1', path: '/GameAutomats', element: <GamesAutomats /> },
   { id: 'page-2', path: '*', element: <NotFound /> },
   { id: 'casinoes', path: 'casino/:id', element: <CasinoesPage /> },
   { id: 'games', path: 'game/:id', element: <GamePage /> },
-  { id: 'games', path: 'gamesOfWeek/:id', element: <GamesOfWeekPage /> }
+  { id: 'games', path: 'gamesOfWeek/:id', element: <GamesOfWeekPage /> },
+  { id: 'reviews', path: 'review/:id', element: <ReviewsData /> }
 ];

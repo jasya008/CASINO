@@ -34,7 +34,6 @@ export const InfoCasino = ({ data }) => {
             <img src={warning} alt='' />
             {t('information')}
           </p>{' '}
-
           <Link className={s.text_mobile} to={`/casino/${data.id}`}>
             {' '}
             <img src={warning} alt='' />
@@ -51,6 +50,15 @@ export const InfoCasino = ({ data }) => {
             <img src={person} alt='' />
             {t('Reviews')}{' '}
           </p>
+          <Link
+            className={s.text_reviewMobi}
+            onClick={setChooseCasino(data)}
+            to={`/review/${data.id}`}
+          >
+            {' '}
+            <img src={person} alt='' />
+            {t('Reviews')}
+          </Link>
         </div>
       </div>
       <ReviewsData />

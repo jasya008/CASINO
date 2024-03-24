@@ -55,6 +55,28 @@
     padding: 10px;
 
     cursor: pointer;
+
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+
+  .text_reviewMobi {
+    display: none;
+    @media (max-width: 500px) {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 400;
+
+      color: var(--white);
+      padding: 10px;
+
+      cursor: pointer;
+    }
   }
 
   .grade {

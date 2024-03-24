@@ -41,7 +41,6 @@ export const ReviewsData = () => {
   };
 
   // console.log(refAddInput.current?.value);
-  console.log(addCommentText);
   return (
     <animated.div style={animation} className='popup'>
       <div

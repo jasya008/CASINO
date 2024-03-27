@@ -13,15 +13,11 @@
 
   @media (max-width: 1024px) {
     width: 910px;
-
   }
 
-  
   @media (max-width: 768px) {
     width: 700px;
-  } 
-
-  
+  }
 
   .input_button {
     padding-top: 40px;
@@ -75,7 +71,7 @@
 
       @media (max-width: 768px) {
         left: 60%;
-      } 
+      }
     }
   }
 }
@@ -173,4 +169,23 @@
 
     padding-left: 5px;
   }
+}
+
+.Timer {
+  display: none;
+  margin-left: -60px;
+
+  .text {
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 300;
+
+    color: var(--white);
+
+    padding-top: 15%;
+  }
+}
+
+.openTimer {
+  display: block;
 }

@@ -7,12 +7,15 @@ import iconSort from '../../assets/sort.svg';
 import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
+import { toast } from 'react-toastify';
 
 export const ReviewsData = () => {
   const { modalReview, setModalReview, chooseCasino, setTrigger } =
     GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [timerOpen, setTimerOpen] = useState(false);
 
   const { t } = useTranslation();
 
@@ -35,12 +38,34 @@ export const ReviewsData = () => {
       setAddCommentText('');
       setAddCommentRating('');
       setTrigger((prev) => !prev);
+
+      startTimer();
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  // console.log(refAddInput.current?.value);
+  const startTimer = () => {
+    const interval = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime === 0) {
+          clearInterval(interval);
+          setTimerOpen(false)
+          return 0;
+        } else {
+          return prevTime - 1;
+        }
+      });
+    }, 1000);
+  };
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs
+      .toString()
+      .padStart(2, '0')}`;
+  };
+
   return (
     <animated.div style={animation} className='popup'>
       <div
@@ -68,9 +93,25 @@ export const ReviewsData = () => {
             value={addCommentText}
             onChange={(e) => setAddCommentText(e.target.value)}
           />
-          <button className={s.add_button} onClick={() => AddCommentsData()}>
+          <button
+            className={s.add_button}
+            onClick={() => {
+              AddCommentsData();
+              setTimerOpen(true);
+            }}
+          >
             {t('send')}
           </button>
+
+          <div
+            className={timerOpen ? [s.Timer, s.openTimer].join(' ') : s.Timer}
+          >
+            <div className='body'>
+              <p className={s.text}>
+                You can write comment after {formatTime(timeLeft)}
+              </p>
+            </div>
+          </div>
         </div>
         <div className={s.rating}>
           <p className={s.rating_text}>{t('add_rating')}</p>

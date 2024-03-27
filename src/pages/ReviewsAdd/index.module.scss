@@ -157,3 +157,29 @@
     }
   }
 }
+
+.Timer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000ac;
+  
+
+  .text {
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 300;
+
+    color: var(--white);
+
+    padding-top: 15%;
+
+    width: 100%;
+
+    text-align: center;
+  }
+}
+
+.openTimer {
+  display: flex;
+}

@@ -93,5 +93,7 @@
   "password_change": "Senha alterada com sucesso!",
   "recover-password": "Recuperar senha",
   "recover_password-text": "Crie uma nova senha forte que você não usa para outros sites",
-  "button_recoverPassword": "Faça login com uma nova senha"
+  "button_recoverPassword": "Faça login com uma nova senha",
+  "timing_text":" Você pode postar comentários depois:"
+
 }

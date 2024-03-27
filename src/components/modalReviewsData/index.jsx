@@ -44,13 +44,13 @@ export const ReviewsData = () => {
       console.log(error.message);
     }
   };
-  
+
   const startTimer = () => {
     const interval = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime === 0) {
           clearInterval(interval);
-          setTimerOpen(false)
+          setTimerOpen(false);
           return 120;
         } else {
           return prevTime - 1;
@@ -108,7 +108,7 @@ export const ReviewsData = () => {
           >
             <div className='body'>
               <p className={s.text}>
-                You can write comment after {formatTime(timeLeft)}
+                {t('timing_text')} {formatTime(timeLeft)}
               </p>
             </div>
           </div>

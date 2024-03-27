@@ -93,5 +93,6 @@
   "recover-password": "Recover Password",
   "password_change":"Password changed successfully!",
   "recover_password-text": "Create a new strong password that you don’t use for other websites",
-  "button_recoverPassword": "Log in with a new password"
+  "button_recoverPassword": "Log in with a new password",
+  "timing_text":" You can post comment after:"
 }

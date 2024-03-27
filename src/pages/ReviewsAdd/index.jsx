@@ -11,6 +11,8 @@ export const ReviewsData = () => {
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
   const [openButtons, setOpenButtons] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(120);
+  const [timerOpen, setTimerOpen] = useState(false);
 
   const { t } = useTranslation();
 
@@ -28,9 +30,32 @@ export const ReviewsData = () => {
       setAddCommentText('');
       setAddCommentRating('');
       setTrigger((prev) => !prev);
+
+      startTimer();
     } catch (error) {
       console.log(error.message);
     }
+  };
+
+  const startTimer = () => {
+    const interval = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime === 0) {
+          clearInterval(interval);
+          setTimerOpen(false);
+          return 120;
+        } else {
+          return prevTime - 1;
+        }
+      });
+    }, 1000);
+  };
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs
+      .toString()
+      .padStart(2, '0')}`;
   };
 
   return (
@@ -71,6 +96,14 @@ export const ReviewsData = () => {
           <ModalReview />
         </div>
 
+        <div className={timerOpen ? [s.Timer, s.openTimer].join(' ') : s.Timer}>
+          <div className='body'>
+            <p className={s.text}>
+              {t('timing_text')} {formatTime(timeLeft)}
+            </p>
+          </div>
+        </div>
+
         <input
           type='text'
           className={s.addInput}
@@ -90,7 +123,13 @@ export const ReviewsData = () => {
             />
           </div>
 
-          <button className={s.add_button} onClick={() => AddCommentsData()}>
+          <button
+            className={s.add_button}
+            onClick={() => {
+              AddCommentsData();
+              setTimerOpen(true);
+            }}
+          >
             {t('send')}
           </button>
         </div>

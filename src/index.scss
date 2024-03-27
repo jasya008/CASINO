@@ -94,6 +94,10 @@ header {
     @media (max-width: 1024px) {
       width: 200px;
     }
+
+    @media (max-width: 376px){
+      width: 176px;
+    }
   }
 
   .searchbar {

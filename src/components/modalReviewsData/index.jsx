@@ -14,7 +14,7 @@ export const ReviewsData = () => {
     GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(120);
   const [timerOpen, setTimerOpen] = useState(false);
 
   const { t } = useTranslation();
@@ -44,14 +44,14 @@ export const ReviewsData = () => {
       console.log(error.message);
     }
   };
-
+  
   const startTimer = () => {
     const interval = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime === 0) {
           clearInterval(interval);
           setTimerOpen(false)
-          return 0;
+          return 120;
         } else {
           return prevTime - 1;
         }

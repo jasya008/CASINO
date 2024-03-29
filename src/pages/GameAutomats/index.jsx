@@ -8,6 +8,7 @@ import { TopAutomatGames } from '../../components/TopAutomatGames';
 import { ReviewsData } from '../../components/modalReviewsData';
 import { useTranslation } from 'react-i18next';
 import { FilterBtnGamesMobile } from '../../components/filterButtonsGamesMobile';
+import { Link } from 'react-router-dom';
 
 export const GamesAutomats = () => {
   const { t } = useTranslation();
@@ -21,7 +22,11 @@ export const GamesAutomats = () => {
               <span>{t('seconPageTitlePart2')}</span>
             </h1>
             <p className={s.text}>{t('secondPageText')}</p>
-            <button className={s.button}>{t('buttonGame_text')}</button>
+            <button className={s.button}>
+              <Link className={s.link} to='/'>
+                {t('buttonGame_text')}
+              </Link>
+            </button>
           </div>
           <img className={s.img} src={img} alt='' />
         </div>
@@ -33,15 +38,15 @@ export const GamesAutomats = () => {
         </div>
       </Container>
 
-        <TopAutomatGames />
+      <TopAutomatGames />
 
-        <FilterBtnGamesMobile />
+      <FilterBtnGamesMobile />
 
-        <ButtonsAutomat />
+      <ButtonsAutomat />
 
-        <AutomatsData />
+      <AutomatsData />
 
-        <ReviewsData />
+      <ReviewsData />
     </>
   );
 };

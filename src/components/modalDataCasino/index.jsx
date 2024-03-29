@@ -19,12 +19,7 @@ import { useEffect, useState } from 'react';
 import { GetContext } from '../context/Context';
 
 export const ModalDataCasino = () => {
-  const {
-    modalOpen,
-    setModalOpen,
-    chooseCasino: item,
-    lang
-  } = GetContext();
+  const { modalOpen, setModalOpen, chooseCasino: item, lang } = GetContext();
   // const [CurrentLang, setCurrentLang] = useState('');
 
   let CurrentLang = '';
@@ -75,7 +70,29 @@ export const ModalDataCasino = () => {
                 <p className={s.textCircular}>{t('Reliability')}</p>
               </div>
 
-              
+              <div className={s.textsCircular}>
+                <CircularDeterminate
+                  variant='determinate'
+                  value={item.speed}
+                />
+                <p className={s.textCircular}>{t('Speed')}</p>
+              </div>
+
+              <div className={s.textsCircular}>
+                <CircularDeterminate
+                  variant='determinate'
+                  value={item.payout}
+                />
+                <p className={s.textCircular}>{t('Funds')}</p>
+              </div>
+
+              <div className={s.textsCircular}>
+                <CircularDeterminate
+                  variant='determinate'
+                  value={item.player_rating}
+                />
+                <p className={s.textCircular}>{t('grade')}</p>
+              </div>
             </div>
 
             <div className={s.texts}>
@@ -119,9 +136,8 @@ export const ModalDataCasino = () => {
               }}
               navigation={{
                 nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-              }
-              }
+                prevEl: '.swiper-button-prev',
+              }}
               modules={[Autoplay, Pagination, Navigation]}
             >
               <SwiperSlide>

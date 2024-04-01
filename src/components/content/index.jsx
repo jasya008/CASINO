@@ -17,6 +17,7 @@ export const Content = () => {
     });
   }, [search]);
 
+
   return (
     <>
       {search.trim() === ''

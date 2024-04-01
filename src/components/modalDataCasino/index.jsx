@@ -22,6 +22,8 @@ export const ModalDataCasino = () => {
   const { modalOpen, setModalOpen, chooseCasino: item, lang } = GetContext();
   // const [CurrentLang, setCurrentLang] = useState('');
 
+  console.log(item);
+
   let CurrentLang = '';
   let CurrentLangText = '';
   let CurrentLangPromoText = '';
@@ -128,7 +130,7 @@ export const ModalDataCasino = () => {
               grabCursor={true}
               centeredSlides={true}
               autoplay={{
-                delay: 2400,
+                delay: 3000,
                 disableOnInteraction: false,
               }}
               pagination={{

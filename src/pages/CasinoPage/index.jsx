@@ -143,7 +143,7 @@ export const CasinoesPage = () => {
             grabCursor={true}
             centeredSlides={true}
             autoplay={{
-              delay: 2400,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             pagination={{

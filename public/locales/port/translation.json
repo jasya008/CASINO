@@ -90,6 +90,7 @@
   "send_code": "Verifique o código enviado com sucesso!",
   "code_verified": "Código verificado com sucesso!",
   "new_password": "Nova Senha",
+  "new_password_repeat": "Repita a nova senha",
   "password_change": "Senha alterada com sucesso!",
   "recover-password": "Recuperar senha",
   "recover_password-text": "Crie uma nova senha forte que você não usa para outros sites",

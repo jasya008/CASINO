@@ -1,0 +1,116 @@
+.ModalNumberVerify {
+  display: none;
+}
+
+.modalShow {
+  display: block;
+}
+
+h1 {
+  color: var(--white);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  
+  @media (max-width: 430px) {
+    width: 400px;
+  }
+
+  @media (max-width: 376px) {
+    width: 370px;
+  }
+
+  width: 500px;
+  height: 550px;
+
+  border-radius: 25px;
+
+  background: #111321;
+
+  padding: 40px;
+
+  .title {
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: 30px;
+
+    color: var(--white);
+
+    @media (max-width: 376px) {
+      font-size: 27px;
+    }
+  }
+
+  .text {
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 18px;
+
+    color: var(--color);
+
+    width: 350px;
+
+    text-align: center;
+
+    @media (max-width: 376px) {
+      font-size: 16px;
+    }
+  }
+
+  span {
+    font-weight: 800;
+
+    cursor: pointer;
+  }
+
+  .inputs{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .input{
+      width: 47px;
+      height: 57px;
+  
+      border-radius: 10px;
+
+      font-size: 50px;
+      font-family: var(--font);
+      color: var(--color);
+      font-weight: 800;
+      text-align: center;
+
+      @media (max-width: 376px) {
+        width: 40px;
+        height: 50px;
+
+        font-size: 40px;
+      }
+    }
+  }
+
+
+  .btn {
+    width: 200px;
+    height: 40px;
+
+    border-radius: 30px;
+
+    background-color: var(--color);
+
+    font-size: 13px;
+    font-family: var(--font) !important;
+
+    color: var(--white);
+
+    border: none;
+
+    cursor: pointer;
+  }   
+}

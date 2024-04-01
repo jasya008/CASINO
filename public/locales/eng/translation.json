@@ -90,6 +90,7 @@
   "send_code": "Verify code sent successful!",
   "code_verified": "Code verified successfully!",
   "new_password": "New password",
+  "new_password_repeat": "Repeat new password",
   "recover-password": "Recover Password",
   "password_change":"Password changed successfully!",
   "recover_password-text": "Create a new strong password that you don’t use for other websites",

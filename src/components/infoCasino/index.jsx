@@ -9,7 +9,13 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const InfoCasino = ({ data }) => {
-  const { setModalOpen, setModalReview, setChooseCasino } = GetContext();
+  const {
+    setModalOpen,
+    setModalReview,
+    setChooseCasino,
+    chooseReview,
+    setChooseReview,
+  } = GetContext();
   const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -52,7 +58,7 @@ export const InfoCasino = ({ data }) => {
           </p>
           <Link
             className={s.text_reviewMobi}
-            onClick={setChooseCasino(data)}
+            onClick={setChooseReview(data)}
             to={`/review/${data.id}`}
           >
             {' '}

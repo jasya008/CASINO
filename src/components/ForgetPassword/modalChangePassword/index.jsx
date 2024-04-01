@@ -65,7 +65,7 @@ export const ModalChangepassword = () => {
             <img src={iconLock} alt='' className={s.icon} />
             <input
               onChange={(e) => setNewPassword(e.target.value)}
-              placeholder={t("new_password")}
+              placeholder={t("new_password_repeat")}
               className={s.input}
               type='password'
             />

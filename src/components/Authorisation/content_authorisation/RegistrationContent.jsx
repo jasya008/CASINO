@@ -15,10 +15,12 @@ import { useTranslation } from 'react-i18next';
 import AvatarUsers from '../avatarUsers';
 
 export const RegistrationContent = () => {
-  const { user, setUser, setLoginModal } = GetContext();
+  const { user, setUser, setLoginModal, setModalNumberVerifyRegistr } =
+    GetContext();
   const { t } = useTranslation();
 
   const USER_URL = 'http://127.0.0.1:8000/register/';
+  const URL_API = 'http://127.0.0.1:8000/send-verification-code/';
 
   const registerSchema = object({
     name: string()
@@ -60,26 +62,19 @@ export const RegistrationContent = () => {
         ...data,
       });
 
-      localStorage.setItem(
-        'user.id',
-        data.id
-      );
-      localStorage.setItem(
-        'user.email',
-        data.email
-      );
-      localStorage.setItem(
-        'user.avatar',
-        data.number_of_avatar
-      );
-      localStorage.setItem(
-        'user.name',
-        data.username
-      );
+      localStorage.setItem('user.id', data.id);
+      localStorage.setItem('user.email', data.email);
+      localStorage.setItem('user.avatar', data.number_of_avatar);
+      localStorage.setItem('user.name', data.username);
 
       setLoginModal(false);
+      setModalNumberVerifyRegistr(true);
 
-      toast.success(`${t('registered')}`, {
+      await axios.post(URL_API, {
+        email: getValues('email'),
+      });
+
+      toast.success(`${t('send_code')}`, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -106,7 +101,6 @@ export const RegistrationContent = () => {
       setLoginModal(true);
     }
   };
-
 
   return (
     <FormProvider {...methods}>
@@ -151,6 +145,7 @@ export const RegistrationContent = () => {
 
           <div className={s.textInput}>
             <p className={s.text}>{t('age')}</p>
+
             <InputTextfield
               className={s.inputAge}
               name='age'

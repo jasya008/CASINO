@@ -15,12 +15,15 @@ export const Context = ({ children }) => {
   const [modalLoginOpen, setLoginModal] = useState(false);
   const [modalEmailVerify, setModalEmailVerify] = useState(false);
   const [modalNumberVerify, setModalNumberVerify] = useState(false);
+  const [modalNumberVerifyRegist, setModalNumberVerifyRegistr] =
+    useState(false);
   const [modalReview, setModalReview] = useState(false);
   const [modalChangePassword, setModalChangePassword] = useState(false);
   const [initialModal, setIntitalModal] = useState(false);
   const [dataCasino, setDataCasino] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [chooseCasino, setChooseCasino] = useState([]);
+  const [chooseReview, setChooseReview] = useState([]);
   const [chooseGame, setChooseGame] = useState([]);
   const [chooseGamesWeek, setChooseGamesWeek] = useState([]);
   const [search, setSearch] = useState('');
@@ -102,6 +105,10 @@ export const Context = ({ children }) => {
           setModalNumberVerify,
           modalChangePassword,
           setModalChangePassword,
+          modalNumberVerifyRegist,
+          setModalNumberVerifyRegistr,
+          setChooseReview,
+          chooseReview
         }}
       >
         {children}

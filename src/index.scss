@@ -12,12 +12,18 @@
   --white: #fff;
 }
 
+body{
+  position: static;
+}
+
 .App {
+  // position: static;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
   overflow-x: hidden;
+
 
   background-color: #494966;
   background-size: cover;
@@ -302,6 +308,7 @@ header {
 }
 
 .popup {
+  // position: sticky;
   position: fixed;
   top: 40px;
 

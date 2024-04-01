@@ -37,7 +37,10 @@ export const RegistrationContent = () => {
     age: string()
       .nonempty(`${t('validationAge')}`)
       .min(2, `${t('validationMin')}`)
-      .max(2, `${t('validationMax')}`),
+      .max(2, `${t('validationMax')}`)
+      .refine((value) => Number(value) >= 18, {
+        message: `${t('validationAgeLimit')}`,
+      }),
   });
   const methods = useForm({
     resolver: zodResolver(registerSchema),

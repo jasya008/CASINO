@@ -77,7 +77,6 @@ header {
     @media (max-width: 435px) {
       font-size: 20px;
       margin-right: 5px;
-
     }
 
     @media (max-width: 400px) {
@@ -95,7 +94,7 @@ header {
       width: 200px;
     }
 
-    @media (max-width: 376px){
+    @media (max-width: 376px) {
       width: 176px;
     }
   }
@@ -287,12 +286,18 @@ header {
 .avatarImages {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 
   width: 260px;
 }
 
+.selected {
+  border-radius: 60%;
+  border: var(--color) 3.5px solid !important;
+}
+
 .avatar {
+
   cursor: pointer;
 }
 
@@ -319,3 +324,5 @@ header {
 
   cursor: pointer;
 }
+
+

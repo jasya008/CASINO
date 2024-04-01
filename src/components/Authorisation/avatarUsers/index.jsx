@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const AvatarUsers = ({ setState }) => {
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
   const avatars = [
     {
       id: 1,
@@ -28,17 +29,23 @@ const AvatarUsers = ({ setState }) => {
     },
   ];
 
+  const handleAvatarClick = (id) => {
+    setSelectedAvatar(id);
+    setState('avatar', id);
+  };
+
   return (
     <div className='avatarImages'>
       {avatars.map((avatar) => {
-
-        return <img
-          className='avatar'
-          src={avatar.img}
-          alt='error'
-          key={avatar.id}
-          onClick={() => setState('avatar', avatar.id)}
-        />;
+        return (
+          <img
+           className={`avatar ${avatar.id === selectedAvatar ? 'selected' : ''}`}
+            src={avatar.img}
+            alt='error'
+            key={avatar.id}
+            onClick={() => handleAvatarClick( avatar.id)}
+          />
+        );
       })}
     </div>
   );

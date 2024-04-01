@@ -173,7 +173,15 @@
 
 .Timer {
   display: none;
+  position: relative;
   margin-left: -60px;
+
+  .disable {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.619);
+  }
 
   .text {
     font-family: var(--font);

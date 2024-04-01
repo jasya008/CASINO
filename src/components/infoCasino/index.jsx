@@ -13,7 +13,6 @@ export const InfoCasino = ({ data }) => {
     setModalOpen,
     setModalReview,
     setChooseCasino,
-    chooseReview,
     setChooseReview,
   } = GetContext();
   const navigate = useNavigate();
@@ -58,7 +57,10 @@ export const InfoCasino = ({ data }) => {
           </p>
           <Link
             className={s.text_reviewMobi}
-            onClick={setChooseReview(data)}
+            onClick={() => {
+              setChooseReview(data);
+              setChooseCasino(data);
+            }}
             to={`/review/${data.id}`}
           >
             {' '}

@@ -5,14 +5,15 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import iconSort from '../../assets/sort.svg';
 import { ModalReview } from '../../components/modalReviews';
+import { toast } from 'react-toastify';
 
 export const ReviewsData = () => {
-  const { chooseCasino, setTrigger } = GetContext();
+  const {  chooseCasino, setTrigger } = GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
   const [openButtons, setOpenButtons] = useState(false);
   const [timeLeft, setTimeLeft] = useState(120);
-  const [timerOpen, setTimerOpen] = useState(false);
+  const [isTimerRunning, setIsTimerRunning] = useState(false);
 
   const { t } = useTranslation();
 
@@ -32,6 +33,18 @@ export const ReviewsData = () => {
       setTrigger((prev) => !prev);
 
       startTimer();
+      setIsTimerRunning(true);
+
+      toast.error(` ${t('timing_text')} ${formatTime(timeLeft)} `, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
     } catch (error) {
       console.log(error.message);
     }
@@ -42,7 +55,7 @@ export const ReviewsData = () => {
       setTimeLeft((prevTime) => {
         if (prevTime === 0) {
           clearInterval(interval);
-          setTimerOpen(false);
+          setIsTimerRunning(false);
           return 120;
         } else {
           return prevTime - 1;
@@ -91,18 +104,7 @@ export const ReviewsData = () => {
           </div>
         </div>
 
-        <div className={s.all_reviews}>
-          {' '}
-          <ModalReview />
-        </div>
-
-        <div className={timerOpen ? [s.Timer, s.openTimer].join(' ') : s.Timer}>
-          <div className='body'>
-            <p className={s.text}>
-              {t('timing_text')} {formatTime(timeLeft)}
-            </p>
-          </div>
-        </div>
+        <div className={s.all_reviews}><ModalReview /></div>
 
         <input
           type='text'
@@ -126,9 +128,11 @@ export const ReviewsData = () => {
           <button
             className={s.add_button}
             onClick={() => {
-              AddCommentsData();
-              setTimerOpen(true);
+              if (!isTimerRunning) {
+                AddCommentsData();
+              }
             }}
+            disabled={isTimerRunning}
           >
             {t('send')}
           </button>

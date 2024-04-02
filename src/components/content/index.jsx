@@ -2,31 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { InfoCasino } from '../infoCasino';
 import { GetContext } from '../context/Context';
 
-export const Content = () => {
-  const { search, filteredCasino, lang } = GetContext();
-  const [ResultSearch, setResultSearch] = useState([]);
+const Content = () => {
+  const { search, filteredCasino, lang, dataCasino } = GetContext();
+  const [resultSearch, setResultSearch] = useState([]);
 
   useEffect(() => {
-    filteredCasino?.forEach((item) => {
-      const element = item;
-      element.casino_name[lang]?.filter((item) => {
-        if (item.toLowerCase().includes(search.toLowerCase())) {
-          setResultSearch([element]);
-        }
-      });
-    });
-  }, [search]);
+    if (search.trim() !== '') {
+      const filteredResults = filteredCasino.filter((item) =>
+        item.casino_name[lang]?.some((name) =>
+          name.toLowerCase().includes(search.toLowerCase())
+        )
+      );
+      setResultSearch(filteredResults);
+    } else {
+      setResultSearch([]);
+    }
+  }, [search, filteredCasino, lang]);
 
+  const renderCasinoList = (casinos) => {
+    return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
+  };
 
   return (
     <>
-      {search.trim() === ''
-        ? filteredCasino.map((game) => {
-            return <InfoCasino key={game.id} data={game} />;
-          })
-        : ResultSearch.map((game) => {
-            return <InfoCasino key={game.id} data={game} />;
-          })}
+      {!filteredCasino.length && renderCasinoList(dataCasino)}
+      {search.trim() === '' ? renderCasinoList(filteredCasino) : renderCasinoList(resultSearch)}
     </>
   );
 };
+
+export default Content;

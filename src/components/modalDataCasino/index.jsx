@@ -22,7 +22,6 @@ export const ModalDataCasino = () => {
   const { modalOpen, setModalOpen, chooseCasino: item, lang } = GetContext();
   // const [CurrentLang, setCurrentLang] = useState('');
 
-  console.log(item);
 
   let CurrentLang = '';
   let CurrentLangText = '';

@@ -15,8 +15,7 @@ export const Context = ({ children }) => {
   const [modalLoginOpen, setLoginModal] = useState(false);
   const [modalEmailVerify, setModalEmailVerify] = useState(false);
   const [modalNumberVerify, setModalNumberVerify] = useState(false);
-  const [modalNumberVerifyRegist, setModalNumberVerifyRegistr] =
-    useState(false);
+  const [modalNumberVerifyRegist, setModalNumberVerifyRegistr] = useState(false);
   const [modalReview, setModalReview] = useState(false);
   const [modalChangePassword, setModalChangePassword] = useState(false);
   const [initialModal, setIntitalModal] = useState(false);
@@ -108,7 +107,7 @@ export const Context = ({ children }) => {
           modalNumberVerifyRegist,
           setModalNumberVerifyRegistr,
           setChooseReview,
-          chooseReview
+          chooseReview,
         }}
       >
         {children}

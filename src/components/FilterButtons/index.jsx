@@ -12,9 +12,13 @@ export const FilterButtons = () => {
     const updateItems = dataCasino.filter((curItem) => {
       return curItem.sorting_criteria == catItem;
     });
+    
     setfilteredCasino(updateItems);
     setActiveButton(catItem);
   };
+
+
+  
 
   return (
     <>

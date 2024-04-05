@@ -14,13 +14,10 @@ export const Layouts = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUser({
-      email: '',
-    });
+    setUser(null);
     localStorage.removeItem('user');
     navigate('/');
   };
-
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };

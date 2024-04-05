@@ -4,16 +4,12 @@ import { InfoAutomats } from '../infoAutomats';
 import { GetContext } from '../context/Context';
 
 export const AutomatsData = () => {
-  const { filteredGames, search, lang } = GetContext();
+  const { filteredGames, search, lang, dataGames } = GetContext();
   const [gamesSearch, setGamesSearch] = useState([]);
-  // const [filteredGames, setFilteredGames] = useState();
-
 
   useEffect(() => {
     filteredGames?.forEach((item) => {
       const element = item;
-      // console.log(element);
-      // console.log(element.game_name[lang]);
       const result = element.game_name[lang]
         .toLowerCase()
         .includes(search.toLowerCase());
@@ -23,16 +19,21 @@ export const AutomatsData = () => {
     });
   }, [search]);
 
+  const renderGameList = (games) => {
+    return games.map((automats) => (
+      <InfoAutomats key={automats.id} dataGames={automats} />
+    ));
+  };
+
   return (
     <div className='cardsAutomats'>
+      {!filteredGames.length && renderGameList(dataGames)}
       {search.trim() === ''
-        ? filteredGames.map((automats) => {
-            return <InfoAutomats key={automats.id} dataGames={automats} />;
-          })
-        : gamesSearch.map((automats) => {
-            return <InfoAutomats key={automats.id} dataGames={automats} />;
-          })}
+        ? renderGameList(filteredGames)
+        : renderGameList(gamesSearch)}
       <ModalGames />
     </div>
   );
 };
+
+//

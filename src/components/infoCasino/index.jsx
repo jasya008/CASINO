@@ -24,7 +24,7 @@ export const InfoCasino = ({ data }) => {
       <div className={s.card}>
         <p className={s.grade}>
           <img src={star} alt='' />
-          4.5
+          {data.editor_rating}
         </p>
         <img className={s.img} src={data.image_link} />
         <div className={s.all_texts}>

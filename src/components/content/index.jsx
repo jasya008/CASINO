@@ -23,10 +23,15 @@ const Content = () => {
     return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
   };
 
+  console.log(filteredCasino);
+  console.log(resultSearch);
+
   return (
     <>
-      {!filteredCasino.length && renderCasinoList(dataCasino)}
-      {search.trim() === '' ? renderCasinoList(filteredCasino) : renderCasinoList(resultSearch)}
+    {!filteredCasino.length && renderCasinoList(dataCasino)}
+      {search.trim() === ''
+        ? renderCasinoList(filteredCasino)
+        : renderCasinoList(resultSearch)}
     </>
   );
 };

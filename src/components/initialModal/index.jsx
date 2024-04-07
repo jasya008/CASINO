@@ -7,7 +7,7 @@ export const InitialModal = () => {
   const { initialModal, setInitialModal, user } = GetContext();
   const { t } = useTranslation();
 
-  const shouldRenderModal = !user; // Render the modal if the user is not registered
+  const shouldRenderModal = !user; 
 
   return (
     <>

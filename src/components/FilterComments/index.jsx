@@ -5,62 +5,52 @@ import { GetContext } from '../context/Context';
 
 export const FilterComments = ({ dataComment, setOpenButtons }) => {
   const { t } = useTranslation();
-  const [activeButton, setActiveButton] = useState(null);
-  const { filterComments, setFilterComments } = GetContext();
+  const [activeButton, setActiveButton] = useState('positive');
+  const {
+    filteredPositiveComments,
+    setFilteredPositiveComments,
+    filteredNegativeComments,
+    setFilteredNegativeComments,
+    setQwert,
+  } = GetContext();
 
   useEffect(() => {
-    setFilterComments(dataComment);
+    const positiveComments = dataComment.filter(
+      (comment) => comment.rating >= 70
+    );
+    const negativeComments = dataComment.filter(
+      (comment) => comment.rating < 70
+    );
+    setFilteredPositiveComments(positiveComments);
+    setFilteredNegativeComments(negativeComments);
   }, [dataComment]);
-
-  const positiveComments = filterComments.filter(
-    (comment) => comment.rating >= 70
-  );
-  const negativeComments = filterComments.filter(
-    (comment) => comment.rating < 70
-  );
 
   const handleButtonClick = (type) => {
     setActiveButton(type);
     if (type === 'positive') {
-      console.log('Positive comments:', positiveComments);
+      setQwert(true);
+      console.log('Positive comments:', filteredPositiveComments);
     } else if (type === 'negative') {
-      console.log('Negative comments:', negativeComments);
+      setQwert(false);
+      console.log('Negative comments:', filteredNegativeComments);
     }
+    setOpenButtons(false);
   };
 
   return (
     <>
       <button
         className={`${s.button} ${activeButton === 'positive' ? s.active : ''}`}
-        onClick={() => {
-          handleButtonClick('positive'), setOpenButtons(false);
-        }}
+        onClick={() => handleButtonClick('positive')}
       >
         {t('positive')}
       </button>
       <button
         className={`${s.button} ${activeButton === 'negative' ? s.active : ''}`}
-        onClick={() => {
-          handleButtonClick('negative'), setOpenButtons(false);
-        }}
+        onClick={() => handleButtonClick('negative')}
       >
         {t('negative')}
       </button>
     </>
   );
 };
-
-{
-  /* <div className={openButtons ? [s.Buttons, s.buttonsOpen].join(' ') : s.Buttons}>
-  <div className='body'>
-    <div className={s.searchButtons}>
-      <button className={s.button} onClick={() => setOpenButtons(false)}>
-        {t('positive')}
-      </button>
-      <button className={s.button} onClick={() => setOpenButtons(false)}>
-        {t('negative')}
-      </button>
-    </div>
-  </div>
-</div>; */
-}

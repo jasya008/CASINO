@@ -29,7 +29,10 @@ export const Context = ({ children }) => {
   const [search, setSearch] = useState('');
   const [filteredCasino, setfilteredCasino] = useState(dataCasino);
   const [filteredGames, setfilteredGames] = useState(dataGames);
-  const [filterComments, setFilterComments] = useState([]);
+  const [filteredPositiveComments, setFilteredPositiveComments] = useState([]);
+  const [filteredNegativeComments, setFilteredNegativeComments] = useState([]);
+  const [qwert, setQwert] = useState(true);
+
   const [lang, setLang] = useState('english');
   const [trigger, setTrigger] = useState(false);
   // USER SAVE
@@ -110,8 +113,12 @@ export const Context = ({ children }) => {
           setModalNumberVerifyRegistr,
           setChooseReview,
           chooseReview,
-          filterComments,
-          setFilterComments,
+          filteredPositiveComments,
+          setFilteredPositiveComments,
+          filteredNegativeComments,
+          setFilteredNegativeComments,
+          qwert,
+          setQwert,
         }}
       >
         {children}

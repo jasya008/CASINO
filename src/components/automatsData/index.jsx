@@ -28,8 +28,8 @@ export const AutomatsData = () => {
 
   return (
     <>
-    <Container fixed>
-    <div className='cardsAutomats'>
+    <Container fixed id="gamesSection" >
+    <div className='cardsAutomats' >
       {!filteredGames.length && renderGameList(dataGames)}
       {search.trim() === ''
         ? renderGameList(filteredGames)

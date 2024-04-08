@@ -5,20 +5,20 @@ import { GetContext } from '../context/Context';
 
 export const FilterButtons = () => {
   const { t } = useTranslation();
-  const { filteredCasino, setfilteredCasino, dataCasino } = GetContext();
+  const { filteredCasino, setfilteredCasino, dataCasino, setCasino } =
+    GetContext();
   const [activeButton, setActiveButton] = useState('All');
 
   const filterItems = (catItem) => {
     const updateItems = dataCasino.filter((curItem) => {
       return curItem.sorting_criteria == catItem;
     });
-    
+
     setfilteredCasino(updateItems);
     setActiveButton(catItem);
   };
 
-
-  
+ 
 
   return (
     <>

@@ -7,6 +7,10 @@ const Content = () => {
   const [resultSearch, setResultSearch] = useState([]);
 
   useEffect(() => {
+    filter();
+  }, [search, dataCasino, lang]);
+
+  const filter = () => {
     if (search.trim() !== '') {
       const filteredResults = filteredCasino.filter((item) =>
         item.casino_name[lang]?.some((name) =>
@@ -17,16 +21,19 @@ const Content = () => {
     } else {
       setResultSearch([]);
     }
-  }, [search, filteredCasino, lang]);
-
-
+  };
 
   const renderCasinoList = (casinos) => {
     return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
   };
 
+  console.log(filteredCasino);
+
   return (
     <>
+      {/* {filteredCasino.length && renderCasinoList(dataCasino)} */}
+
+      
       {filteredCasino && filteredCasino.length > 0 ? (
         search.trim() === '' ? (
           renderCasinoList(filteredCasino)

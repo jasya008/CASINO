@@ -32,7 +32,6 @@ export const Context = ({ children }) => {
   const [filteredPositiveComments, setFilteredPositiveComments] = useState([]);
   const [filteredNegativeComments, setFilteredNegativeComments] = useState([]);
   const [qwert, setQwert] = useState(true);
-
   const [lang, setLang] = useState('english');
   const [trigger, setTrigger] = useState(false);
   // USER SAVE
@@ -65,6 +64,7 @@ export const Context = ({ children }) => {
   useEffect(() => {
     getData();
     getDataAutomats();
+    setfilteredCasino(dataCasino);
   }, []);
 
   return (

@@ -1,0 +1,23 @@
+.button {
+  background: none;
+
+  width: 70px;
+  height: 30px;
+
+  border-radius: 16px;
+
+  border: 2px solid #584b89;
+
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 400;
+
+  color: var(--white);
+
+  cursor: pointer;
+
+  text-align: center;
+}
+.active{
+    background-color: #584b89 !important;
+}

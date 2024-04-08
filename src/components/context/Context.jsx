@@ -15,7 +15,8 @@ export const Context = ({ children }) => {
   const [modalLoginOpen, setLoginModal] = useState(false);
   const [modalEmailVerify, setModalEmailVerify] = useState(false);
   const [modalNumberVerify, setModalNumberVerify] = useState(false);
-  const [modalNumberVerifyRegist, setModalNumberVerifyRegistr] = useState(false);
+  const [modalNumberVerifyRegist, setModalNumberVerifyRegistr] =
+    useState(false);
   const [modalReview, setModalReview] = useState(false);
   const [modalChangePassword, setModalChangePassword] = useState(false);
   const [initialModal, setIntitalModal] = useState(false);
@@ -28,6 +29,7 @@ export const Context = ({ children }) => {
   const [search, setSearch] = useState('');
   const [filteredCasino, setfilteredCasino] = useState(dataCasino);
   const [filteredGames, setfilteredGames] = useState(dataGames);
+  const [filterComments, setFilterComments] = useState([]);
   const [lang, setLang] = useState('english');
   const [trigger, setTrigger] = useState(false);
   // USER SAVE
@@ -108,6 +110,8 @@ export const Context = ({ children }) => {
           setModalNumberVerifyRegistr,
           setChooseReview,
           chooseReview,
+          filterComments,
+          setFilterComments,
         }}
       >
         {children}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ModalGames } from '../modalGames';
 import { InfoAutomats } from '../infoAutomats';
 import { GetContext } from '../context/Context';
+import { Container } from '@mui/material';
 
 export const AutomatsData = () => {
   const { filteredGames, search, lang, dataGames } = GetContext();
@@ -26,6 +27,8 @@ export const AutomatsData = () => {
   };
 
   return (
+    <>
+    <Container fixed>
     <div className='cardsAutomats'>
       {!filteredGames.length && renderGameList(dataGames)}
       {search.trim() === ''
@@ -33,6 +36,8 @@ export const AutomatsData = () => {
         : renderGameList(gamesSearch)}
       <ModalGames />
     </div>
+    </Container>
+    </>
   );
 };
 

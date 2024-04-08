@@ -63,7 +63,7 @@ export const Layouts = () => {
                 <NavLink className='a' to='/GameAutomats'>
                   {t('page_name')}
                 </NavLink>
-                {user.email ? (
+                {user && user.email ? (
                   <button className='navbar_button' onClick={handleLogout}>
                     Exit
                   </button>
@@ -75,7 +75,6 @@ export const Layouts = () => {
                     {t('login')}
                   </button>
                 )}
-                
               </div>
             </div>
           </Container>

@@ -5,13 +5,11 @@ import { GetContext } from '../context/Context';
 import star from '../../assets/star.svg';
 import axios from 'axios';
 
-export const ModalReview = () => {
-  const { chooseCasino, trigger } = GetContext();
-  const [dataComment, setDataComment] = useState([]);
+export const ModalReview = ({ setDataComment, dataComment }) => {
+  const { chooseCasino, trigger, filterComments } = GetContext();
   const API_Comments = `http://127.0.0.1:8000/casinos/${chooseCasino.id}/comments/`;
-
   const { t } = useTranslation();
-
+  
   const getCommentsData = async () => {
     try {
       const { data } = await axios(API_Comments);
@@ -27,26 +25,65 @@ export const ModalReview = () => {
 
   return (
     <>
-      {dataComment.map((comment) => (
-        <div className={s.comment_user}>
-          <div className={s.user}>
-          <img className={s.avatar} src={`/static/images/iconUser` + comment.user?.number_of_avatar + ".svg"} alt="error" /> 
-            <p className={s.user_email}>{comment.user.email}</p>
-          </div>
-          <div className={s.comment}>
-            <div className={s.all_coment}>
-              <p className={s.text_date}>{comment.created_at}</p>
-              <p className={s.text_comment}>{comment.comment_text}</p>
+      {(filterComments || []).length > 0 ? (
+        filterComments.map((comment) => (
+          <div className={s.comment_user} key={comment.id}>
+            <div className={s.user}>
+              <img
+                className={s.avatar}
+                src={
+                  `/static/images/iconUser` +
+                  comment.user?.number_of_avatar +
+                  '.svg'
+                }
+                alt='error'
+              />
+              <p className={s.user_email}>{comment.user.email}</p>
             </div>
+            <div className={s.comment}>
+              <div className={s.all_coment}>
+                <p className={s.text_date}>{comment.created_at}</p>
+                <p className={s.text_comment}>{comment.comment_text}</p>
+              </div>
 
-            <p className={s.rating_default_text}>
-              {t('user_rating')}
-              <img src={star} alt='' />
-              {comment.rating}
-            </p>
+              <p className={s.rating_default_text}>
+                {t('user_rating')}
+                <img src={star} alt='' />
+                {comment.rating}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        dataComment.map((comment) => (
+          <div className={s.comment_user} key={comment.id}>
+            <div className={s.user}>
+              <img
+                className={s.avatar}
+                src={
+                  `/static/images/iconUser` +
+                  comment.user?.number_of_avatar +
+                  '.svg'
+                }
+                alt='error'
+              />
+              <p className={s.user_email}>{comment.user.email}</p>
+            </div>
+            <div className={s.comment}>
+              <div className={s.all_coment}>
+                <p className={s.text_date}>{comment.created_at}</p>
+                <p className={s.text_comment}>{comment.comment_text}</p>
+              </div>
+
+              <p className={s.rating_default_text}>
+                {t('user_rating')}
+                <img src={star} alt='' />
+                {comment.rating}
+              </p>
+            </div>
+          </div>
+        ))
+      )}
     </>
   );
 };

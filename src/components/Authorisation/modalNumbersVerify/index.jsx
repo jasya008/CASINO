@@ -46,7 +46,7 @@ export const ModalNumberVerifyRegistr = () => {
 
       setModalNumberVerifyRegistr(false);
     } catch (error) {
-      toast.error(error.preview, {
+      toast.error(error.message, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,

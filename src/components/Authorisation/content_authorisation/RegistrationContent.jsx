@@ -62,7 +62,7 @@ export const RegistrationContent = () => {
       });
 
       setUser({
-        ...data,
+        ...data
       });
 
       localStorage.setItem('user.id', data.id);
@@ -90,7 +90,7 @@ export const RegistrationContent = () => {
 
       reset();
     } catch (error) {
-      toast.error(error.preview, {
+      toast.error(JSON.stringify(error.response.data), { 
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -100,6 +100,8 @@ export const RegistrationContent = () => {
         progress: undefined,
         theme: 'dark',
       });
+      
+      
 
       setLoginModal(true);
     }

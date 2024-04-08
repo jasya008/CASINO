@@ -19,19 +19,31 @@ const Content = () => {
     }
   }, [search, filteredCasino, lang]);
 
+
+
   const renderCasinoList = (casinos) => {
     return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
   };
 
-  console.log(filteredCasino);
-  console.log(resultSearch);
-
   return (
     <>
-    {!filteredCasino.length && renderCasinoList(dataCasino)}
-      {search.trim() === ''
-        ? renderCasinoList(filteredCasino)
-        : renderCasinoList(resultSearch)}
+      {filteredCasino && filteredCasino.length > 0 ? (
+        search.trim() === '' ? (
+          renderCasinoList(filteredCasino)
+        ) : (
+          renderCasinoList(resultSearch)
+        )
+      ) : (
+        <p
+          style={{
+            color: 'white',
+            fontFamily: 'var(--font)',
+            fontSize: '30px',
+          }}
+        >
+          No casinos found
+        </p>
+      )}
     </>
   );
 };

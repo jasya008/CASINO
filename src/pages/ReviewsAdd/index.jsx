@@ -6,14 +6,16 @@ import axios from 'axios';
 import iconSort from '../../assets/sort.svg';
 import { ModalReview } from '../../components/modalReviews';
 import { toast } from 'react-toastify';
+import { FilterComments } from '../../components/FilterComments';
 
 export const ReviewsData = () => {
-  const {  chooseCasino, setTrigger } = GetContext();
+  const { chooseCasino, setTrigger } = GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
   const [openButtons, setOpenButtons] = useState(false);
   const [timeLeft, setTimeLeft] = useState(120);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [dataComment, setDataComment] = useState([]);
 
   const { t } = useTranslation();
 
@@ -88,23 +90,20 @@ export const ReviewsData = () => {
         >
           <div className='body'>
             <div className={s.searchButtons}>
-              <button
-                className={s.button}
-                onClick={() => setOpenButtons(false)}
-              >
-                {t('positive')}
-              </button>
-              <button
-                className={s.button}
-                onClick={() => setOpenButtons(false)}
-              >
-                {t('negative')}
-              </button>
+              <FilterComments
+                dataComment={dataComment}
+                setOpenButtons={setOpenButtons}
+              />
             </div>
           </div>
         </div>
 
-        <div className={s.all_reviews}><ModalReview /></div>
+        <div className={s.all_reviews}>
+          <ModalReview
+            dataComment={dataComment}
+            setDataComment={setDataComment}
+          />
+        </div>
 
         <input
           type='text'

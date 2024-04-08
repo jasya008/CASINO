@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
 import { toast } from 'react-toastify';
+import { FilterComments } from '../FilterComments';
 
 export const ReviewsData = () => {
   const { modalReview, setModalReview, chooseCasino, setTrigger } =
@@ -16,6 +17,9 @@ export const ReviewsData = () => {
   const [addCommentRating, setAddCommentRating] = useState('');
   const [timeLeft, setTimeLeft] = useState(120);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
+  const [dataComment, setDataComment] = useState([]);
+  const [openButtons, setOpenButtons] = useState(false);
+
 
   const { t } = useTranslation();
 
@@ -91,12 +95,21 @@ export const ReviewsData = () => {
               <img className={s.img_sort} src={iconSort} alt='' />
               {t('sort')}:
             </p>
-            <button className={s.button}>{t('positive')}</button>
-            <button className={s.button}>{t('negative')}</button>
+            <FilterComments
+              dataComment={dataComment}
+              setOpenButtons={setOpenButtons}
+            />
           </div>
           <CloseIcon className='icon' onClick={() => setModalReview(false)} />
         </div>
-        <div className={s.all_reviews}>{modalReview && <ModalReview />}</div>
+        <div className={s.all_reviews}>
+          {modalReview && (
+            <ModalReview
+              dataComment={dataComment}
+              setDataComment={setDataComment}
+            />
+          )}
+        </div>
         <div className={s.input_button}>
           <input
             type='text'
@@ -110,7 +123,6 @@ export const ReviewsData = () => {
             onClick={() => {
               if (!isTimerRunning) {
                 AddCommentsData();
-                
               }
             }}
             disabled={isTimerRunning}
@@ -121,7 +133,7 @@ export const ReviewsData = () => {
         <div className={s.rating}>
           <p className={s.rating_text}>{t('add_rating')}</p>
           <input
-            type='number'
+            placeholder='1-100'
             value={addCommentRating}
             onChange={(e) => setAddCommentRating(e.target.value)}
             className={s.rating_input}

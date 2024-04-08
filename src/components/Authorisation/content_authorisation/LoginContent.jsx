@@ -60,7 +60,7 @@ export const LoginContent = () => {
 
       setLoginModal(false);
     } catch (error) {
-      toast.error(error.message, {
+      toast.error(`${t('errorLogin')}`, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,

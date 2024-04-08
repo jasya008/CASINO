@@ -96,5 +96,6 @@
   "recover_password-text": "Create a new strong password that you don’t use for other websites",
   "button_recoverPassword": "Log in with a new password",
   "timing_text":" You can post comment after:",
-  "validationAgeLimit": "You are not yet 18"
+  "validationAgeLimit": "You are not yet 18",
+  "errorLogin":"Incorrect information provided"
 }

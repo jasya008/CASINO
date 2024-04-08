@@ -96,6 +96,7 @@
   "recover_password-text": "Crie uma nova senha forte que você não usa para outros sites",
   "button_recoverPassword": "Faça login com uma nova senha",
   "timing_text": " Você pode postar comentários depois:",
-  "validationAgeLimit": " Você ainda não tem 18 anos"
+  "validationAgeLimit": " Você ainda não tem 18 anos",
+  "errorLogin":"Informações incorretas fornecidas"
 }
 

@@ -8,6 +8,12 @@ export const FilterButtons = () => {
   const { filteredCasino, setfilteredCasino, dataCasino, setCasino } =
     GetContext();
   const [activeButton, setActiveButton] = useState('All');
+  
+  useEffect(() => {
+    setActiveButton('All');
+    setfilteredCasino(dataCasino);
+  }, [dataCasino, setfilteredCasino]);
+
 
   const filterItems = (catItem) => {
     const updateItems = dataCasino.filter((curItem) => {
@@ -18,15 +24,13 @@ export const FilterButtons = () => {
     setActiveButton(catItem);
   };
 
- 
-
   return (
     <>
       <div className={s.searchButtons}>
         <button
           className={`${s.button} ${activeButton == 'All' ? s.active : ''}`}
           onClick={() => {
-            setfilteredCasino(dataCasino);
+            setfilteredCasino(dataCasino)
             setActiveButton('All');
           }}
         >

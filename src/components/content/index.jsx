@@ -27,8 +27,6 @@ const Content = () => {
     return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
   };
 
-  console.log(filteredCasino);
-
   return (
     <>
       {/* {filteredCasino.length && renderCasinoList(dataCasino)} */}

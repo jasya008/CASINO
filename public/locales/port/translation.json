@@ -83,7 +83,7 @@
   "reset_password": "Redefinir senha",
   "back_sign": "Voltar para fazer login",
   "get_code": "Obtenha seu código",
-  "text_getCode": "Por favor, insira o código de 4 dígitos que será enviado para o seu endereço de e-mail",
+  "text_getCode": "Por favor, insira o código de 6 dígitos que será enviado para o seu endereço de e-mail",
   "text_recieveCode": "Se você não recebeu o código: ",
   "resend": "Reenviar",
   "verify_btn": "Verifique e prossiga",

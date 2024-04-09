@@ -83,7 +83,7 @@
   "reset_password": "Reset Password",
   "back_sign": "Back to sign in",
   "get_code": "Get Your Code",
-  "text_getCode": "Please enter the 4 digit code that send to your email address ",
+  "text_getCode": "Please enter the 6 digit code that send to your email address ",
   "text_recieveCode": "If you didn’t receive code: ",
   "resend": "Resend",
   "verify_btn": "Verify and Proceed",

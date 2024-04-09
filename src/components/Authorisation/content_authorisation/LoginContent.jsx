@@ -35,15 +35,15 @@ export const LoginContent = () => {
 
   const onLoginSubmit = async () => {
     try {
-      const { data } = await axios.post(LOGIN_URL,  {
+      const { data } = await axios.post(LOGIN_URL, {
         email: getValues('email'),
         password: getValues('password'),
       });
-
       setUser({
         ...data,
       });
 
+      localStorage.setItem('user.email', data.email);
 
       toast.success(`${t('logenned')}`, {
         position: 'top-right',

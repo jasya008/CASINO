@@ -14,8 +14,8 @@ export const Layouts = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('user');
+    setUser("");
+    localStorage.removeItem('user.email');
     navigate('/');
   };
   const changeLanguage = (language) => {
@@ -63,7 +63,7 @@ export const Layouts = () => {
                 <NavLink className='a' to='/GameAutomats'>
                   {t('page_name')}
                 </NavLink>
-                {user && user.email ? (
+                {user.email ? (
                   <button className='navbar_button' onClick={handleLogout}>
                     Exit
                   </button>

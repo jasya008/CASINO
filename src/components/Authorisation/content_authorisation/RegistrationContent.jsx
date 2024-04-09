@@ -46,7 +46,6 @@ export const RegistrationContent = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  console.log();
 
   const { handleSubmit, reset, setValue, getValues } = methods;
 
@@ -177,5 +176,7 @@ export const RegistrationContent = () => {
         </div>
       </form>
     </FormProvider>
+
+    
   );
 };

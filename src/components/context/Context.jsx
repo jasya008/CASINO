@@ -19,7 +19,7 @@ export const Context = ({ children }) => {
     useState(false);
   const [modalReview, setModalReview] = useState(false);
   const [modalChangePassword, setModalChangePassword] = useState(false);
-  const [initialModal, setIntitalModal] = useState(false);
+
   const [dataCasino, setDataCasino] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [chooseCasino, setChooseCasino] = useState([]);
@@ -77,8 +77,8 @@ export const Context = ({ children }) => {
           setLoginModal,
           modalReview,
           setModalReview,
-          initialModal,
-          setIntitalModal,
+          // initialModal,
+          // setIntitalModal,
           user,
           setUser,
           dataCasino,

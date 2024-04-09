@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './index.module.scss';
 import { GetContext } from '../context/Context';
 import { useTranslation } from 'react-i18next';
 
 export const InitialModal = () => {
-  const { initialModal, setInitialModal, user } = GetContext();
+  const {  user } = GetContext();
+  const [initialModal, setIntitalModal] = useState(false);
   const { t } = useTranslation();
 
   const shouldRenderModal = !user; 
@@ -21,7 +22,7 @@ export const InitialModal = () => {
             <div className={s.modal}>
               <p className={s.text}>{t('firstModaltext')}</p>
               <div className={s.buttons}>
-                <button onClick={() => setInitialModal(true)} className={s.button}>
+                <button onClick={() => setIntitalModal(true)} className={s.button}>
                   {t('yes')}
                 </button>
                 <button className={s.button}><a className={s.butt} href="https://www.google.com/">{t('no')}</a></button>

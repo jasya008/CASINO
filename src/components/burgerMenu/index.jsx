@@ -30,7 +30,7 @@ const BurgerMenu = () => {
         <Link className={s.link} to='/GameAutomats'>
           {t('page_name')}
         </Link>
-        {user.email ? (
+        {user ? (
           <button className={s.navbar_button} onClick={handleLogout}>
             Exit
           </button>

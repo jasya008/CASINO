@@ -44,7 +44,7 @@ export const ModalNumberVerifyRegistr = () => {
         theme: 'dark',
       });
 
-      setModalNumberVerifyRegistr(false);
+      setModalNumberVerifyRegistr(false); 
     } catch (error) {
       toast.error(error.message, {
         position: 'top-right',

@@ -28,17 +28,28 @@ export const AutomatsData = () => {
 
   return (
     <>
-    <Container fixed id="gamesSection" >
-    <div className='cardsAutomats' >
-      {!filteredGames.length && renderGameList(dataGames)}
-      {search.trim() === ''
-        ? renderGameList(filteredGames)
-        : renderGameList(gamesSearch)}
-      <ModalGames />
-    </div>
-    </Container>
+      <Container fixed id='gamesSection'>
+        <div className='cardsAutomats'>
+          {filteredGames && filteredGames.length > 0 ? (
+            search.trim() === '' ? (
+              renderGameList(filteredGames)
+            ) : (
+              renderGameList(gamesSearch)
+            )
+          ) : (
+            <p
+              style={{
+                color: 'white',
+                fontFamily: 'var(--font)',
+                fontSize: '30px',
+              }}
+            >
+              No games found
+            </p>
+          )}
+          <ModalGames />
+        </div>
+      </Container>
     </>
   );
 };
-
-//

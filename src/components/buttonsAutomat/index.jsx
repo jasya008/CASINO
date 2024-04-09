@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import s from './index.module.scss';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,11 @@ export const ButtonsAutomat = () => {
     setfilteredGames(updataGames);
     setActiveButton(catGames);
   };
+
+  useEffect(() => {
+    setActiveButton('All');
+    setfilteredGames(dataGames);
+  }, [dataGames, setfilteredGames]);
 
   return (
     <Container fixed>

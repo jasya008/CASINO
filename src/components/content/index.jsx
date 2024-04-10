@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { InfoCasino } from '../infoCasino';
 import { GetContext } from '../context/Context';
+import { CasinoForGames } from '../casinoeForGames';
 
 const Content = () => {
   const { search, filteredCasino, lang, dataCasino } = GetContext();
@@ -23,15 +24,19 @@ const Content = () => {
     }
   };
 
+
   const renderCasinoList = (casinos) => {
-    return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
+    return casinos.map((game) => 
+      <InfoCasino key={game.id} data={game} />
+    );
   };
+
+  
 
   return (
     <>
       {/* {filteredCasino.length && renderCasinoList(dataCasino)} */}
 
-      
       {filteredCasino && filteredCasino.length > 0 ? (
         search.trim() === '' ? (
           renderCasinoList(filteredCasino)

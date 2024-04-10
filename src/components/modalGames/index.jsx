@@ -9,6 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
 import { useEffect, useState } from 'react';
 import { ModalDataCasino } from '../modalDataCasino';
+import { CasinoForGames } from '../casinoeForGames';
 
 export const ModalGames = () => {
   const {
@@ -138,6 +139,8 @@ export const ModalGames = () => {
                 <p className={s.textOtherside}>{CurrentPlatformsGame}</p>
               </div>
             </div>
+
+            <CasinoForGames/>
           </div>
         </div>
       </animated.div>

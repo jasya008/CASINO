@@ -7,8 +7,8 @@ import { ButtonsAutomat } from '../../components/buttonsAutomat';
 import { TopAutomatGames } from '../../components/TopAutomatGames';
 import { ReviewsData } from '../../components/modalReviewsData';
 import { useTranslation } from 'react-i18next';
-import { FilterBtnGamesMobile } from '../../components/filterButtonsGamesMobile';
 import { Link } from 'react-router-dom';
+import { FilterBtnGamesMobile } from '../../components/filterButtonsGamesMobile';
 
 export const GamesAutomats = () => {
   const { t } = useTranslation();

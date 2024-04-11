@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { Footer } from '../footer';
 import { GetContext } from '../context/Context';
@@ -13,8 +13,22 @@ export const Layouts = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user.email');
+    if (storedUser) {
+      setUser({ email: storedUser });
+    }
+  }, []); // Run this effect only once on component mount
+
+  const handleLogin = () => {
+    // Simulating a successful login, replace this with your actual login logic
+    const loggedInUser = { email: 'example@example.com' };
+    setUser(loggedInUser);
+    localStorage.setItem('user.email', loggedInUser.email);
+  };
+
   const handleLogout = () => {
-    setUser("");
+    setUser('');
     localStorage.removeItem('user.email');
     navigate('/');
   };
@@ -64,13 +78,19 @@ export const Layouts = () => {
                   {t('page_name')}
                 </NavLink>
                 {user.email ? (
-                  <button className='navbar_button' onClick={handleLogout}>
-                    Exit
-                  </button>
+                  <>
+                    <button className='navbar_button' onClick={handleLogout}>
+                      Exit
+                    </button>
+                    {/* Add any other logged-in content here */}
+                  </>
                 ) : (
                   <button
                     className='navbar_button'
-                    onClick={() => setLoginModal(!modalLoginOpen)}
+                    onClick={() => {
+                      setLoginModal(!modalLoginOpen);
+                      handleLogin
+                    }}
                   >
                     {t('login')}
                   </button>

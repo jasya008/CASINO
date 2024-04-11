@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import s from './index.module.scss';
 import { GetContext } from '../../context/Context';
 import axios from 'axios';
@@ -23,6 +23,20 @@ export const ModalNumberVerifyRegistr = () => {
   const { t } = useTranslation();
 
   let res = `${codeVerify}${codeVerify2}${codeVerify3}${codeVerify4}${codeVerify5}${codeVerify6}`;
+  const inputRefs = [
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+    useRef(null),
+  ];
+
+  const focusNextInput = (index) => {
+    if (index < inputRefs.length - 1) {
+      inputRefs[index + 1].current.focus();
+    }
+  };
 
   const NumberVerify = async () => {
     try {
@@ -30,8 +44,6 @@ export const ModalNumberVerifyRegistr = () => {
         email: localStorage.getItem('user.email'),
         verification_code: res,
       });
-
-      
 
       toast.success(`${t('registered')}`, {
         position: 'top-right',
@@ -44,7 +56,7 @@ export const ModalNumberVerifyRegistr = () => {
         theme: 'dark',
       });
 
-      setModalNumberVerifyRegistr(false); 
+      setModalNumberVerifyRegistr(false);
     } catch (error) {
       toast.error(error.message, {
         position: 'top-right',
@@ -73,35 +85,65 @@ export const ModalNumberVerifyRegistr = () => {
           <h1 className={s.title}>{t('get_code')}</h1>
           <p className={s.text}>{t('text_getCode')}</p>
           <div className={s.inputs}>
-            <input
+          <input
+              ref={inputRefs[0]}
               className={s.input}
               type='text'
-              onChange={(e) => setCodeVerify(e.target.value)}
+              maxLength={1}
+              onChange={(e) => {
+                setCodeVerify(e.target.value);
+                if (e.target.value.length === 1) focusNextInput(0);
+              }}
             />
             <input
+              ref={inputRefs[1]}
               className={s.input}
               type='text'
-              onChange={(e) => setCodeVerify2(e.target.value)}
+              maxLength={1}
+              onChange={(e) => {
+                setCodeVerify2(e.target.value);
+                if (e.target.value.length === 1) focusNextInput(1);
+              }}
             />
             <input
+              ref={inputRefs[2]}
               className={s.input}
               type='text'
-              onChange={(e) => setCodeVerify3(e.target.value)}
+              maxLength={1}
+              onChange={(e) => {
+                setCodeVerify3(e.target.value);
+                if (e.target.value.length === 1) focusNextInput(2);
+              }}
             />
             <input
+              ref={inputRefs[3]}
               className={s.input}
               type='text'
-              onChange={(e) => setCodeVerify4(e.target.value)}
+              maxLength={1}
+              onChange={(e) => {
+                setCodeVerify4(e.target.value);
+                if (e.target.value.length === 1) focusNextInput(3);
+              }}
             />
             <input
+              ref={inputRefs[4]}
               className={s.input}
               type='text'
-              onChange={(e) => setCodeVerify5(e.target.value)}
+              maxLength={1}
+              onChange={(e) => {
+                setCodeVerify5(e.target.value);
+                if (e.target.value.length === 1) focusNextInput(4);
+              }}
             />
             <input
+              ref={inputRefs[5]}
               className={s.input}
               type='text'
-              onChange={(e) => setCodeVerify6(e.target.value)}
+              maxLength={1}
+              onChange={(e) => {
+                setCodeVerify6(e.target.value);
+                if (e.target.value.length === 1) focusNextInput(5);
+              }}
             />
           </div>
 
@@ -110,6 +152,7 @@ export const ModalNumberVerifyRegistr = () => {
             <span
               onClick={() => {
                 setModalNumberVerifyRegistr(false);
+                setLoginModal(true);
               }}
             >
               {t('resend')}

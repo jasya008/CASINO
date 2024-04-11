@@ -7,12 +7,11 @@ import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
 import { GetContext } from '../context/Context';
+import { CasinoForGamesOfWK } from '../casinoeForGamesOfWK';
 
 export const ModalGamesOfWeek = () => {
   const { modalOpen, setModalOpen, chooseGamesWeek: game, lang } = GetContext();
   const { t } = useTranslation();
-
- 
 
   let CurrentNameGameofWeeek = '';
   let CurrentTextGameofWeeek = '';
@@ -65,9 +64,6 @@ export const ModalGamesOfWeek = () => {
     transform: modalOpen ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
-
-  
-
   return (
     <Container fixed>
       <animated.div style={animation} className='popup'>
@@ -105,36 +101,41 @@ export const ModalGamesOfWeek = () => {
               <p className={s.text_grade}>{t('grade')}</p>
             </div>
 
-            <div className={s.texts}>
-              <div className={s.one_side}>
-                <p className={s.textOneside}>{t('Date')}</p>
-                <p className={s.textOneside}>{t('genre')}</p>
-                <p className={s.textOneside}>{t('minBid')}</p>
-                <p className={s.textOneside}>{t('maxBid')}</p>
-                <p className={s.textOneside}>{t('maxpay')}</p>
-                <p className={s.textOneside}>{t('reels')}</p>
-                <p className={s.textOneside}>{t('rows')}</p>
-                <p className={s.textOneside}>{t('lines')}</p>
-                <p className={s.textOneside}>{t('rtp')}</p>
-                <p className={s.textOneside}>{t('Volatility')}</p>
-                <p className={s.textOneside}>{t('Platforms_button')}</p>
-              </div>
+            <div className={s.content}>
+              <div className={s.texts}>
+                <div className={s.one_side}>
+                  <p className={s.textOneside}>{t('Date')}</p>
+                  <p className={s.textOneside}>{t('genre')}</p>
+                  <p className={s.textOneside}>{t('minBid')}</p>
+                  <p className={s.textOneside}>{t('maxBid')}</p>
+                  <p className={s.textOneside}>{t('maxpay')}</p>
+                  <p className={s.textOneside}>{t('reels')}</p>
+                  <p className={s.textOneside}>{t('rows')}</p>
+                  <p className={s.textOneside}>{t('lines')}</p>
+                  <p className={s.textOneside}>{t('rtp')}</p>
+                  <p className={s.textOneside}>{t('Volatility')}</p>
+                  <p className={s.textOneside}>{t('Platforms_button')}</p>
+                </div>
 
-              <div className={s.one_side}>
-                <p className={s.textOtherside}>{game.release_date}</p>
-                <p className={s.textOtherside}>{CurrentGenreGameofWeeek}</p>
-                <p className={s.textOtherside}>{game.min_bet}</p>
-                <p className={s.textOtherside}>{game.max_bet}</p>
-                <p className={s.textOtherside}>{game.max_payout}</p>
-                <p className={s.textOtherside}>{game.reels}</p>
-                <p className={s.textOtherside}>{game.rows}</p>
-                <p className={s.textOtherside}>{game.pay_lines}</p>
-                <p className={s.textOtherside}>{game.rtp}</p>
-                <p className={s.textOtherside}>
-                  {CurrentVolatilityGameofWeeek}
-                </p>
-                <p className={s.textOtherside}>{CurrentPlatformsGameofWeeek}</p>
+                <div className={s.one_side}>
+                  <p className={s.textOtherside}>{game.release_date}</p>
+                  <p className={s.textOtherside}>{CurrentGenreGameofWeeek}</p>
+                  <p className={s.textOtherside}>{game.min_bet}</p>
+                  <p className={s.textOtherside}>{game.max_bet}</p>
+                  <p className={s.textOtherside}>{game.max_payout}</p>
+                  <p className={s.textOtherside}>{game.reels}</p>
+                  <p className={s.textOtherside}>{game.rows}</p>
+                  <p className={s.textOtherside}>{game.pay_lines}</p>
+                  <p className={s.textOtherside}>{game.rtp}</p>
+                  <p className={s.textOtherside}>
+                    {CurrentVolatilityGameofWeeek}
+                  </p>
+                  <p className={s.textOtherside}>
+                    {CurrentPlatformsGameofWeeek}
+                  </p>
+                </div>
               </div>
+              <CasinoForGamesOfWK />
             </div>
           </div>
         </div>

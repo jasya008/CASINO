@@ -25,7 +25,7 @@ export const InfoAutomats = ({ dataGames }) => {
           <img src={warning} alt='' />
           {t('information')}
         </p>
-        <Link className={s.text_mobile} to={`/game/${dataGames.id}`}>
+        <Link className={s.text_mobile} onClick={setChooseGame(dataGames)} to={`/game/${dataGames.id}`}>
           <img src={warning} alt='' />
           {t('information')}
         </Link>

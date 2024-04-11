@@ -3,8 +3,8 @@ import s from './index.module.scss';
 import { GetContext } from '../context/Context';
 import star from '../../assets/star.svg';
 
-export const CasinoForGames = () => {
-  const { dataCasino, chooseGame: item } = GetContext();
+export const CasinoForGamesOfWK = () => {
+  const { dataCasino, chooseGamesWeek: item } = GetContext();
   const [casino1, setCasino1] = useState(null);
   const [casino2, setCasino2] = useState(null);
 

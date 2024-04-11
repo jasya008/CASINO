@@ -35,7 +35,7 @@ export const ModalNumberVerify = () => {
 
   let res = `${codeVerify}${codeVerify2}${codeVerify3}${codeVerify4}${codeVerify5}${codeVerify6}`;
 
-  // Функция для перехода к следующему полю
+
   const focusNextInput = (index) => {
     if (index < inputRefs.length - 1) {
       inputRefs[index + 1].current.focus();

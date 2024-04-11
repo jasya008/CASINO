@@ -7,6 +7,7 @@ import { Container } from '@mui/material';
 import iconTrophy from '../../assets/Trophy.svg';
 import star from '../../assets/bigStar.svg';
 import axios from 'axios';
+import { CasinoForGamesOfWK } from '../../components/casinoeForGamesOfWK';
 
 export const GamesOfWeekPage = () => {
   const [game, setGame] = useState([]);
@@ -42,7 +43,6 @@ export const GamesOfWeekPage = () => {
       }
     }
   }, [game.length, id, game.id]);
-
 
   // GamesOfWeek Text
 
@@ -99,34 +99,37 @@ export const GamesOfWeekPage = () => {
           </div>
         </div>
 
-        <div className={s.texts}>
-          <div className={s.one_side}>
-            <p className={s.textOneside}>{t('Date')}</p>
-            <p className={s.textOneside}>{t('genre')}</p>
-            <p className={s.textOneside}>{t('minBid')}</p>
-            <p className={s.textOneside}>{t('maxBid')}</p>
-            <p className={s.textOneside}>{t('maxpay')}</p>
-            <p className={s.textOneside}>{t('reels')}</p>
-            <p className={s.textOneside}>{t('rows')}</p>
-            <p className={s.textOneside}>{t('lines')}</p>
-            <p className={s.textOneside}>{t('rtp')}</p>
-            <p className={s.textOneside}>{t('Volatility')}</p>
-            <p className={s.textOneside}>{t('Platforms_button')}</p>
-          </div>
+        <div className={s.content}>
+          <div className={s.texts}>
+            <div className={s.one_side}>
+              <p className={s.textOneside}>{t('Date')}</p>
+              <p className={s.textOneside}>{t('genre')}</p>
+              <p className={s.textOneside}>{t('minBid')}</p>
+              <p className={s.textOneside}>{t('maxBid')}</p>
+              <p className={s.textOneside}>{t('maxpay')}</p>
+              <p className={s.textOneside}>{t('reels')}</p>
+              <p className={s.textOneside}>{t('rows')}</p>
+              <p className={s.textOneside}>{t('lines')}</p>
+              <p className={s.textOneside}>{t('rtp')}</p>
+              <p className={s.textOneside}>{t('Volatility')}</p>
+              <p className={s.textOneside}>{t('Platforms_button')}</p>
+            </div>
 
-          <div className={s.one_side}>
-            <p className={s.textOtherside}> {gameObj.release_date}</p>
-            <p className={s.textOtherside}> {gameObj.CurrentGenreGame}</p>
-            <p className={s.textOtherside}> {gameObj.min_bet}</p>
-            <p className={s.textOtherside}> {gameObj.max_bet}</p>
-            <p className={s.textOtherside}> {gameObj.max_payout}</p>
-            <p className={s.textOtherside}> {gameObj.reels}</p>
-            <p className={s.textOtherside}> {gameObj.rows}</p>
-            <p className={s.textOtherside}> {gameObj.pay_lines}</p>
-            <p className={s.textOtherside}> {gameObj.rtp}</p>
-            <p className={s.textOtherside}> {CurrentVolatilityGameofWeeek}</p>
-            <p className={s.textOtherside}> {CurrentPlatformsGameofWeeek}</p>
+            <div className={s.one_side}>
+              <p className={s.textOtherside}> {gameObj.release_date}</p>
+              <p className={s.textOtherside}> {gameObj.CurrentGenreGame}</p>
+              <p className={s.textOtherside}> {gameObj.min_bet}</p>
+              <p className={s.textOtherside}> {gameObj.max_bet}</p>
+              <p className={s.textOtherside}> {gameObj.max_payout}</p>
+              <p className={s.textOtherside}> {gameObj.reels}</p>
+              <p className={s.textOtherside}> {gameObj.rows}</p>
+              <p className={s.textOtherside}> {gameObj.pay_lines}</p>
+              <p className={s.textOtherside}> {gameObj.rtp}</p>
+              <p className={s.textOtherside}> {CurrentVolatilityGameofWeeek}</p>
+              <p className={s.textOtherside}> {CurrentPlatformsGameofWeeek}</p>
+            </div>
           </div>
+          <CasinoForGamesOfWK />
         </div>
 
         <p className={s.text}> {CurrentTextGameofWeeek}</p>

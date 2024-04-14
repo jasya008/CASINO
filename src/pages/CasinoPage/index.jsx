@@ -27,6 +27,10 @@ export const CasinoesPage = () => {
 
   let CurrentLangText = '';
   let CurrentLangPromoText = '';
+  let CurrentLangPayments_images = '';
+  let CurrentLangProviders_images = '';
+  let CurrentLangInterface_languages_image = '';
+  let CurrentLangCountries_access = '';
 
   const { id } = useParams();
 
@@ -52,6 +56,12 @@ export const CasinoesPage = () => {
     }
   }, [casino.length, id, casino.id]);
 
+  if (casinoObj?.casino_name && casinoObj?.casino_text.length !== 0) {
+    CurrentLangText = casinoObj?.casino_text[lang]?.join(' ');
+  } else {
+    CurrentLangText = 'error';
+  }
+
   if (casinoObj?.promo_text && casinoObj?.promo_text.length !== 0) {
     CurrentLangPromoText = casinoObj?.promo_text[lang]?.join(' ');
   } else {
@@ -62,6 +72,38 @@ export const CasinoesPage = () => {
     CurrentLangText = casinoObj?.casino_text[lang]?.join(' ');
   } else {
     CurrentLangText = 'error';
+  }
+
+  // Casino payment images
+  if (casinoObj?.payments_images && casinoObj?.payments_images.length !== 0) {
+    CurrentLangPayments_images = casinoObj?.payments_images[lang]?.join(' ');
+  } else {
+    CurrentLangPayments_images = 'error';
+
+    //casino provide images
+  }
+  if (casinoObj?.providers_images && casinoObj?.providers_images.length !== 0) {
+    CurrentLangProviders_images = casinoObj?.providers_images[lang]?.join(' ');
+  } else {
+    CurrentLangProviders_images = 'error';
+
+    // casino Interface images
+  }
+  if (
+    casinoObj?.interface_languages_image &&
+    casinoObj?.interface_languages_image.length !== 0
+  ) {
+    CurrentLangInterface_languages_image =
+      casinoObj?.interface_languages_image[lang]?.join(' ');
+  } else {
+    CurrentLangInterface_languages_image = 'error';
+
+    // casino countriess
+  }
+  if (casinoObj?.countries_access && casinoObj?.countries_access.length !== 0) {
+    CurrentLangCountries_access = casinoObj?.countries_access[lang]?.join(' ');
+  } else {
+    CurrentLangCountries_access = 'error';
   }
 
   return (
@@ -94,7 +136,7 @@ export const CasinoesPage = () => {
 
               <p className={s.text_production}>
                 {' '}
-                {t('Available')} {casinoObj.countries_access}
+                {t('Available')} {CurrentLangCountries_access}
               </p>
             </div>
           </div>
@@ -191,22 +233,30 @@ export const CasinoesPage = () => {
           <div className={s.all_pays}>
             <div className={s.all_things}>
               <p className={s.text_pay}> {t('Payments')}</p>
-              <PicturesPay />
+              <p className={s.text_pay}>{CurrentLangPayments_images}</p>
             </div>
 
             <hr />
 
             <div className={s.all_things}>
               <p className={s.text_pay}> {t('Providers')}</p>
-              <PicturesPay />
+              {/* <PicturesPay /> */}
+              <p className={s.text_pay}>{CurrentLangProviders_images}</p>
             </div>
 
             <hr />
 
             <div className={s.all_things}>
               <p className={s.text_pay}> {t('Interface')}</p>
-              <PicturesPay />
+              <p className={s.text_pay}>
+                {CurrentLangInterface_languages_image}
+              </p>
             </div>
+
+            <p className={s.text_production}>
+              {' '}
+              {t('Available')} 
+            </p>
           </div>
 
           <p className={s.text}>{CurrentLangText}</p>

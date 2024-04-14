@@ -22,10 +22,13 @@ export const ModalDataCasino = () => {
   const { modalOpen, setModalOpen, chooseCasino: item, lang } = GetContext();
   // const [CurrentLang, setCurrentLang] = useState('');
 
-
   let CurrentLang = '';
   let CurrentLangText = '';
   let CurrentLangPromoText = '';
+  let CurrentLangPayments_images = '';
+  let CurrentLangProviders_images = '';
+  let CurrentLangInterface_languages_image = '';
+  let CurrentLangCountries_access = '';
 
   const { t } = useTranslation();
 
@@ -54,6 +57,36 @@ export const ModalDataCasino = () => {
   } else {
     CurrentLangPromoText = 'error';
   }
+  // Casino payment images
+  if (item?.payments_images && item?.payments_images.length !== 0) {
+    CurrentLangPayments_images = item?.payments_images[lang]?.join(' ');
+  } else {
+    CurrentLangPayments_images = 'error';
+  }
+  //casino provide images
+  if (item?.providers_images && item?.providers_images.length !== 0) {
+    CurrentLangProviders_images = item?.providers_images[lang]?.join(' ');
+  } else {
+    CurrentLangProviders_images = 'error';
+
+    // casino Interface images
+  }
+  if (
+    item?.interface_languages_image &&
+    item?.interface_languages_image.length !== 0
+  ) {
+    CurrentLangInterface_languages_image =
+      item?.interface_languages_image[lang]?.join(' ');
+  } else {
+    CurrentLangInterface_languages_image = 'error';
+
+    // casino countriess
+  }
+  if (item?.countries_access && item?.countries_access.length !== 0) {
+    CurrentLangCountries_access = item?.countries_access[lang]?.join(' ');
+  } else {
+    CurrentLangCountries_access = 'error';
+  }
 
   return (
     <Container fixed>
@@ -72,10 +105,7 @@ export const ModalDataCasino = () => {
               </div>
 
               <div className={s.textsCircular}>
-                <CircularDeterminate
-                  variant='determinate'
-                  value={item.speed}
-                />
+                <CircularDeterminate variant='determinate' value={item.speed} />
                 <p className={s.textCircular}>{t('Speed')}</p>
               </div>
 
@@ -177,26 +207,29 @@ export const ModalDataCasino = () => {
             <div className={s.all_pays}>
               <div className={s.all_things}>
                 <p className={s.text_pay}> {t('Payments')}</p>
-                <PicturesPay />
+                <p className={s.text_pay}>{CurrentLangPayments_images}</p>
               </div>
 
               <hr />
 
               <div className={s.all_things}>
                 <p className={s.text_pay}> {t('Providers')}</p>
-                <PicturesPay />
+                {/* <PicturesPay /> */}
+                <p className={s.text_pay}>{CurrentLangProviders_images}</p>
               </div>
 
               <hr />
 
               <div className={s.all_things}>
                 <p className={s.text_pay}> {t('Interface')}</p>
-                <PicturesPay />
+                <p className={s.text_pay}>
+                  {CurrentLangInterface_languages_image}
+                </p>
               </div>
 
               <p className={s.text_production}>
                 {' '}
-                {t('Available')} {item.countries_access}
+                {t('Available')} {CurrentLangCountries_access}
               </p>
             </div>
           </div>

@@ -8,7 +8,7 @@ export const InitialModal = () => {
   const [initialModal, setIntitalModal] = useState(false);
   const { t } = useTranslation();
 
-  const shouldRenderModal = !user; 
+  const shouldRenderModal = !user
 
   return (
     <>

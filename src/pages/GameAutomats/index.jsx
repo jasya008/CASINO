@@ -83,6 +83,7 @@ export const GamesAutomats = () => {
 
       <AutomatsData />
 
+
       <ReviewsData />
     </>
   );

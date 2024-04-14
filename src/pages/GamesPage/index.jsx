@@ -8,10 +8,11 @@ import iconTrophy from '../../assets/Trophy.svg';
 import star from '../../assets/bigStar.svg';
 import axios from 'axios';
 import { CasinoForGames } from '../../components/casinoeForGames';
+import { ModalGamesCasino } from '../../components/ModalGamesCasino';
 
 export const GamePage = () => {
   const [game, setGame] = useState([]);
-  const { lang } = GetContext();
+  const { lang, setModalGamesCasino } = GetContext();
   const [error, setError] = useState('');
   const [gameObj, setGameObj] = useState({});
   const { t } = useTranslation();
@@ -130,8 +131,12 @@ export const GamePage = () => {
 
         <p className={s.text}> {CurrentTextGame}</p>
 
-        <button className={s.button}>{t('buttonGame_text')}</button>
+        <button onClick={() => setModalGamesCasino(true)} className={s.button}>
+          {t('buttonGame_text')}
+        </button>
       </div>
+
+      <ModalGamesCasino />
     </Container>
   );
 };

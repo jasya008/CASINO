@@ -75,7 +75,7 @@
   "no": "No",
   "send": "Send",
   "review_add": "Leave a comment...",
-  "review":"Reviews",
+  "review": "Reviews",
   "add_rating": "Your rating:",
   "user_rating": "User rating:",
   "recover_password": "Recover Password",
@@ -92,10 +92,11 @@
   "new_password": "New password",
   "new_password_repeat": "Repeat new password",
   "recover-password": "Recover Password",
-  "password_change":"Password changed successfully!",
+  "password_change": "Password changed successfully!",
   "recover_password-text": "Create a new strong password that you don’t use for other websites",
   "button_recoverPassword": "Log in with a new password",
-  "timing_text":" You can post comment after:",
+  "timing_text": " You can post comment after:",
   "validationAgeLimit": "You are not yet 18",
-  "errorLogin":"Incorrect information provided"
+  "errorLogin": "Incorrect information provided",
+  "casinoGameModal": "Slot available for games"
 }

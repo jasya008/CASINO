@@ -24,7 +24,11 @@ export const InfoTopAutomatGames = ({ dataGameWeek }) => {
           {t('information')}
         </p>
 
-        <Link className={s.text_mobile} onClick={setChooseGame(dataGameWeek)} to={`/gamesOfWeek/${dataGameWeek.id}`}>
+        <Link
+          className={s.text_mobile}
+          onClick={() => setChooseGame(dataGameWeek)}
+          to={`/gamesOfWeek/${dataGameWeek.id}`}
+        >
           <img src={warning} alt='' />
           {t('information')}
         </Link>

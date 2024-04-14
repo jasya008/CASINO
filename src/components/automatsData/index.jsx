@@ -3,22 +3,18 @@ import { ModalGames } from '../modalGames';
 import { InfoAutomats } from '../infoAutomats';
 import { GetContext } from '../context/Context';
 import { Container } from '@mui/material';
+import { ModalGamesCasino } from '../ModalGamesCasino';
 
 export const AutomatsData = () => {
-  const { filteredGames, search, lang, dataGames } = GetContext();
+  const { filteredGames, search, lang } = GetContext();
   const [gamesSearch, setGamesSearch] = useState([]);
 
   useEffect(() => {
-    filteredGames?.forEach((item) => {
-      const element = item;
-      const result = element.game_name[lang]
-        .toLowerCase()
-        .includes(search.toLowerCase());
-      if (result) {
-        setGamesSearch([element]);
-      }
-    });
-  }, [search]);
+    const filteredResults = filteredGames?.filter((item) =>
+      item.game_name[lang].toLowerCase().includes(search.toLowerCase())
+    );
+    setGamesSearch(filteredResults || []);
+  }, [filteredGames, search, lang]);
 
   const renderGameList = (games) => {
     return games.map((automats) => (
@@ -34,7 +30,9 @@ export const AutomatsData = () => {
             search.trim() === '' ? (
               renderGameList(filteredGames)
             ) : (
-              renderGameList(gamesSearch)
+              gamesSearch.map((automats) => (
+                <InfoAutomats key={automats.id} dataGames={automats} />
+              ))
             )
           ) : (
             <p
@@ -48,6 +46,7 @@ export const AutomatsData = () => {
             </p>
           )}
           <ModalGames />
+          <ModalGamesCasino />
         </div>
       </Container>
     </>

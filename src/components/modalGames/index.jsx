@@ -17,6 +17,7 @@ export const ModalGames = () => {
     lang,
     setModalOpenGame,
     modalOpenGame,
+    setModalGamesCasino,
   } = GetContext();
   const { t } = useTranslation();
 
@@ -66,9 +67,6 @@ export const ModalGames = () => {
     transform: modalOpenGame ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
-
-
-  
   return (
     <Container fixed>
       <animated.div style={animation} className='popup'>
@@ -90,6 +88,10 @@ export const ModalGames = () => {
             <p className={s.text}>{CurrentTextGame}</p>
 
             <button
+              onClick={() => {
+                setModalGamesCasino(true);
+                setModalOpenGame(false);
+              }}
               className={s.button}
             >
               {t('buttonGame_text')}
@@ -140,11 +142,10 @@ export const ModalGames = () => {
               </div>
             </div>
 
-            <CasinoForGames/>
+            <CasinoForGames />
           </div>
         </div>
       </animated.div>
-      {/* {isModalCasinoOpen === true ? <InfoCasino /> : ''} */}
       <ModalDataCasino />
     </Container>
   );

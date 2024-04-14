@@ -88,7 +88,7 @@ export const Layouts = () => {
                   <button
                     className='navbar_button'
                     onClick={() => {
-                      setLoginModal(!modalLoginOpen);
+                      setLoginModal(false);
                       handleLogin
                     }}
                   >

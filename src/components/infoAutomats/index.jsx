@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './index.module.scss';
 import person from '../../assets/person.svg';
 import warning from '../../assets/!.svg';
-import { GetContext } from '../context/Context';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { GetContext } from '../context/Context';
 
 export const InfoAutomats = ({ dataGames }) => {
-  const { setChooseGame, modalOpenGame, setModalOpenGame, } = GetContext();
+  const { setChooseGame, setModalOpenGame } = GetContext();
   const { t } = useTranslation();
 
   return (
@@ -25,7 +25,11 @@ export const InfoAutomats = ({ dataGames }) => {
           <img src={warning} alt='' />
           {t('information')}
         </p>
-        <Link className={s.text_mobile} onClick={setChooseGame(dataGames)} to={`/game/${dataGames.id}`}>
+        <Link
+          className={s.text_mobile}
+          onClick={() => setChooseGame(dataGames)}
+          to={`/game/${dataGames.id}`}
+        >
           <img src={warning} alt='' />
           {t('information')}
         </Link>

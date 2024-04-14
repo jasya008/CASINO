@@ -19,7 +19,7 @@ export const Context = ({ children }) => {
     useState(false);
   const [modalReview, setModalReview] = useState(false);
   const [modalChangePassword, setModalChangePassword] = useState(false);
-  // const [initialModal, setIntitalModal] = useState(false);
+  const [modalGamesCasino, setModalGamesCasino] = useState(false);
   const [dataCasino, setDataCasino] = useState([]);
   const [dataGames, setDataGames] = useState([]);
   const [chooseCasino, setChooseCasino] = useState([]);
@@ -34,95 +34,77 @@ export const Context = ({ children }) => {
   const [qwert, setQwert] = useState(true);
   const [lang, setLang] = useState('english');
   const [trigger, setTrigger] = useState(false);
-  // USER SAVE
   const [user, setUser] = useState([]);
 
-  //   GET CASINO
-  const CasinoApi_URL = 'http://127.0.0.1:8000/all-casino-profiles/';
-
-  const getData = async () => {
+  //   Fetching Data
+  const fetchData = async (url, setter) => {
     try {
-      const { data } = await axios(CasinoApi_URL);
-      setDataCasino(data);
+      const { data } = await axios(url);
+      setter(data);
     } catch (error) {
-      //   console.log(error.message);
-    }
-  };
-
-  //   GET GAMES AUTOMAT
-  const AutomatsApi_URL = 'http://127.0.0.1:8000/all-game-profiles/';
-
-  const getDataAutomats = async () => {
-    try {
-      const { data } = await axios(AutomatsApi_URL);
-      setDataGames(data);
-    } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
 
   useEffect(() => {
-    getData();
-    getDataAutomats();
-    setfilteredCasino(dataCasino);
+    fetchData('http://127.0.0.1:8000/all-casino-profiles/', setDataCasino);
+    fetchData('http://127.0.0.1:8000/all-game-profiles/', setDataGames);
   }, []);
+
+  const contextValues = {
+    modalOpen,
+    setModalOpen,
+    modalLoginOpen,
+    setLoginModal,
+    modalReview,
+    setModalReview,
+    user,
+    setUser,
+    dataCasino,
+    setDataCasino,
+    dataGames,
+    setDataGames,
+    chooseCasino,
+    setChooseCasino,
+    chooseGame,
+    setChooseGame,
+    setSearch,
+    search,
+    filteredCasino,
+    setfilteredCasino,
+    filteredGames,
+    setfilteredGames,
+    lang,
+    setLang,
+    chooseGamesWeek,
+    setChooseGamesWeek,
+    modalOpenGame,
+    setModalOpenGame,
+    trigger,
+    setTrigger,
+    modalEmailVerify,
+    setModalEmailVerify,
+    modalNumberVerify,
+    setModalNumberVerify,
+    modalChangePassword,
+    setModalChangePassword,
+    modalNumberVerifyRegist,
+    setModalNumberVerifyRegistr,
+    setChooseReview,
+    chooseReview,
+    filteredPositiveComments,
+    setFilteredPositiveComments,
+    filteredNegativeComments,
+    setFilteredNegativeComments,
+    qwert,
+    setQwert,
+    modalGamesCasino,
+    setModalGamesCasino,
+  };
 
   return (
     <>
-      <initContext.Provider
-        value={{
-          modalOpen,
-          setModalOpen,
-          modalLoginOpen,
-          setLoginModal,
-          modalReview,
-          setModalReview,
-          // initialModal,
-          // setIntitalModal,
-          user,
-          setUser,
-          dataCasino,
-          setDataCasino,
-          dataGames,
-          setDataGames,
-          chooseCasino,
-          setChooseCasino,
-          chooseGame,
-          setChooseGame,
-          setSearch,
-          search,
-          filteredCasino,
-          setfilteredCasino,
-          filteredGames,
-          setfilteredGames,
-          lang,
-          setLang,
-          chooseGamesWeek,
-          setChooseGamesWeek,
-          modalOpenGame,
-          setModalOpenGame,
-          trigger,
-          setTrigger,
-          modalEmailVerify,
-          setModalEmailVerify,
-          modalNumberVerify,
-          setModalNumberVerify,
-          modalChangePassword,
-          setModalChangePassword,
-          modalNumberVerifyRegist,
-          setModalNumberVerifyRegistr,
-          setChooseReview,
-          chooseReview,
-          filteredPositiveComments,
-          setFilteredPositiveComments,
-          filteredNegativeComments,
-          setFilteredNegativeComments,
-          qwert,
-          setQwert,
-        }}
-      >
-        {children}
-      </initContext.Provider>
+      <initContext.Provider value={contextValues}>{children}</initContext.Provider>
     </>
   );
 };

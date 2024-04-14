@@ -97,6 +97,8 @@
   "button_recoverPassword": "Faça login com uma nova senha",
   "timing_text": " Você pode postar comentários depois:",
   "validationAgeLimit": " Você ainda não tem 18 anos",
-  "errorLogin":"Informações incorretas fornecidas"
+  "errorLogin":"Informações incorretas fornecidas",
+  "casinoGameModal": "Slot disponível para jogos"
+
 }
 

@@ -10,7 +10,7 @@ export const FilterBtnGamesMobile = () => {
 
   const filterGames = (catGames) => {
     const updataGames = dataGames.filter((curGame) => {
-      return curGame.sorting_criteria == catGames;
+      return curGame.sorting_criteria.includes(catGames);
     });
     setfilteredGames(updataGames);
   };
@@ -50,7 +50,7 @@ export const FilterBtnGamesMobile = () => {
             <button
               className={s.button}
               onClick={() => {
-                filterGames('Volacnoes');
+                filterGames('Volcanoes');
                 setOpenButtons(false);
               }}
             >

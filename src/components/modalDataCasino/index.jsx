@@ -6,7 +6,6 @@ import Star from '../../assets/bigStar.svg';
 import iconKing from '../../assets/kingIcon.svg';
 import handIcon from '../../assets/Hand-OneFinger.svg';
 import fileIcon from '../../assets/File.svg';
-import { PicturesPay } from './picturesPay';
 import CircularDeterminate from './progressCirculars';
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -52,8 +51,8 @@ export const ModalDataCasino = () => {
   }
 
   // Casino Promo Text
-  if (item?.promo_text && item?.promo_text.length !== 0) {
-    CurrentLangPromoText = item?.promo_text[lang]?.join(' ');
+  if (item?.promo_text && item.promo_text[lang]?.length !== 0) {
+    CurrentLangPromoText = item.promo_text[lang].join(' ');
   } else {
     CurrentLangPromoText = 'error';
   }
@@ -150,6 +149,9 @@ export const ModalDataCasino = () => {
               <div className={s.textGrade}>{t('editGrade')}</div>
             </div>
             <Swiper
+              style={{
+                '--swiper-pagination-color': '#ffcf3a',
+              }}
               width={250}
               height={130}
               className={s.swiper}
@@ -165,43 +167,35 @@ export const ModalDataCasino = () => {
               pagination={{
                 clickable: true,
               }}
-              navigation={{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              }}
-              modules={[Autoplay, Pagination, Navigation]}
+              modules={[Autoplay, Pagination]}
             >
-              <SwiperSlide>
-                <div className={s.advertising}>
-                  <img className={s.iconKing} src={iconKing} alt='' />
-                  <p className={s.text}>{CurrentLangPromoText}</p>
-                  <div className={s.all}>
-                    <p className={s.small_text}>{t('discount_text')}</p>
-                    <img src={handIcon} alt='' />
+              {Array.isArray(item.promo_code) &&
+                item.promo_code.map((code, index) => (
+                  <SwiperSlide key={index}>
+                    <div className={s.advertising}>
+                      <img className={s.iconKing} src={iconKing} alt='' />
+                      <p className={s.text}>
+                        {item.promo_text &&
+                        item.promo_text[lang] &&
+                        item.promo_text[lang][index]
+                          ? item.promo_text[lang][index].map((text) => (
+                              <span key={text}>{text} </span>
+                            ))
+                          : 'Error: Promo text not available'}
+                      </p>
+                      <div className={s.all}>
+                        <p className={s.small_text}>{t('discount_text')}</p>
+                        <img src={handIcon} alt='' />
 
-                    <CopyToClipboard text={item.promo_code}>
-                      <button className={s.button_uare}>
-                        {' '}
-                        {item.promo_code} <img src={fileIcon} alt='' />
-                      </button>
-                    </CopyToClipboard>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={s.advertising}>
-                  <img className={s.iconKing} src={iconKing} alt='' />
-                  <p className={s.text}>{CurrentLangPromoText}</p>
-                  <div className={s.all}>
-                    <p className={s.small_text}>{t('discount_text')}</p>
-                    <img src={handIcon} alt='' />
-                    <button className={s.button_uare}>
-                      {' '}
-                      {item.promo_code} <img src={fileIcon} alt='' />
-                    </button>
-                  </div>
-                </div>
-              </SwiperSlide>
+                        <CopyToClipboard text={code}>
+                          <button className={s.button_uare}>
+                            {code} <img src={fileIcon} alt='' />
+                          </button>
+                        </CopyToClipboard>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
             </Swiper>
 
             <div className={s.all_pays}>

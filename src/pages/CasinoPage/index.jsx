@@ -14,9 +14,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 // import 'swiper/css';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import { GetContext } from '../../components/context/Context.jsx';
-import { PicturesPay } from '../../components/modalDataCasino/picturesPay/index.jsx';
 
 export const CasinoesPage = () => {
   const [casino, setCasino] = useState([]);
@@ -176,6 +175,9 @@ export const CasinoesPage = () => {
           </div>
 
           <Swiper
+            style={{
+              '--swiper-pagination-color': '#ffcf3a',
+            }}
             width={250}
             height={130}
             className={s.swiper}
@@ -195,39 +197,35 @@ export const CasinoesPage = () => {
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev',
             }}
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Pagination]}
           >
-            <SwiperSlide>
-              <div className={s.advertising}>
-                <img className={s.iconKing} src={iconKing} alt='' />
-                <p className={s.text}>{CurrentLangPromoText}</p>
-                <div className={s.all}>
-                  <p className={s.small_text}>{t('discount_text')}</p>
-                  <img src={handIcon} alt='' />
+            {Array.isArray(casinoObj.promo_code) &&
+              casinoObj.promo_code.map((code, index) => (
+                <SwiperSlide key={index}>
+                  <div className={s.advertising}>
+                    <img className={s.iconKing} src={iconKing} alt='' />
+                    <p className={s.text}>
+                      {casinoObj.promo_text &&
+                      casinoObj.promo_text[lang] &&
+                      casinoObj.promo_text[lang][index]
+                        ? casinoObj.promo_text[lang][index].map((text) => (
+                            <span key={text}>{text} </span>
+                          ))
+                        : 'Error: Promo text not available'}
+                    </p>
+                    <div className={s.all}>
+                      <p className={s.small_text}>{t('discount_text')}</p>
+                      <img src={handIcon} alt='' />
 
-                  <CopyToClipboard text={casinoObj.promo_code}>
-                    <button className={s.button_uare}>
-                      {' '}
-                      {casinoObj.promo_code} <img src={fileIcon} alt='' />
-                    </button>
-                  </CopyToClipboard>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={s.advertising}>
-                <img className={s.iconKing} src={iconKing} alt='' />
-                <p className={s.text}>{CurrentLangPromoText}</p>
-                <div className={s.all}>
-                  <p className={s.small_text}>{t('discount_text')}</p>
-                  <img src={handIcon} alt='' />
-                  <button className={s.button_uare}>
-                    {' '}
-                    {casinoObj.promo_code} <img src={fileIcon} alt='' />
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
+                      <CopyToClipboard text={code}>
+                        <button className={s.button_uare}>
+                          {code} <img src={fileIcon} alt='' />
+                        </button>
+                      </CopyToClipboard>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
           </Swiper>
 
           <div className={s.all_pays}>
@@ -240,7 +238,6 @@ export const CasinoesPage = () => {
 
             <div className={s.all_things}>
               <p className={s.text_pay}> {t('Providers')}</p>
-              {/* <PicturesPay /> */}
               <p className={s.text_pay}>{CurrentLangProviders_images}</p>
             </div>
 
@@ -252,11 +249,6 @@ export const CasinoesPage = () => {
                 {CurrentLangInterface_languages_image}
               </p>
             </div>
-
-            <p className={s.text_production}>
-              {' '}
-              {t('Available')} 
-            </p>
           </div>
 
           <p className={s.text}>{CurrentLangText}</p>

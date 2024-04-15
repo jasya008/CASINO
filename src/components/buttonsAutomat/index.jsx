@@ -11,7 +11,7 @@ export const ButtonsAutomat = () => {
 
   const filterGames = (catGames) => {
     const updataGames = dataGames.filter((curGame) => {
-      return curGame.sorting_criteria == catGames;
+      return curGame.sorting_criteria.includes(catGames);
     });
     setfilteredGames(updataGames);
     setActiveButton(catGames);

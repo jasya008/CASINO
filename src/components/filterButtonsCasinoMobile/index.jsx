@@ -11,7 +11,7 @@ export const FilterBtnCasinoMobile = () => {
 
   const filterItems = (catItem) => {
     const updateItems = dataCasino.filter((curItem) => {
-      return curItem.sorting_criteria == catItem;
+      return curItem.sorting_criteria.includes(catItem);
     });
     setfilteredCasino(updateItems);
   };
@@ -126,3 +126,4 @@ export const FilterBtnCasinoMobile = () => {
     </>
   );
 };
+

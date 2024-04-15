@@ -17,9 +17,8 @@ export const FilterButtons = () => {
 
   const filterItems = (catItem) => {
     const updateItems = dataCasino.filter((curItem) => {
-      return curItem.sorting_criteria == catItem;
+      return curItem.sorting_criteria.includes(catItem);
     });
-
     setfilteredCasino(updateItems);
     setActiveButton(catItem);
   };
@@ -28,7 +27,7 @@ export const FilterButtons = () => {
     <>
       <div className={s.searchButtons}>
         <button
-          className={`${s.button} ${activeButton == 'All' ? s.active : ''}`}
+          className={`${s.button} ${activeButton === 'All' ? s.active : ''}`}
           onClick={() => {
             setfilteredCasino(dataCasino)
             setActiveButton('All');

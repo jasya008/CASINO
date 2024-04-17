@@ -35,6 +35,10 @@ export const Context = ({ children }) => {
   const [lang, setLang] = useState('english');
   const [trigger, setTrigger] = useState(false);
   const [user, setUser] = useState([]);
+  const [casino1, setCasino1] = useState(null);
+  const [casino2, setCasino2] = useState(null);
+  const [openCasino1Modal, setOpenCasino1Modal] = useState(false);
+  const [openCasino2Modal, setOpenCasino2Modal] = useState(false);
 
   //   Fetching Data
   const fetchData = async (url, setter) => {
@@ -100,11 +104,21 @@ export const Context = ({ children }) => {
     setQwert,
     modalGamesCasino,
     setModalGamesCasino,
+    openCasino1Modal,
+    setOpenCasino1Modal,
+    casino1,
+    setCasino1,
+    casino2,
+    setCasino2,
+    openCasino2Modal,
+    setOpenCasino2Modal,
   };
 
   return (
     <>
-      <initContext.Provider value={contextValues}>{children}</initContext.Provider>
+      <initContext.Provider value={contextValues}>
+        {children}
+      </initContext.Provider>
     </>
   );
 };

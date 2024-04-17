@@ -4,6 +4,8 @@ import { GetContext } from '../../context/Context';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 export const ModalNumberVerifyRegistr = () => {
   const {
@@ -82,6 +84,7 @@ export const ModalNumberVerifyRegistr = () => {
     >
       <div className='body'>
         <div className={s.content}>
+        <CloseIcon className={s.icon} onClick={() => setModalNumberVerifyRegistr(false)} />
           <h1 className={s.title}>{t('get_code')}</h1>
           <p className={s.text}>{t('text_getCode')}</p>
           <div className={s.inputs}>

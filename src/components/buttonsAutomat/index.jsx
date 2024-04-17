@@ -16,7 +16,6 @@ export const ButtonsAutomat = () => {
     setfilteredGames(updataGames);
     setActiveButton(catGames);
   };
-  console.log(filteredGames);
 
   useEffect(() => {
     setActiveButton('All');

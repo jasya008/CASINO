@@ -232,7 +232,7 @@ export const ModalCasino2 = () => {
 
               <div className={s.all_things}>
                 <p className={s.text_pay}> {t('Providers')}</p>
-                {/* <PicturesPay /> */}
+         
                 <p className={s.text_pay}>{CurrentLangProviders_images}</p>
               </div>
 

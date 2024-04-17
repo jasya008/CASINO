@@ -3,6 +3,7 @@ import s from './index.module.scss';
 import { GetContext } from '../context/Context';
 import star from '../../assets/star.svg';
 import { ModalCasino1 } from './ModalCasino1';
+import { Link } from 'react-router-dom';
 
 export const CasinoForGames = () => {
   const {
@@ -45,8 +46,6 @@ export const CasinoForGames = () => {
     CurrentLangPromoText2 = 'error';
   }
 
-  console.log(casino2);
-
   return (
     <>
       <div className={s.cards}>
@@ -73,6 +72,9 @@ export const CasinoForGames = () => {
           >
             {CurrentLangPromoText1}
           </p>
+          <Link className={s.LinkText} to={'/gamesCasino1'}>
+            {CurrentLangPromoText1}
+          </Link>
         </div>
 
         <div className={s.card}>
@@ -98,6 +100,9 @@ export const CasinoForGames = () => {
           >
             {CurrentLangPromoText2}
           </p>
+          <Link className={s.LinkText} to={'/gamesCasino2'}>
+            {CurrentLangPromoText2}
+          </Link>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ import { GetContext } from '../context/Context';
 
 export const ButtonsAutomat = () => {
   const { t } = useTranslation();
-  const { dataGames, setfilteredGames } = GetContext();
+  const { dataGames, setfilteredGames, filteredGames } = GetContext();
   const [activeButton, setActiveButton] = useState('All');
 
   const filterGames = (catGames) => {
@@ -16,6 +16,7 @@ export const ButtonsAutomat = () => {
     setfilteredGames(updataGames);
     setActiveButton(catGames);
   };
+  console.log(filteredGames);
 
   useEffect(() => {
     setActiveButton('All');
@@ -26,7 +27,7 @@ export const ButtonsAutomat = () => {
     <Container fixed>
       <div className={s.buttons}>
         <button
-          className={`${s.button} ${activeButton == 'All' ? s.active : ''}`}
+          className={`${s.button} ${activeButton === 'All' ? s.active : ''}`}
           onClick={() => {
             setfilteredGames(dataGames);
             setActiveButton('All');
@@ -36,9 +37,9 @@ export const ButtonsAutomat = () => {
         </button>
         <button
           className={`${s.button} ${
-            activeButton === 'The Best' ? s.active : ''
+            activeButton === 'The best' ? s.active : ''
           }`}
-          onClick={() => filterGames('The Best')}
+          onClick={() => filterGames('The best')}
         >
           {t('bests_button')}
         </button>

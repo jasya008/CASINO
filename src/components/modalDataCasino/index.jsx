@@ -23,7 +23,7 @@ export const ModalDataCasino = () => {
 
   let CurrentLang = '';
   let CurrentLangText = '';
-  let CurrentLangPromoText = '';
+  let CurrentLangPromoText = [];
   let CurrentLangPayments_images = '';
   let CurrentLangProviders_images = '';
   let CurrentLangInterface_languages_image = '';
@@ -52,9 +52,9 @@ export const ModalDataCasino = () => {
 
   // Casino Promo Text
   if (item?.promo_text && item.promo_text[lang]?.length !== 0) {
-    CurrentLangPromoText = item.promo_text[lang].join(' ');
+    CurrentLangPromoText = item.promo_text[lang];
   } else {
-    CurrentLangPromoText = 'error';
+    CurrentLangPromoText = ['Error: Promo text not available'];
   }
   // Casino payment images
   if (item?.payments_images && item?.payments_images.length !== 0) {
@@ -86,7 +86,30 @@ export const ModalDataCasino = () => {
   } else {
     CurrentLangCountries_access = 'error';
   }
+  
 
+  const promoSlides = Array.isArray(item.promo_code) && Array.isArray(CurrentLangPromoText[0])
+  ? item.promo_code.map((code, index) => (
+      <SwiperSlide key={index}>
+        <div className={s.advertising}>
+          <img className={s.iconKing} src={iconKing} alt='' />
+          <p className={s.text}>
+            <span>{CurrentLangPromoText[0][index]}</span>
+          </p>
+          <div className={s.all}>
+            <p className={s.small_text}>{t('discount_text')}</p>
+            <img src={handIcon} alt='' />
+            <CopyToClipboard text={code}>
+              <button className={s.button_uare}>
+                {code} <img src={fileIcon} alt='' />
+              </button>
+            </CopyToClipboard>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))
+  : null;
+  
   return (
     <Container fixed>
       <animated.div style={animation} className='popup'>
@@ -94,7 +117,7 @@ export const ModalDataCasino = () => {
           <div className={s.left_side}>
             <div className={s.circulars}>
               <img className={s.img} src={item.image_link} alt='' />
-              {/* <p>{CurrentLang}</p> */}
+
               <div className={s.textsCircular}>
                 <CircularDeterminate
                   variant='determinate'
@@ -169,33 +192,7 @@ export const ModalDataCasino = () => {
               }}
               modules={[Autoplay, Pagination]}
             >
-              {Array.isArray(item.promo_code) &&
-                item.promo_code.map((code, index) => (
-                  <SwiperSlide key={index}>
-                    <div className={s.advertising}>
-                      <img className={s.iconKing} src={iconKing} alt='' />
-                      <p className={s.text}>
-                        {item.promo_text &&
-                        item.promo_text[lang] &&
-                        item.promo_text[lang][index]
-                          ? item.promo_text[lang][index].map((text) => (
-                              <span key={text}>{text} </span>
-                            ))
-                          : 'Error: Promo text not available'}
-                      </p>
-                      <div className={s.all}>
-                        <p className={s.small_text}>{t('discount_text')}</p>
-                        <img src={handIcon} alt='' />
-
-                        <CopyToClipboard text={code}>
-                          <button className={s.button_uare}>
-                            {code} <img src={fileIcon} alt='' />
-                          </button>
-                        </CopyToClipboard>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
+              {promoSlides}
             </Swiper>
 
             <div className={s.all_pays}>

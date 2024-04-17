@@ -20,7 +20,6 @@ export const ReviewsData = () => {
   const [dataComment, setDataComment] = useState([]);
   const [openButtons, setOpenButtons] = useState(false);
 
-
   const { t } = useTranslation();
 
   const API_URL = 'http://127.0.0.1:8000/add_comment/';
@@ -31,9 +30,24 @@ export const ReviewsData = () => {
   });
 
   const AddCommentsData = async () => {
+    const userEmail = localStorage.getItem('user.email');
+    if (!userEmail) {
+      // Display error toast if user is not logged in
+      toast.error(t('email_login_review_error'), {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
     try {
       await axios.post(API_URL, {
-        email: localStorage.getItem('user.email'),
+        email: userEmail,
         casino_id: chooseCasino.id,
         comment_text: addCommentText,
         rating: addCommentRating,

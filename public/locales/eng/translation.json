@@ -98,5 +98,6 @@
   "timing_text": " You can post comment after:",
   "validationAgeLimit": "You are not yet 18",
   "errorLogin": "Incorrect information provided",
-  "casinoGameModal": "Slot available for games"
+  "casinoGameModal": "Slot available for games",
+  "email_login_review_error": "User not found"
 }

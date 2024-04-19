@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { FilterBtnGamesMobile } from '../../components/filterButtonsGamesMobile';
 import { ModalCasino1 } from '../../components/casinoeForGames/ModalCasino1';
 import { ModalCasino2 } from '../../components/casinoeForGames/ModalCasino2';
+import { CasinoGamesModal } from '../../components/ModalGamesCasino/CasinoGame';
 
 export const GamesAutomats = () => {
   const { t } = useTranslation();
@@ -84,6 +85,8 @@ export const GamesAutomats = () => {
       <ButtonsAutomat />
 
       <AutomatsData />
+
+      <CasinoGamesModal />
 
       <ModalCasino1 />
       <ModalCasino2 />

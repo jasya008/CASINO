@@ -17,6 +17,7 @@ export const Home = () => {
       <FilterBtnCasinoMobile/>
       <CasinoData />
       <ModalDataCasino />
+      
     </>
   );
 };

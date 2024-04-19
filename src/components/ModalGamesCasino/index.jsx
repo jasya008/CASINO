@@ -14,8 +14,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
 export const ModalGamesCasino = () => {
-  const { modalGamesCasino, chooseGame, dataCasino, setModalGamesCasino } =
-    GetContext();
+  const {
+    modalGamesCasino,
+    chooseGame,
+    dataCasino,
+    setModalGamesCasino,
+    setChooseCasinoGames,
+    setChooseCasinoGamesModal
+  } = GetContext();
   const [filteredCasinos, setFilteredCasinos] = useState([]);
   const { t } = useTranslation();
 
@@ -72,7 +78,7 @@ export const ModalGamesCasino = () => {
                 770: {
                   slidesPerView: 2,
                   spaceBetween: 40,
-                }
+                },
               }}
               className={s.swiper}
             >
@@ -86,7 +92,14 @@ export const ModalGamesCasino = () => {
                       </p>
                       <img className={s.image} src={casino.image_link} alt='' />
                       <div className={s.all_text}>
-                        <p className={s.text}>
+                        <p
+                          className={s.text}
+                          onClick={() => {
+                            setChooseCasinoGames(casino);
+                            setChooseCasinoGamesModal(true);
+                            setModalGamesCasino(false);
+                          }}
+                        >
                           <img src={warning} alt='' />
                           {t('information')}
                         </p>

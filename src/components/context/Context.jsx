@@ -41,6 +41,7 @@ export const Context = ({ children }) => {
   const [openCasino2Modal, setOpenCasino2Modal] = useState(false);
   const [chooseCasinoGames, setChooseCasinoGames] = useState([]);
   const [chooseCasinoGamesModal, setChooseCasinoGamesModal] = useState(false);
+  const [chooseCasinoGamesReview, setChooseCasinoGamesReview] = useState(false);
 
   //   Fetching Data
   const fetchData = async (url, setter) => {
@@ -118,6 +119,8 @@ export const Context = ({ children }) => {
     setChooseCasinoGames,
     chooseCasinoGamesModal,
     setChooseCasinoGamesModal,
+    chooseCasinoGamesReview,
+    setChooseCasinoGamesReview,
   };
 
   return (

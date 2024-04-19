@@ -1,18 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ModalReview } from '../modalReviewsGamesCasino';
+import { ModalReviewCasinoGames } from '../modalReviewsGamesCasino';
 import axios from 'axios';
-import { GetContext } from '../context/Context';
 import s from './index.module.scss';
-import iconSort from '../../assets/sort.svg';
+import iconSort from '../../../assets/sort.svg';
 import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 import { useSpring, animated } from 'react-spring';
 import { toast } from 'react-toastify';
-import { FilterComments } from '../FilterComments';
+import { GetContext } from '../../context/Context';
+import { FilterComments } from '../../FilterComments';
 
-export const ReviewsDataCasinoGames= () => {
-  const { modalReview, setModalReview, chooseCasino, setTrigger } =
-    GetContext();
+export const ReviewsDataCasinoGames = () => {
+  const {
+    chooseCasinoGamesReview,
+    setChooseCasinoGamesReview,
+    chooseCasinoGames,
+    setTrigger,
+  } = GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
   const [timeLeft, setTimeLeft] = useState(120);
@@ -25,8 +29,8 @@ export const ReviewsDataCasinoGames= () => {
   const API_URL = 'http://127.0.0.1:8000/add_comment/';
 
   const animation = useSpring({
-    opacity: modalReview ? 1 : 0,
-    transform: modalReview ? 'translateY(0%)' : 'translateY(-100%)',
+    opacity: chooseCasinoGamesReview ? 1 : 0,
+    transform: chooseCasinoGamesReview ? 'translateY(0%)' : 'translateY(-100%)',
   });
 
   const AddCommentsData = async () => {
@@ -48,7 +52,7 @@ export const ReviewsDataCasinoGames= () => {
     try {
       await axios.post(API_URL, {
         email: userEmail,
-        casino_id: chooseCasino.id,
+        casino_id: chooseCasinoGames.id,
         comment_text: addCommentText,
         rating: addCommentRating,
       });
@@ -100,7 +104,9 @@ export const ReviewsDataCasinoGames= () => {
     <animated.div style={animation} className='popup'>
       <div
         className={
-          modalReview ? [s.ModalReview, s.modalShow].join(' ') : s.ModalReview
+          chooseCasinoGamesReview
+            ? [s.ModalReview, s.modalShow].join(' ')
+            : s.ModalReview
         }
       >
         <div className={s.buttons}>
@@ -114,11 +120,14 @@ export const ReviewsDataCasinoGames= () => {
               setOpenButtons={setOpenButtons}
             />
           </div>
-          <CloseIcon className='icon' onClick={() => setModalReview(false)} />
+          <CloseIcon
+            className='icon'
+            onClick={() => setChooseCasinoGamesReview(false)}
+          />
         </div>
         <div className={s.all_reviews}>
-          {modalReview && (
-            <ModalReview
+          {chooseCasinoGamesReview && (
+            <ModalReviewCasinoGames
               dataComment={dataComment}
               setDataComment={setDataComment}
             />

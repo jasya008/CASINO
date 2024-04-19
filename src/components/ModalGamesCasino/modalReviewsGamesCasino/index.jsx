@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import s from './index.module.scss';
 import { useTranslation } from 'react-i18next';
-import { GetContext } from '../context/Context';
-import star from '../../assets/star.svg';
+import star from '../../../assets/star.svg';
 import axios from 'axios';
+import { GetContext } from '../../context/Context';
 
-export const ModalReview = ({ setDataComment, dataComment }) => {
+export const ModalReviewCasinoGames = ({ setDataComment, dataComment }) => {
   const {
-    chooseCasino,
+    chooseCasinoGames,
     trigger,
     filteredNegativeComments,
     filteredPositiveComments,
     qwert,
   } = GetContext();
-  const API_Comments = `http://127.0.0.1:8000/casinos/${chooseCasino.id}/comments/`;
+  const API_Comments = `http://127.0.0.1:8000/casinos/${chooseCasinoGames.id}/comments/`;
   const { t } = useTranslation();
 
   const getCommentsData = async () => {

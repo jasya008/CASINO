@@ -20,7 +20,8 @@ export const ModalGamesCasino = () => {
     dataCasino,
     setModalGamesCasino,
     setChooseCasinoGames,
-    setChooseCasinoGamesModal
+    setChooseCasinoGamesModal,
+    setChooseCasinoGamesReview,
   } = GetContext();
   const [filteredCasinos, setFilteredCasinos] = useState([]);
   const { t } = useTranslation();
@@ -103,7 +104,14 @@ export const ModalGamesCasino = () => {
                           <img src={warning} alt='' />
                           {t('information')}
                         </p>
-                        <p className={s.text}>
+                        <p
+                          className={s.text}
+                          onClick={() => {
+                            setChooseCasinoGamesReview(true);
+                            setModalGamesCasino(false);
+                            setChooseCasinoGames(casino);
+                          }}
+                        >
                           <img src={person} alt='' />
                           {t('Reviews')}
                         </p>

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ModalReviewCasinoGames } from '../modalReviewsGamesCasino';
 import axios from 'axios';
 import s from './index.module.scss';
 import iconSort from '../../../assets/sort.svg';
@@ -9,6 +8,7 @@ import { useSpring, animated } from 'react-spring';
 import { toast } from 'react-toastify';
 import { GetContext } from '../../context/Context';
 import { FilterComments } from '../../FilterComments';
+import { ModalReviewCasinoGames } from '../modalReviewsGamesCasino';
 
 export const ReviewsDataCasinoGames = () => {
   const {

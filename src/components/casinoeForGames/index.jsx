@@ -49,7 +49,13 @@ export const CasinoForGames = () => {
   return (
     <>
       <div className={s.cards}>
-        <div className={s.card}>
+        <div
+          className={s.card}
+          onClick={() => {
+            setOpenCasino1Modal(true);
+            setModalOpenGame(false);
+          }}
+        >
           {casino1 && (
             <p className={s.grade}>
               <img className={s.star} src={star} alt='' />
@@ -63,21 +69,19 @@ export const CasinoForGames = () => {
               alt='Casino 1'
             />
           )}
-          <p
-            className={s.text}
-            onClick={() => {
-              setOpenCasino1Modal(true);
-              setModalOpenGame(false);
-            }}
-          >
-            {CurrentLangPromoText1}
-          </p>
+          <p className={s.text}>{CurrentLangPromoText1}</p>
           <Link className={s.LinkText} to={'/gamesCasino1'}>
             {CurrentLangPromoText1}
           </Link>
         </div>
 
-        <div className={s.card}>
+        <div
+          className={s.card}
+          onClick={() => {
+            setOpenCasino2Modal(true);
+            setModalOpenGame(false);
+          }}
+        >
           {casino2 && (
             <p className={s.grade}>
               <img className={s.star} src={star} alt='' />
@@ -91,15 +95,7 @@ export const CasinoForGames = () => {
               alt='Casino 2'
             />
           )}
-          <p
-            className={s.text}
-            onClick={() => {
-              setOpenCasino2Modal(true);
-              setModalOpenGame(false);
-            }}
-          >
-            {CurrentLangPromoText2}
-          </p>
+          <p className={s.text}>{CurrentLangPromoText2}</p>
           <Link className={s.LinkText} to={'/gamesCasino2'}>
             {CurrentLangPromoText2}
           </Link>

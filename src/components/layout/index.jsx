@@ -13,28 +13,27 @@ export const Layouts = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user.email');
     if (storedUser) {
       setUser({ email: storedUser });
-      setIsLoggedIn(true); // Set login status when user is retrieved from storage
+      setIsLoggedIn(true); 
     }
-  }, []); // Run this effect only once on component mount
+  }, []);
 
   const handleLogin = () => {
-    // Simulating a successful login, replace this with your actual login logic
     const loggedInUser = { email: 'example@example.com' };
     setUser(loggedInUser);
     localStorage.setItem('user.email', loggedInUser.email);
-    setIsLoggedIn(true); // Set login status after successful login
+    setIsLoggedIn(true); 
   };
 
   const handleLogout = () => {
     setUser('');
     localStorage.removeItem('user.email');
-    setIsLoggedIn(false); // Reset login status on logout
+    setIsLoggedIn(false); 
     navigate('/');
   };
 
@@ -83,19 +82,18 @@ export const Layouts = () => {
                 <NavLink className='a' to='/GameAutomats'>
                   {t('page_name')}
                 </NavLink>
-                {isLoggedIn ? ( // Conditionally render based on login status
+                {isLoggedIn ? ( 
                   <>
                     <button className='navbar_button' onClick={handleLogout}>
                       Exit
                     </button>
-                    {/* Add any other logged-in content here */}
                   </>
                 ) : (
                   <button
                     className='navbar_button'
                     onClick={() => {
                       setLoginModal(true);
-                      handleLogin(); // Call handleLogin to log in the user
+                      handleLogin(); 
                     }}
                   >
                     {t('login')}

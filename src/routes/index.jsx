@@ -3,8 +3,10 @@ import { Casino2Game } from '../pages/Casino2Games';
 import { CasinoesPage } from '../pages/CasinoPage';
 import GamesAutomats from '../pages/GameAutomats';
 import { GamesOfWeekPage } from '../pages/GameOfWeekPage';
+import { GamesCasino } from '../pages/GamesCasino';
 import { GamePage } from '../pages/GamesPage';
 import { NotFound } from '../pages/Not Found';
+import { ReviewsGamesCasino } from '../pages/ReviewGamesCasino';
 import { ReviewsData } from '../pages/ReviewsAdd';
 
 export const routes = [
@@ -16,4 +18,6 @@ export const routes = [
   { id: 'games-casino-1', path: 'gamesCasino1', element: <Casino1Game /> },
   { id: 'games-casino-1', path: 'gamesCasino2', element: <Casino2Game /> },
   { id: 'reviews', path: 'review/:id', element: <ReviewsData /> },
+  { id: 'gamescasino', path: '/GamesCasino', element: <GamesCasino /> },
+  { id: 'reviewgamescasino', path: '/reviewGamesCasino', element: <ReviewsGamesCasino /> },
 ];

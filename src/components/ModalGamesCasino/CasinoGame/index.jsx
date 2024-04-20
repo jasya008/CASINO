@@ -25,7 +25,6 @@ export const CasinoGamesModal = () => {
     setChooseCasinoGamesModal,
   } = GetContext();
 
-  console.log(item);
   // const [CurrentLang, setCurrentLang] = useState('');
 
   let CurrentLang = '';

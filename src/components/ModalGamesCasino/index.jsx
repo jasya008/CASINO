@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 export const ModalGamesCasino = () => {
   const {
@@ -104,6 +105,18 @@ export const ModalGamesCasino = () => {
                           <img src={warning} alt='' />
                           {t('information')}
                         </p>
+
+                        <Link
+                          onClick={() => {
+                            setChooseCasinoGames(casino);
+                            setModalGamesCasino(false);
+                          }}
+                          className={s.MobileText}
+                          to={'/GamesCasino'}
+                        >
+                          <img src={warning} alt='' />
+                          {t('information')}
+                        </Link>
                         <p
                           className={s.text}
                           onClick={() => {
@@ -115,6 +128,18 @@ export const ModalGamesCasino = () => {
                           <img src={person} alt='' />
                           {t('Reviews')}
                         </p>
+
+                        <Link
+                          onClick={() => {
+                            setChooseCasinoGames(casino);
+                            setModalGamesCasino(false);
+                          }}
+                          className={s.MobileText}
+                          to={'/reviewGamesCasino'}
+                        >
+                          <img src={person} alt='' />
+                          {t('Reviews')}
+                        </Link>
                       </div>
                     </div>
                   </SwiperSlide>

@@ -1,0 +1,185 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .title {
+    font-family: var(--font);
+    font-weight: 500;
+    font-size: 25px;
+
+    color: var(--white);
+
+    padding-left: 20px;
+  }
+
+  .sortText {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    text-align: center;
+
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 400;
+
+    color: var(--white);
+
+    padding-left: 20px;
+  }
+
+  .Buttons {
+    display: none;
+
+    .searchButtons {
+      position: absolute;
+      top: 45%;
+      left: 20px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      .button {
+        width: fit-content;
+
+        padding: 5px 10px;
+
+        background: none;
+
+        color: var(--white);
+
+        font-family: var(--font);
+        font-size: 14px;
+        font-weight: 400;
+
+        border-radius: 15px;
+        border: 3px solid var(--color);
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  .buttonsOpen {
+    display: block;
+  }
+
+  .all_reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .addInput {
+    width: 85%;
+    height: 102px;
+
+    background-color: #373a51;
+
+    border: none;
+    border-radius: 15px;
+
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 400;
+
+    color: var(--white);
+
+    padding: 0 0 50px 20px;
+
+    margin-left: 20px;
+  }
+
+  .addInput::placeholder {
+    color: var(--white);
+  }
+
+  .addInput:focus {
+    outline: none;
+  }
+
+  .input_button {
+    display: flex;
+    justify-content: space-around;
+
+    .add_button {
+      width: 100px;
+      height: 40px;
+
+      border-radius: 10px;
+      background: #25283a;
+
+      box-shadow: 5px 5px 4px 0px #000;
+
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 13px;
+
+      color: var(--white);
+    }
+
+    .rating {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      padding-top: 10px;
+
+      .rating_text {
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 400;
+
+        color: var(--white);
+      }
+      .rating_input {
+        width: 50px;
+        height: 25px;
+
+        background-color: #373a51;
+
+        border: none;
+        border-radius: 3px;
+
+        outline: none;
+
+        font-family: var(--font);
+        font-size: 15px;
+        font-weight: 400;
+
+        color: var(--white);
+
+        padding-left: 5px;
+      }
+    }
+  }
+}
+
+.Timer {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000ac;
+  
+
+  .text {
+    font-family: var(--font);
+    font-size: 25px;
+    font-weight: 300;
+
+    color: var(--white);
+
+    padding-top: 15%;
+
+    width: 100%;
+
+    text-align: center;
+  }
+}
+
+.openTimer {
+  display: flex;
+}

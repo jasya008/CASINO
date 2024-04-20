@@ -35,13 +35,13 @@ export const CasinoForGames = () => {
   }, [dataCasino, item]);
 
   if (casino1?.promo_text && casino1?.promo_text.length !== 0) {
-    CurrentLangPromoText1 = casino1?.promo_text[lang]?.join(' ');
+    CurrentLangPromoText1 = casino1?.promo_text[lang]?.[0][0]; 
   } else {
     CurrentLangPromoText1 = 'error';
   }
 
   if (casino2?.promo_text && casino2?.promo_text.length !== 0) {
-    CurrentLangPromoText2 = casino2?.promo_text[lang]?.join(' ');
+    CurrentLangPromoText2 = casino2?.promo_text[lang]?.[0][0];
   } else {
     CurrentLangPromoText2 = 'error';
   }

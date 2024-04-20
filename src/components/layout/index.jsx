@@ -24,15 +24,15 @@ export const Layouts = () => {
   }, []);
 
   const handleLogin = () => {
-    const loggedInUser = { email: 'example@example.com' };
+    const loggedInUser = { name: 'User name' };
     setUser(loggedInUser);
-    localStorage.setItem('user.email', loggedInUser.email);
+    localStorage.setItem('user.email', loggedInUser.name);
     setIsLoggedIn(true); 
   };
 
   const handleLogout = () => {
     setUser('');
-    localStorage.removeItem('user.email');
+    localStorage.removeItem('user.name');
     setIsLoggedIn(false); 
     navigate('/');
   };

@@ -43,7 +43,6 @@ export const LoginContent = () => {
         ...data,
       });
 
-      localStorage.setItem('user.email', data.email);
 
       toast.success(`${t('logenned')}`, {
         position: 'top-right',

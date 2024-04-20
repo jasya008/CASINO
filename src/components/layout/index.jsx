@@ -16,7 +16,7 @@ export const Layouts = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('user.email');
+    const storedUser = localStorage.getItem('user.name');
     if (storedUser) {
       setUser({ email: storedUser });
       setIsLoggedIn(true); 
@@ -26,7 +26,7 @@ export const Layouts = () => {
   const handleLogin = () => {
     const loggedInUser = { name: 'User name' };
     setUser(loggedInUser);
-    localStorage.setItem('user.email', loggedInUser.name);
+    localStorage.setItem('user.name', loggedInUser.name);
     setIsLoggedIn(true); 
   };
 

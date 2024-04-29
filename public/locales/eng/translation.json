@@ -99,5 +99,8 @@
   "validationAgeLimit": "You are not yet 18",
   "errorLogin": "Incorrect information provided",
   "casinoGameModal": "Slot available for games",
-  "email_login_review_error": "User not found"
+  "email_login_review_error": "User not found",
+  "fill_all_fields_error":"Fill in all the fields",
+  "comment_success":"You have successfully left a comment",
+  "rating_range_error":"Rating only 1 -100"
 }

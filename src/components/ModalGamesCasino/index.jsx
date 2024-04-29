@@ -67,7 +67,7 @@ export const ModalGamesCasino = () => {
               rewind={true}
               navigation={true}
               slidesPerView={3}
-              spaceBetween={50}
+              spaceBetween={10}
               modules={[Navigation]}
               breakpoints={{
                 400: {
@@ -77,9 +77,13 @@ export const ModalGamesCasino = () => {
                   slidesPerView: 2,
                   spaceBetween: 10,
                 },
-                770: {
+                785: {
                   slidesPerView: 2,
                   spaceBetween: 40,
+                },
+                1100: {
+                  slidesPerView: 3,
+                  spaceBetween: 10,
                 },
               }}
               className={s.swiper}

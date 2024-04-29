@@ -45,12 +45,59 @@ export const ReviewsData = () => {
       });
       return;
     }
+
+    if (!addCommentText || !addCommentRating) {
+      // Display error toast if any field is empty
+      toast.error(t('fill_all_fields_error'), {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
+
+    const rating = parseInt(addCommentRating, 10);
+    if (isNaN(rating) || rating < 0 || rating > 100) {
+      // Display error toast for invalid rating
+      toast.error(t('rating_range_error'), {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
+
+    if (isTimerRunning) {
+      // Display error toast if it hasn't been two minutes yet
+      toast.error(` ${t('timing_text')} ${formatTime(timeLeft)} `, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      });
+      return;
+    }
+
     try {
       await axios.post(API_URL, {
         email: userEmail,
         casino_id: chooseCasino.id,
         comment_text: addCommentText,
-        rating: addCommentRating,
+        rating: rating,
       });
 
       setAddCommentText('');
@@ -60,7 +107,7 @@ export const ReviewsData = () => {
       startTimer();
       setIsTimerRunning(true);
 
-      toast.error(` ${t('timing_text')} ${formatTime(timeLeft)} `, {
+      toast.success(t("comment_success"), {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: false,
@@ -135,11 +182,9 @@ export const ReviewsData = () => {
           <button
             className={s.add_button}
             onClick={() => {
-              if (!isTimerRunning) {
-                AddCommentsData();
-              }
+              AddCommentsData();
             }}
-            disabled={isTimerRunning}
+            // disabled={isTimerRunning}
           >
             {t('send')}
           </button>

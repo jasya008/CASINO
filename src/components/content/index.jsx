@@ -13,25 +13,26 @@ const Content = () => {
 
   const filter = () => {
     if (search.trim() !== '') {
-      const filteredResults = filteredCasino.filter((item) =>
-        item.casino_name[lang]?.some((name) =>
-          name.toLowerCase().includes(search.toLowerCase())
-        )
+      const filteredResults = filteredCasino.filter((item) => {
+        const casinoNameMatch = item.casino_text[lang]?.some((text) =>
+          text.toLowerCase().includes(search.toLowerCase())
+        );
+        const casinoTextMatch = item.casino_name[lang]?.some((name) =>
+        name.toLowerCase().includes(search.toLowerCase())
       );
+  
+        return casinoNameMatch || casinoTextMatch ;
+      });
+
       setResultSearch(filteredResults);
     } else {
       setResultSearch([]);
     }
   };
 
-
   const renderCasinoList = (casinos) => {
-    return casinos.map((game) => 
-      <InfoCasino key={game.id} data={game} />
-    );
+    return casinos.map((game) => <InfoCasino key={game.id} data={game} />);
   };
-
-  
 
   return (
     <>

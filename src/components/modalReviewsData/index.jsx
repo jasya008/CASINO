@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import { FilterComments } from '../FilterComments';
 
 export const ReviewsData = () => {
-  const { modalReview, setModalReview, chooseCasino, setTrigger } =
+  const { modalReview, setModalReview, chooseCasino, setTrigger , setLoginModal} =
     GetContext();
   const [addCommentText, setAddCommentText] = useState('');
   const [addCommentRating, setAddCommentRating] = useState('');
@@ -30,7 +30,7 @@ export const ReviewsData = () => {
   });
 
   const AddCommentsData = async () => {
-    const userEmail = localStorage.getItem('user.email');
+    const userEmail = localStorage.getItem('user.name');
     if (!userEmail) {
       // Display error toast if user is not logged in
       toast.error(t('email_login_review_error'), {
@@ -43,6 +43,10 @@ export const ReviewsData = () => {
         progress: undefined,
         theme: 'dark',
       });
+
+      setLoginModal(true)
+
+      
       return;
     }
 
@@ -94,7 +98,7 @@ export const ReviewsData = () => {
 
     try {
       await axios.post(API_URL, {
-        email: userEmail,
+        email: localStorage.getItem('user.email') ,
         casino_id: chooseCasino.id,
         comment_text: addCommentText,
         rating: rating,

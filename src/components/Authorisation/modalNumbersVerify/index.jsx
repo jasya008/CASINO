@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import CloseIcon from '@mui/icons-material/Close';
 
-
 export const ModalNumberVerifyRegistr = () => {
   const {
     modalNumberVerifyRegist,
@@ -14,6 +13,7 @@ export const ModalNumberVerifyRegistr = () => {
     setLoginModal,
   } = GetContext();
   const URL_API = 'http://127.0.0.1:8000/verify-code/';
+  // const [verificationStatus, setVerificationStatus] = useState(null);
 
   const [codeVerify, setCodeVerify] = useState('');
   const [codeVerify2, setCodeVerify2] = useState('');
@@ -40,25 +40,48 @@ export const ModalNumberVerifyRegistr = () => {
     }
   };
 
+  const resetVerificationCodes = () => {
+    setCodeVerify('');
+    setCodeVerify2('');
+    setCodeVerify3('');
+    setCodeVerify4('');
+    setCodeVerify5('');
+    setCodeVerify6('');
+  };
+
   const NumberVerify = async () => {
     try {
-      await axios.post(URL_API, {
+      const response = await axios.post(URL_API, {
         email: localStorage.getItem('user.email'),
         verification_code: res,
       });
 
-      toast.success(`${t('registered')}`, {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
-
-      setModalNumberVerifyRegistr(false);
+      if (response.data.success) {
+        toast.success(`${t('registered')}`, {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+        setModalNumberVerifyRegistr(false);
+        resetVerificationCodes()
+      } else {
+        toast.error(response.data.message || 'Verification failed', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+        resetVerificationCodes()
+      }
     } catch (error) {
       toast.error(error.message, {
         position: 'top-right',
@@ -71,9 +94,10 @@ export const ModalNumberVerifyRegistr = () => {
         theme: 'dark',
       });
 
-      setModalNumberVerifyRegistr(true);
+      resetVerificationCodes()
     }
   };
+
   return (
     <div
       className={
@@ -84,11 +108,15 @@ export const ModalNumberVerifyRegistr = () => {
     >
       <div className='body'>
         <div className={s.content}>
-        <CloseIcon className={s.icon} onClick={() => setModalNumberVerifyRegistr(false)} />
+          {/* <CloseIcon
+            className={s.icon}
+            onClick={() => setModalNumberVerifyRegistr(false)}
+          /> */}
           <h1 className={s.title}>{t('get_code')}</h1>
           <p className={s.text}>{t('text_getCode')}</p>
+
           <div className={s.inputs}>
-          <input
+            <input
               ref={inputRefs[0]}
               className={s.input}
               type='text'
